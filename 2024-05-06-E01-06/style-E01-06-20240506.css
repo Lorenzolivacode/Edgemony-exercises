@@ -1,0 +1,93 @@
+body {
+    margin: 50px 150px;
+    background-image: url(cubism02.jpg);
+}
+
+main {
+    /* background-image: url(cubism01.jpg); */
+    background-color: rgba(240, 248, 255, 0.65);
+    border-radius: 30px;
+    padding: 30px;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h1, h2, h3, h4 {
+    color: rgb(23, 52, 169);
+}
+
+/* Esercizio 01 */
+.container-bio {
+    display: flex;
+    gap: 20px;
+}
+
+.container-bio > img {
+    width: 150px;
+}
+
+.container-bio > p {
+    margin: 0;
+}
+
+/* Esercizio 02 */
+ul > li {
+    list-style-image: url(Cirle-paint-blue.png);
+}
+
+dt {
+    color: rgb(23, 52, 169);
+}
+
+/* Esercizio 03 */
+.workart {
+    width: 400px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+form {
+    width: 500px;
+    margin: 60px auto;
+    border: 1px solid darkblue;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: rgba(169, 215, 255, 0.408);
+}
+
+/* Esercizio 06 */
+form h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.container-data-insert {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.container-data-insert input,
+form > input {
+    border-radius: 15px;
+    padding: 5px;
+}
+
+form > input {
+    margin: 20px auto 0 auto;
+    display: block;
+    width: 120px;
+    background-color: rgba(23, 52, 169, 0.227);
+    border: 1px solid darkblue;
+    transition: all 2s;
+    cursor: pointer;
+}
+
+form > input:hover {
+    background-color: rgba(23, 52, 169, 0.94);
+    color: rgb(169, 215, 255);
+}

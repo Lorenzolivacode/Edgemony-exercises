@@ -1,0 +1,58 @@
+/* COLOR BLUE */
+.bg-blue1 {
+    background-color: var(--color-darkblue);
+}
+
+.c-blue1 {
+    color: var(--color-darkblue);
+}
+
+.bg-blue2 {
+    background-color: var(--color-mediumblue);
+}
+
+.c-blue2 {
+    color: var(--color-mediumblue);
+}
+
+.bg-linear100-blue {
+    background: linear-gradient(100deg, 
+    rgba(103,123,213,1) 4%, 
+    rgba(54,70,143,1) 33%, 
+    rgba(24,35,80,1) 94%);
+}
+
+.bg-linear100-blue035 {
+    background: linear-gradient(100deg, 
+    rgba(103,123,213,0.35) 4%, 
+    rgba(54,70,143,0.35) 33%, 
+    rgba(24,35,80,0.35) 94%);
+}
+
+/* COLOR YELLOW */
+.bg-yellow1 {
+    background-color: var(--color-yellow);
+}
+
+.c-yellow1 {
+    color: var(--color-yellow);
+}
+
+.bg-yellow2 {
+background-color: var(--color-lightyellow);
+}
+
+.c-yellow2 {
+    color: var(--color-lightyellow);
+}
+
+.bg-linear180-yellow {
+    background: linear-gradient(180deg, 
+    rgba(206,161,46,1) 44%, 
+    rgba(242,216,143,1) 82%);
+}
+
+/* TRANSPARENT */
+.bg-transparent {
+    background-color: transparent;
+}

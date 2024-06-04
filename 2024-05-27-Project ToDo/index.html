@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="script.js" type="module" async defer></script>
+    <title>What do you want ToDo</title>
+</head>
+<body class="background">
+    <div class="start-modal">
+        <span id="word-1">What</span>
+        <span id="word-2">do you</span>
+        <span id="word-3">want</span>
+        <span id="word-4">ToDo</span>
+        <span id="word-5">today</span>
+        <span id="word-6">?</span>
+        <button class="start-modal__close btn-component">X</button>
+    </div>
+    <div class="back-dark"></div>
+    
+    <div class="layout">
+        <header>
+            <h1>ToDoToDay</h1>
+        </header>
+        
+    <div class="box-modal1">
+        <h2 class="box-modal1__title-item">Lorem ipsum dolor sit amet.</h2>
+        <textarea name="Inserisci un commento" id="box-modal1__textarea" placeholder="Inserisci un commento"></textarea>
+        <select name="priorità" id="select-priority">
+            <option value="alta">Priorità alta</option>
+            <option value="media">Priorità media</option>
+            <option value="bassa">Priorità bassa</option>
+        </select>
+        <button id="modal1-btn-ok" class="btn-component modal1__btn-OK">Ok</button>
+    </div>
+
+        <div class="insert-container">
+            <div class="modal modal-error">
+                <p class="modal-error__txt">Hai già inserito questa ToDo</p>
+                <button class="btn-component modal-error__btn-OK">OK</button>
+            </div>
+            <input class="insert__input" type="text">
+            <button class="insert__button">
+                <img src="Img/icons8-più-24.png" alt="plus">
+            </button>
+        </div>
+
+        <div class="container-btn-option">
+            <button>
+                <img src="Img/" alt="">
+            </button><!-- Inverti lista con flex reverse -->
+            <button>
+                <img src="Img/" alt="">
+            </button><!-- Btn filtro priority o select-->
+            <button>
+                <img src="Img/" alt="">
+            </button><!-- Attività casuale -->
+        </div>
+
+                <!-- <div class="list__card">
+                    <img class="list__icon" src="Img/icons8-elemento-fuoco-30.png" alt="pippo">
+                    <div class="list__container-todo">
+                        <h2 class="list__title-item">Lorem ipsum dolor sit amet.</h2>
+                        <div class="container-boom">
+
+                        </div>
+                        <p class="list__comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam delectus quia eaque. Non, fugiat ex.</p>
+                        <button class="list__arrow arrow-down btn-component">
+                            <img src="Img/icons8-freccia-espandi-50.png" alt="Open comment">
+                        </button>
+                        <button class="list__arrow arrow-up btn-component">
+                            <img src="Img/icons8-freccia-comprimi-50.png" alt="Open comment">
+                        </button>
+                    </div>  CONTAINER TODO 
+                    <button class="list__button">
+                        <img src="Img/icons8-meno-24.png" alt="">
+                    </button>
+                </div> -->
+                
+        <main class="main">
+            <!-- <section class="list">
+
+                <div class="list__card">
+                    <img class="list__icon" src="Img/icons8-elemento-fuoco-30.png" alt="pippo">
+                    <h2 class="list__title-item"></h2>
+                    <p class="list__comment"></p>
+                    <button class="list__button">
+                        <img src="Img/icons8-meno-24.png" alt="">
+                    </button>
+                </div>
+
+                <div class="list__card">
+                    <img class="list__icon" src="Img/icons8-elemento-fuoco-30.png" alt="pippo">
+                    <h2 class="list__title-item"></h2>
+                    <p class="list__comment"></p>
+                    <button class="list__button">
+                        <img src="Img/icons8-meno-24.png" alt="">
+                    </button>
+                </div>
+
+                <div class="list__card">
+                    <img class="list__icon" src="Img/icons8-elemento-fuoco-30.png" alt="pippo">
+                    <h2 class="list__title-item"></h2>
+                    <p class="list__comment"></p>
+                    <button class="list__button">
+                        <img src="Img/icons8-meno-24.png" alt="">
+                    </button>
+                </div>
+
+            </section> --> <!-- SECTION -->
+        </main> <!-- MAIN -->
+
+    </div> <!-- LAYOUT -->
+</body>
+</html>
