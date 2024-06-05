@@ -19,6 +19,7 @@ const renderListToDo = function(){
                 if (imgUrl.includes('Img/icons8-freccia-espandi-50.png')){
                     arrowBtn.firstChild.src = 'Img/icons8-freccia-comprimi-50.png';
                     commentEl.textContent = listToDo.find(item => item.id === i.id).description;
+                    //aggiungere container to do => height = auto
                 } else {
                     arrowBtn.firstChild.src = 'Img/icons8-freccia-espandi-50.png';
                     commentEl.textContent = '';
