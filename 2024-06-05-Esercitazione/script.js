@@ -62,6 +62,10 @@ const btnRest = QS('.btn-slow');
 const inputTxt = input.value;
 console.log(inputTxt);
 
+function logName() {
+    console.log("SONO LOG NAME", this)
+}
+
 containerParent.addEventListener('click', (event) => {
     console.log(event.target.className)
     if (event.target.className === 'btn btn-run'){
@@ -78,6 +82,8 @@ containerParent.addEventListener('click', (event) => {
         contBtn.append(btnYes, btnCrash, btnNo);
 
         modalRun.append(contBtn);
+
+        logName.call();
 
         modalRun.addEventListener('click', (event) => {
             if (event.target.id === 'btn-YES'){
