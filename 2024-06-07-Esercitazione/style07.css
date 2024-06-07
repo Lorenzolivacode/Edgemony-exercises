@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container {
+    margin: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px black;
+    padding: 20px;
+    text-align: center;
+}
+
+.card {
+    margin: 40px auto;
+    padding: 20px;
+    width: 250px;
+    /* height: 400px; */
+    border-radius: 20px;
+    box-shadow: 0 0 10px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.card__title {
+    font-size: 0.9rem;
+}
+
+.card__img {
+    max-width: 80%;
+}
+
+.card__vote {
+    border-radius: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.651);
+    padding: 5px 15px;
+    background-color: rgb(215, 227, 238);
+}
+
+.card__price {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.655);
+}
