@@ -9,6 +9,8 @@ export function CE (ele){
 };
 
 export function renderCard (filmObj){
+    const container = QS('.container');
+
     const cardEl = CE('div');
     cardEl.className = 'card';
 
@@ -22,18 +24,27 @@ export function renderCard (filmObj){
 
     const cardVote = CE('span');
     cardVote.className = 'card__vote';
-    cardVote.textContent = filmObj.vote_average;
+    cardVote.textContent = `Voto: ${filmObj.vote_average.toFixed(1)}`;
 
     cardEl.append(cardTitle, cardImg, cardVote);
+    container.append(cardEl);
 }
 
 export function renderListCard (dataList){
     const container = QS('.container');
     container.innerHTML = "";
 
-    dataList.forEach((filmObj) => {
-        renderCard(filmObj);
+    dataList.forEach((film) => {
+        renderCard(film);
+        //console.log(film.title)
     });
+}
 
-    container.append
+export function filterFilm(title, data) {
+    const container = QS('.container');
+    const newFilmsList = data.filter((filmObj) => filmObj.title.toLowerCase().includes(title));
+
+    container.innerHTML = "";
+
+    renderListCard(newFilmsList);
 }
