@@ -34,4 +34,6 @@ export function renderListCard (dataList){
     dataList.forEach((filmObj) => {
         renderCard(filmObj);
     });
+
+    container.append
 }

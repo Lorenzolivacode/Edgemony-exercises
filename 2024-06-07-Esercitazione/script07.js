@@ -1,5 +1,5 @@
 import { API_KEY } from "./keys.js";
-import { renderListCard, renderCard } from "./function.js";
+import { renderListCard, renderCard, QS } from "./function.js";
 
 /* 
     Esercizio 1: Effettuiamo la chiamata all'API di MovieDB e stampiamo a DOM le card dei movies ottenuti all'endpoint 
@@ -17,16 +17,21 @@ import { renderListCard, renderCard } from "./function.js";
         https://developer.themoviedb.org/reference/movie-top-rated-list 
  */
 
+const container = QS('.container');
+
+
 const options = {
     headers: {
       Authorization: `Bearer ${API_KEY}`,
     },
   };
 
-fetch ("https://developer.themoviedb.org/reference/movie-popular-list", options).then((res) => res.json()).then((data) =>{
+fetch ("https://api.themoviedb.org/3/movie/popular?page=2", options)
+.then((res) => res.json())
+.then((data) =>{
 //fetch ("https://fakestoreapi.com/products").then((res) => res.json()).then((data) =>{
-    console.log(data);
-    renderListCard(data);
+    console.log(data.results);
+    renderListCard(data.results);
     //renderCard(data[1]);
 
 }).catch((err) => {
@@ -35,7 +40,7 @@ fetch ("https://developer.themoviedb.org/reference/movie-popular-list", options)
     const title = document.createElement("h1");
     title.textContent = "Page not found";
 
-    containerEl.append(title);
+    container.append(title);
   });
 
   console.log('ciao')
