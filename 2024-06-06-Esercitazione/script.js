@@ -57,7 +57,18 @@ fetch("https://fakestoreapi.com/products").then((res) => res.json()).then((data)
             const titleEl = data[inputValue-1].title;
             const imgEl = data[inputValue-1].image;
             const idEl = `# ${data[inputValue-1].id}`;
-            //const idEl = data[inputValue-1].id.padStart((2-(data[inputValue-1].id.length)), "0");
+
+            /* 
+            const idEl = data[inputValue-1].id;
+            
+            const idElLength = idEl.toString.length
+            const car = (2-idElLength).toString();
+            const idElComplete = car.padStart(1, "0")
+
+            console.log(idElComplete)
+            console.log(car)
+            */
+
             const priceEl = `€ ${data[inputValue-1].price}`;
             //console.log(priceEl);
 
@@ -70,3 +81,14 @@ fetch("https://fakestoreapi.com/products").then((res) => res.json()).then((data)
 
     });
 
+/* const getStringId = (num) => {
+   if(isNaN(num)){
+     return 'Errore: non hai inserito un numero. Boh mah, ta firi a cuntari?'
+   }
+
+   return parseInt(num) < 10 ? `0${num}` : num.toString();
+}
+
+console.log(getStringId(1));
+console.log(getStringId(13));
+console.log(getStringId(4)); */
