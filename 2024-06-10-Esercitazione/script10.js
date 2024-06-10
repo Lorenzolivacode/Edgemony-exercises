@@ -1,5 +1,5 @@
 import { API_KEY } from "./keys.js";
-import { renderListCard, QS, filterFilm, GET } from "./function.js";
+import { renderListCard, QS, CE, filterFilm, GET} from "./function.js";
 
 /* 
 OLD
@@ -46,6 +46,8 @@ const sectionMovie = "movie";
 const sectionTv = "tv";
 const endpoint = "popular?page=";
 
+//descriptionGen(sectionMovie)
+
 let actualSection = 'movie';
 let pageNumber = 1;
 
@@ -54,6 +56,31 @@ let pageNumber = 1;
 GET(sectionMovie);
 
 pageShow.textContent = pageNumber;
+
+console.log(container);
+container.addEventListener('mouseover', (e) => {
+    const arrowEl = e.target;
+    const descriptionId = `des-${arrowEl.id.slice(6)}`;
+    const descriptionCard = QS(`#${descriptionId}`);
+    
+    if (arrowEl.className === 'arrow-description'){
+        /* console.log(e.target);
+        console.log(arrowEl.id.slice(6)) */
+        descriptionCard.style.display = 'flex';
+    }
+});
+
+container.addEventListener('mouseout', (e) => {
+    const arrowEl = e.target;
+    const descriptionId = `des-${arrowEl.id.slice(6)}`;
+    const descriptionCard = QS(`#${descriptionId}`);
+    
+    if (arrowEl.className === 'arrow-description'){
+        /* console.log(e.target);
+        console.log(arrowEl.id.slice(6)) */
+        descriptionCard.style.display = 'none';
+    }
+});
 
 containerSection.addEventListener('click', (e) => {
     const sectionId = e.target.id;

@@ -27,8 +27,43 @@ export function renderCard (filmObj){
     const cardVote = CE('span');
     cardVote.className = 'card__vote';
     cardVote.textContent = `Voto: ${filmObj.vote_average.toFixed(1)}`;
+    //console.log(Number(cardVote.textContent.slice(6)))
 
-    cardEl.append(cardTitle, cardImg, cardVote);
+    if (Number(cardVote.textContent.slice(6)) < 5){
+            cardVote.style.boxShadow = '0 0 15px inset rgb(194, 24, 24)';
+    } else if (Number(cardVote.textContent.slice(6)) < 7){
+        cardVote.style.boxShadow = 'none';
+    } else if (Number(cardVote.textContent.slice(6)) < 8){
+        cardVote.style.boxShadow = '0 0 15px inset rgb(62, 171, 54)';
+    } else {
+        cardVote.style.color = 'rgb(197, 155, 2)';
+    }  
+
+    //
+    const containerArrow = CE('div');
+    containerArrow.className = 'c-arrow';
+
+    const arrowDescription = CE('img');
+    arrowDescription.className = 'arrow-description';
+    arrowDescription.id = `arrow-${filmObj.id}`;
+    arrowDescription.src = './icons8-freccia-comprimi-80.png';
+
+    const descriptionCard = CE('div');
+    descriptionCard.className = 'description-card';
+    descriptionCard.id = `des-${filmObj.id}`;
+
+    const releaseDate = CE('span');
+    const descriptionOverview = CE('p');
+
+    releaseDate.textContent = `Data uscita: ${filmObj.release_date}`;
+    descriptionOverview.textContent = filmObj.overview;
+
+    containerArrow.append(arrowDescription);
+    descriptionCard.append(releaseDate, descriptionOverview);
+    cardEl.append(descriptionCard);
+    //
+
+    cardEl.append(cardTitle, cardImg, cardVote, containerArrow);
     container.append(cardEl);
 }
 
@@ -39,10 +74,6 @@ export function renderListCard (dataList){
     dataList.forEach((film) => {
         renderCard(film);
         //console.log(film.title)
-
-        /* if (cardVote.textContent < 5){
-            cardVote.style.boxShadow = '0 0 15px rgb(194, 24, 24)';
-        } */
     });
 }
 
@@ -91,4 +122,34 @@ export async function GET(section, page = 1){
         const InputValue = event.target.value.toLowerCase();
         filterFilm(InputValue, data.results);
     });
+    return data;
 }
+
+/* export async function descriptionGen(section, page = 1){
+    const dataList = await GET(section, page = 1);
+
+    console.log(dataList.results)
+
+    dataList.results.forEach((film) => {   
+        const container = QS('.container');     
+        container.addEventListener('mouseover', (e) => {
+            const card = e.target;
+        
+            if (card.className === 'card'){
+            console.log(card)
+        
+            const descriptionCard = CE('div');
+            descriptionCard.className = 'description-card';
+        
+            const releaseDate = CE('span');
+            const descriptionOverview = CE('p');
+
+            releaseDate.textContent = `Data uscita: ${film.release_date}`;
+            descriptionOverview.textContent = film.overview;
+        
+            descriptionCard.append(releaseDate, descriptionOverview);
+            card.append(descriptionCard);
+            }
+        })
+    });
+} */ //Apre per ogni card tanti container quante sono le card
