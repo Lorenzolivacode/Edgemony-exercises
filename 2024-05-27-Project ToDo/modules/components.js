@@ -15,7 +15,10 @@ const cardElGen = (obj) => {
 
     commentEl.id = `comment-${obj.id}`;
     arrowBtn.id = `arrow-${obj.id}`;
-    
+    //NEW
+    //containerListCard.id = `list__card-${obj.id}`;
+    buttonEl.id = `list__button-${obj.id}`;
+    //
     imgArrowBtn.src = "./Img/icons8-freccia-espandi-50.png";
     imgArrowBtn.alt = "Espandi";
     
@@ -29,12 +32,12 @@ const cardElGen = (obj) => {
     buttonEl.className = "list__button";
 
     iconEl.src = obj.img;
-    iconEl.alt = "pippo";
+    iconEl.alt = "Icona priorità";
 
     titleEl.textContent = obj.title;
     
     minusEl.src = obj.button.imgbutton;
-    minusEl.alt = "pippo";
+    minusEl.alt = "Bottone rimuovi";
 
     containerToDoEl.append(titleEl , commentEl, arrowBtn);
     buttonEl.append(minusEl);
@@ -48,7 +51,22 @@ const cardListGen = () => {
     return containerSectionList;
 }
 
+//NEW
+function createShapeIcon(srcFunction){
+    const shapeIcone = document.createElement('div');
+    const iconPriority = document.createElement('img');
+
+    shapeIcone.className = 'shape-icon';
+    iconPriority.src = srcFunction;
+
+    shapeIcone.append(iconPriority);
+
+    return shapeIcone;
+}
+//
+
 export {
     cardElGen,
-    cardListGen
+    cardListGen,
+    createShapeIcon
 }

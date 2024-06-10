@@ -212,6 +212,30 @@ body {
     font-size: 0.8rem;
 }
 
+#modal-filter-activity,
+#modal-casual-activity{
+    background-image: url(../Img/sfondo0.jpg);
+}
+
+.shape-icon{
+    margin: 0 20px 20px 0;
+    border-radius: 50%;
+    /* padding: 20px; */
+    background-color: rgba(21, 86, 106, 0.7);
+    box-shadow: 0 0 10px black;
+    /* width: 55px;
+    height: 55px; */
+    width: 60px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .shape-icon > img {
+    margin: 20px;
+} */
+
 #select-priority {
     margin: auto;
     padding: 5px;
@@ -220,6 +244,24 @@ body {
     text-align: center;
     /* background-color: transparent;
     border: transparent; */
+}
+
+.container-filter-priority {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+input[type="checkbox"] {
+    border: none;
+    border-radius: 50px !important;
+    /* background-color: rgb(238, 255, 0); */
+    transform: scale(1.2) rotate(45deg);
+    accent-color: rgba(21, 86, 106, 0.7);
+}
+
+input[type="checkbox"]:checked {
+    transform: scale(1.7);
 }
 
 /*LAYOUT*/
@@ -288,7 +330,7 @@ header {
 }
 
 .modal-error__txt {
-text-align: center;
+    text-align: center;
     color: rgb(213, 70, 70);
 }
 
@@ -305,7 +347,7 @@ text-align: center;
 
 /* BUTTON */
 .btn-component, 
-modal1__btn-OK,
+.modal1__btn-OK,
 .insert__button,
 .list__button {
     padding: 5px;
@@ -320,6 +362,7 @@ modal1__btn-OK,
     background-color: rgba(255, 255, 255, 0.7);
     border: transparent;
     transition: all 4s;
+    transition: opacity 0.5s;
     cursor: pointer;
 }
 
@@ -342,6 +385,14 @@ modal1__btn-OK,
 /* .insert__button:hover {
     transform: rotate(360deg) scale(1%);
 } */
+
+/* .casual-activity__btnX{
+
+} */
+
+.btn-component:hover {
+    opacity: 0.75;
+}
 
 .arrow-up {
     display: none;
@@ -376,7 +427,7 @@ modal1__btn-OK,
     display: flex;
     gap: 5px;
     justify-content: center;
-    align-items: center;
+    align-items: start;
 }
 
 .list__container-todo {
