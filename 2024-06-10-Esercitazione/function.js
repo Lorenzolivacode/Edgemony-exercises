@@ -79,7 +79,15 @@ export function renderListCard (dataList){
 
 export function filterFilm(title, data) {
     const container = QS('.container');
+    
     const newFilmsList = data.filter((filmObj) => filmObj.title.toLowerCase().includes(title));
+    
+    /* {
+    if (filmObj.title){
+        filmObj.title.toLowerCase().includes(title);
+    } else {
+        filmObj.name.toLowerCase().includes(name);
+    }}); */
 
     container.innerHTML = "";
 
