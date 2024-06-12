@@ -75,7 +75,6 @@ const POST = async (product) => {
     product.creationData = data.creationAt.slice(0,10);
     product.creationTime = data.creationAt.slice(11,19);
 
-    //return await data.id;
 };
 
 const deleteById = async (id) => {
@@ -131,10 +130,15 @@ buttonSendEl.addEventListener('click', (e) => {
 
     POST(productObjEl)
 
-    inputIdDelete.value = Number(productObjEl.id);
+    //inputIdDelete.value = Number(productObjEl.id);
 
     console.log (productObjEl)
     console.log (productObjEl.idGet) // Torne Undefined ??Perchè??
+    
+    setTimeout(() => {
+        console.log (productObjEl.idGet)
+        inputIdDelete.value = Number(productObjEl.idGet);
+    },500)
 });
 
 //console.log (productObjEl)
