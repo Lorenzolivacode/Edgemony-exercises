@@ -1,6 +1,6 @@
 
 import { listToDo } from "./data/todos.js";
-import { cardElGen, cardListGen, createShapeIcon } from "./modules/components.js"
+import { cardElGen, cardListGen, createShapeIcon, createModalCasualActivity } from "./modules/components.js"
 
 const mainSectionEl = document.querySelector('main');
 const backDark = document.querySelector('.back-dark');
@@ -19,6 +19,7 @@ const insertContainer = document.querySelector('.insert-container');
 const reverseBtn = document.getElementById('btn-reverse');
 const filterBtn = document.getElementById('btn-filter');
 const casualBtn = document.getElementById('btn-casual');
+const refreshBtn = document.getElementById('btn-refresh');
 
 reverseBtn.onclick = () => {
     const cardList = document.querySelector('.list');
@@ -69,7 +70,7 @@ filterBtn.onclick = () => {
     containerLow.append(shapeIconeLow, checkLow, nameCheckLow);
 
     const modalFilterBtnX = document.createElement('button');
-
+    modalFilterBtnX.textContent = 'X';
 
     modalFilterActivity.id = 'modal-filter-activity';
     modalFilterActivity.className = 'box-modal1';
@@ -77,65 +78,70 @@ filterBtn.onclick = () => {
 
     modalFilterActivity.style.display = 'block';
     console.log(modalFilterActivity)
+    
+    const modalFilterBtnOk = document.createElement('div');
 
-    modalFilterBtnX.textContent = 'X';
+    modalFilterBtnOk.textContent = 'OK';
+    modalFilterBtnOk.classList.add ('btn-component', 'modal1__btn-OK');
 
-    modalFilterActivity.append(containerHigh, containerMedium, containerLow, modalFilterBtnX);
+
+    modalFilterActivity.append(containerHigh, containerMedium, containerLow, modalFilterBtnX, modalFilterBtnOk);
     insertContainer.append(modalFilterActivity)
 
     modalFilterBtnX.onclick = () => {
         modalFilterActivity.remove();
         backDark.style.display = 'none';
+    }
+
+    modalFilterBtnOk.onclick = () => {
+        const listToDoNew = [];
+        
+        if(checkHigh.checked){
+            listToDo.forEach((i) => {
+                if (i.priority === 'alta'){
+                    console.log ('check!')
+                    listToDoNew.push(i)
+                }
+            })
         }
+        if(checkMedium.checked){listToDo.forEach((i) => {
+                if (i.priority === 'media'){
+                    console.log ('check!')
+                    listToDoNew.push(i)
+                }
+            })
+        }
+        if(checkLow.checked){listToDo.forEach((i) => {
+                if (i.priority === 'bassa'){
+                    console.log ('check!')
+                    listToDoNew.push(i)
+                }
+            })
+        }
+        /* console.log("Alta:", checkHigh.checked)
+        console.log("Media:", checkMedium.checked)
+        console.log("Bassa:", checkLow.checked)
+        console.log(listToDoNew) */
+
+        backDark.remove();
+        modalFilterActivity.remove();
+
+        renderListToDo(listToDoNew);
+    }
+
 }
 
 casualBtn.onclick = () => {
-    backDark.style.display = 'block';
-
-    const mathCasual = Number.parseInt(Math.random() * listToDo.length);
-    console.log(mathCasual);
-
-    const modalCasualActivity = document.createElement('div');
-
-    const containerIconTitleMA = document.createElement('div');
-    containerIconTitleMA.style.display = 'flex';
-    const shapeIcone = createShapeIcon(listToDo[mathCasual].img);
-    //const modalCasualIcon = document.createElement('img');
-    const modalCasualTitle = document.createElement('h2');
-    const modalCasualComment = document.createElement('p');
-    const modalCasualBtnX = document.createElement('button');
-
-    //shapeIcone.className = 'shape-icon';
-    modalCasualActivity.id = 'modal-casual-activity';
-    modalCasualActivity.className = 'box-modal1';
-    modalCasualBtnX.classList.add ('btn-component', 'start-modal__close');
-
-    modalCasualActivity.style.display = 'block';
-    console.log(modalCasualActivity)
-
-    //modalCasualIcon.src = listToDo[mathCasual].img;
-    modalCasualTitle.textContent = listToDo[mathCasual].title;
-    modalCasualComment.textContent = listToDo[mathCasual].description;
-    modalCasualBtnX.textContent = 'X';
-
-    //shapeIcone.append(modalCasualIcon);
-    containerIconTitleMA.append(shapeIcone, modalCasualTitle);
-    modalCasualActivity.append(containerIconTitleMA, modalCasualComment, modalCasualBtnX);
-    insertContainer.append(modalCasualActivity)
-
-//Aggiungere button per ricaricare l'attività casuale
-
-    modalCasualBtnX.onclick = () => {
-        modalCasualActivity.remove();
-        backDark.style.display = 'none';
-        }
+    createModalCasualActivity();
 }
+
+refreshBtn.onclick = () => renderListToDo();
 //
 
-const renderListToDo = function(){
+const renderListToDo = function(listToDoGeneric = listToDo){
     mainSectionEl.innerHTML = "";
     const cardList = cardListGen();
-    listToDo.forEach((i) => {
+    listToDoGeneric.forEach((i) => {
         const cardEl = cardElGen(i);
         cardList.append(cardEl);
 
@@ -144,15 +150,6 @@ const renderListToDo = function(){
         //console.log(cardEl)
 
         minusBtn.onclick = () => cardEl.remove();
-        /* minusBtn.onclick = () => {
-            if (listToDo.length > 1) {
-                console.log(listToDo.length)
-                cardEl.remove();
-            } else {
-                console.log("Non ci sono attività da svolgere")
-            }
-        } */ //Torna sempre la length iniziale
-        //
 
         // Aggiungi l'indice come parte dell'identificatore del pulsante di rotazione
         const arrowBtn = cardEl.querySelector(`#arrow-${i.id}`);
@@ -160,16 +157,19 @@ const renderListToDo = function(){
             arrowBtn.onclick = () => {
                 const imgUrl = arrowBtn.firstChild.src;
                 const commentEl = document.getElementById(`comment-${i.id}`);
+                const doneImgEl = document.getElementById(`done-${i.id}`);
                 const containerToDoEl = commentEl.parentNode;//NEW
                 if (imgUrl.includes('Img/icons8-freccia-espandi-50.png')){
                     arrowBtn.firstChild.src = 'Img/icons8-freccia-comprimi-50.png';
-                    commentEl.textContent = listToDo.find(item => item.id === i.id).description;
+                    commentEl.textContent = listToDoGeneric.find(item => item.id === i.id).description;
+                    doneImgEl.style.height = '50%';
 
                     containerToDoEl.style.height = 'auto';//NEW
                 } else {
                     arrowBtn.firstChild.src = 'Img/icons8-freccia-espandi-50.png';
                     commentEl.textContent = '';
                     containerToDoEl.style.height = '2.5rem';//NEW
+                    doneImgEl.style.height = '100%';
                 }
             };
         }
@@ -271,4 +271,25 @@ btnPlus.onclick = function(){
 btnError.onclick = () => {
     modalError.style.display = 'none';
     backDark.style.display = 'none';
+}
+
+const mainEl = document.querySelector('.main');
+//console.log (mainEl)
+
+mainEl.onclick = (e) => {
+    const doneEl = e.target;
+
+    if (doneEl.className === 'done-img'){
+        doneEl.src = './Img/icons8-segno-di-spunta-64-green.png';
+
+        const numberId = doneEl.id.slice(5);
+        //console.log(numberId);
+
+        const titleElId = `title-${numberId}`;
+        //console.log(titleElId);
+
+        const titleDoneEl = document.getElementById(`${titleElId}`);
+        //console.log(titleDoneEl);
+        titleDoneEl.style.opacity = 0.7
+    }
 }

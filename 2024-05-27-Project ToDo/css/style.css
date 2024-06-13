@@ -462,6 +462,14 @@ header {
     transition: all 4s; */
 }
 
+.done-img {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    opacity: 0.85;
+    cursor: pointer;
+}
+
 /* .list__icon {
     border: 1px solid black;
 } */
