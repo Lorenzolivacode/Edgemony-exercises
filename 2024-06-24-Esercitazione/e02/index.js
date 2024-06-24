@@ -9,11 +9,11 @@ logo.src = "./img/icons8-scooby-doo-48.png";
 const linkUl = CE("ul", "", header);
 const li1 = CE("li", "", linkUl);
 const linkLi1 = CE("a", "", li1);
-linkLi1.src = "https://www.google.it/";
+linkLi1.href = "https://www.google.it/";
 linkLi1.textContent = "Google";
 const li2 = CE("li", "", linkUl);
 const linkLi2 = CE("a", "", li2);
-linkLi2.src = "https://www.lorenzoliva.it/";
+linkLi2.href = "https://www.lorenzoliva.it/";
 linkLi2.textContent = "Il mio fantasmagorico sito";
 
 console.log(linkUl);
