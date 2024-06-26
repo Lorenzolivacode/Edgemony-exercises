@@ -1,0 +1,20 @@
+header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 0 10px 10px rgb(103, 96, 96);
+  background-color: rgb(245, 187, 164);
+}
+
+.logo-container,
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.item {
+  list-style-type: none;
+  text-decoration: none;
+  color: rgb(103, 96, 96);
+}

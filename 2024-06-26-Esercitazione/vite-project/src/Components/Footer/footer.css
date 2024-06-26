@@ -1,0 +1,32 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  padding: 20px;
+  box-shadow: 0 -10px 10px rgb(103, 96, 96);
+  width: 100%;
+  background-color: rgb(135, 207, 240);
+  font-size: 0.8rem;
+}
+
+footer > .logo-container {
+  justify-content: center;
+}
+
+.img-van {
+  position: absolute;
+  bottom: 20px;
+  width: 150px;
+  animation: go-van 4s infinite linear;
+}
+
+@keyframes go-van {
+  0% {
+    transform: none;
+  }
+  50% {
+    transform: translateX(50px) translateY(40px);
+  }
+  100% {
+    transform: translateX(400px);
+  }
+}
