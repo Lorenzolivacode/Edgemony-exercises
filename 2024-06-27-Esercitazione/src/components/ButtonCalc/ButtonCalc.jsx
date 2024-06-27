@@ -28,23 +28,33 @@ const btnContent = [
   "=",
 ];
 
-export function ButtonCalc() {
+export function ButtonCalc(props) {
   // console.log(btnContent[0]);
+  const { onClick } = props;
 
-  /* const addClassesBtn = (btn) => {
+  const addClassesBtn = (btn) => {
+    let resClass = "";
     if (btn === "=") {
-      const resClass = "btn-minus";
+      resClass = "btn-minus";
     } else {
-      const resClass = typeof btn === "number" ? "" : "btn-op";
+      resClass = typeof btn === "number" ? "" : "btn-op";
     }
 
     return resClass;
+  };
+
+  /* const handleButtonClick = (event) => {
+    const clickedElement = event.target;
+    if (clickedElement.tagName === "BUTTON") {
+      console.log("Button clicked:", clickedElement.textContent);
+      // Aggiungi qui la logica per gestire il click sul bottone
+    }
   }; */
 
   return (
-    <div className="btn-container">
+    <div className="btn-container" onClick={onClick}>
       {btnContent.map((btn, i) => (
-        <Button key={i} className={typeof btn === "number" ? "" : "btn-op"}>
+        <Button key={i} className={addClassesBtn(btn)}>
           {btn}
         </Button>
       ))}

@@ -8,27 +8,39 @@ import { Button } from "./components/Button/Button.jsx";
 import { ButtonCalc } from "./components/ButtonCalc/ButtonCalc.jsx";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [textInsert, setTextInsert] = useState("0");
+
+  const handleButtonClick = (event) => {
+    const clickedElement = event.target;
+    if (clickedElement.tagName === "BUTTON") {
+      console.log("Button clicked:", clickedElement.textContent);
+
+      setTextInsert(clickedElement.textContent);
+    }
+  };
 
   /* const controlBtnClick = () =>{
-    if (id === (n-1 || n-2)){
+    if (classList.include(btn-minus)) {
+      //Scrivi in id result risultato di n-1 (/*+-) n-2
+    }
+
+    if (!classList.include(btn-op || btn-minus)){
       if (!n-op = ''){
         //scrivi in n-1 children
       }
       //scrivi in n-2 children
     }
 
-    if (id === n-op & ){
+    if ( classList.include(btn-op) ){
       //scrivi in n-op children
     }
-  } */
+  } */ //Avevo abbozzato alcune logiche (scritte molto male) per poter far funzionare la calcolatrice
 
   return (
     <>
       <div className="calc">
-        {/* <Button>1</Button> */}
-        <Display />
-        <ButtonCalc />
+        <Display>{textInsert}</Display>
+        <ButtonCalc onClick={handleButtonClick} />
       </div>
     </>
   );

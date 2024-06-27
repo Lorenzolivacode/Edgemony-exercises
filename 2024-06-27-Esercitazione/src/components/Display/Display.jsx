@@ -1,6 +1,7 @@
 import "./display.css";
 
 export function Display(props) {
+  const { children } = props;
   return (
     <div className="display">
       <p className="operation">
@@ -8,7 +9,7 @@ export function Display(props) {
         <span id="n-op">*</span>
         <span id="n-2">4</span>
       </p>
-      <p className="result">100</p>
+      <p id="result">{children}</p>
     </div>
   );
 }
