@@ -13,6 +13,7 @@ function App() {
     <>
       <Button onClick={() => setModalOpen(!isModalOpen)} />
       {isModalOpen && <Modal />}
+
       {/* l'operatore && (AND logico) valuta l'espressione a sinistra e, se quella
       è vera, valuta e restituisce l'espressione a destra. */}
     </>
