@@ -78,8 +78,8 @@ function mathCasualGen (){
 }
 
 function createModalCasualActivity(){
-    const backDark = document.querySelector('.back-dark');
-    backDark.style.display = 'block';
+    //const backDark = document.querySelector('.back-dark');
+    //backDark.style.display = 'block';
     const insertContainer = document.querySelector('.insert-container');
 
     const mathCasual = mathCasualGen();

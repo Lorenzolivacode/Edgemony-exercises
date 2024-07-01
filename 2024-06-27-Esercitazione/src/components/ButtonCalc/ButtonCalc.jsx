@@ -6,8 +6,8 @@ const operatorRow = ["AC", "+/-", "%"];
 const operatorColumn = ["/", "X", "+", "-"]; */
 
 const btnContent = [
-  "AC",
-  "+/-",
+  "√",
+  "^",
   "%",
   "/",
   7,
@@ -35,9 +35,12 @@ export function ButtonCalc(props) {
   const addClassesBtn = (btn) => {
     let resClass = "";
     if (btn === "=") {
-      resClass = "btn-minus";
+      resClass = "btn-equal";
     } else {
-      resClass = typeof btn === "number" ? "" : "btn-op";
+      resClass = typeof btn === "number" || btn === "." ? "" : "btn-op";
+    }
+    if (btn === "C") {
+      resClass = "btn-cancel";
     }
 
     return resClass;

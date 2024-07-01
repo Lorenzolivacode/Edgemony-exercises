@@ -21,3 +21,9 @@
 .operation > span {
   margin: 3px;
 }
+
+#result {
+  max-width: 100%;
+  height: 50px;
+  overflow: hidden;
+}
