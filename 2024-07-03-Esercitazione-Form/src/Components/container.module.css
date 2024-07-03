@@ -1,0 +1,72 @@
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 10px;
+  border-radius: 10px 30px 10px 30px;
+  box-shadow: 0 0 30px rgba(0, 0, 0);
+  padding: 20px;
+  width: 300px;
+  background: var(--light-gray);
+}
+
+.container__name {
+  display: flex;
+  gap: 10px;
+}
+
+.container__name input {
+  width: calc(50% - 5px);
+}
+
+form input,
+textarea {
+  border-radius: 5px 10px;
+  padding: 5px;
+  color: var(--light-gray);
+}
+
+.container__query_type {
+  text-align: start;
+  font-size: 0.75rem;
+}
+
+.container__radio {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container__checkbox {
+  text-align: start;
+}
+
+.specific {
+  font-size: 0.6rem;
+  font-weight: 200;
+}
+
+.specific::after {
+  content: "*";
+}
+
+.recap {
+  justify-content: start;
+}
+
+.recap__name {
+  color: aliceblue;
+}
+
+.container__recap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: start;
+}
