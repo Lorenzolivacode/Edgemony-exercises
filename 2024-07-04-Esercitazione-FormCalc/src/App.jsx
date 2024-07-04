@@ -11,8 +11,27 @@ function App() {
     total: "",
     years: "",
     percentage: "",
-    type: "",
+    /* type: "", */
   });
+
+  const [monthly, setMonthly] = useState("");
+  const [totalRepay, setTotalRepay] = useState("");
+
+  const operationPercentage = () => {
+    const perc = data.percentage / 100;
+    console.log("perc", perc);
+
+    const totalPerc = data.total * perc;
+    return totalPerc;
+  };
+
+  const operationAnnual = () => {
+    const totalPerc = operationPercentage();
+    console.log("data total", data.total);
+    console.log("total", (data.total + totalPerc) / data.years);
+
+    return (data.total + totalPerc) / data.years;
+  };
 
   const handleChangeData = (e) => {
     if (e.target.tagName === "INPUT") {
@@ -21,13 +40,15 @@ function App() {
 
       setData((prevState) => ({ ...prevState, [name]: value }));
 
-      console.log(data);
+      /* console.log(data); */
     }
   };
 
-  const handleClick = (e) => {
-    if (e.target.tagName === "BUTTON") {
-    }
+  const handleClick = () => {
+    setMonthly(operationAnnual() / 12);
+    console.log("mese", monthly);
+
+    setTotalRepay(operationPercentage());
   };
   return (
     <>
@@ -71,7 +92,7 @@ function App() {
             <span className={styles.radio_txt}>Interessi</span>
           </div>
 
-          <button>
+          <button onClick={handleClick}>
             <img src={Calculator} alt="Icona" />
             Calcola spese
           </button>
@@ -87,8 +108,8 @@ function App() {
             </p>
             <div className={styles.results}>
               <span className={styles.title}>Spese mensili</span>
-              <span className={styles.results__monthly}></span>
-              <span className={styles.title}></span>
+              <span className={styles.results__monthly}>{monthly}</span>
+              <span className={styles.title}>{totalRepay}</span>
               <span className={styles.results__total}>Spese totali</span>
             </div>
           </div>

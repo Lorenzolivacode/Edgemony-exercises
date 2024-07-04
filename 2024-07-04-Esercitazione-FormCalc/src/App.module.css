@@ -36,9 +36,9 @@ button:hover {
   box-shadow: 0 0 15px var(--Slate-500);
 }
 
-input:active .input_container {
+/* input:active .input_container {
   border-color: var(--Lime);
-}
+} */
 
 .show {
   border-radius: 0 10px 10px 40px;
