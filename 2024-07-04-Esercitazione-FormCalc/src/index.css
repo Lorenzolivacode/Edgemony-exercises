@@ -1,0 +1,31 @@
+:root {
+  --Lime: #d7da2f;
+  --Red: #d73328;
+  --White: hsl(0, 0%, 100%);
+  --Slate-100: hsl(202, 86%, 94%);
+  --Slate-300: hsl(203, 41%, 72%);
+  --Slate-500: hsl(200, 26%, 54%);
+  --Slate-700: hsl(200, 24%, 40%);
+  --Slate-900: hsl(202, 55%, 16%);
+  --Slate-1000: hsl(200, 62%, 10%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 600;
+  background-color: var(--Slate-100);
+  color: var(--Slate-900);
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+}

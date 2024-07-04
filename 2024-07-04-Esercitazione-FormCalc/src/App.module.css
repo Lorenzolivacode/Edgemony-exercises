@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  width: 80%;
+  background-color: var(--White);
+}
+
+.container_data {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.mortgage_specific {
+  display: flex;
+  gap: 15px;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  border: none;
+  padding: 10px;
+  background-color: var(--Lime);
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+button:hover {
+  box-shadow: 0 0 15px var(--Slate-500);
+}
+
+input:active .input_container {
+  border-color: var(--Lime);
+}
+
+.show {
+  border-radius: 0 10px 10px 40px;
+  padding: 20px;
+  width: 50%;
+  background-color: var(--Slate-900);
+  color: var(--White);
+  font-size: 10px;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+  border-top: 3px solid var(--Lime);
+  border-radius: 20px;
+  padding: 20px;
+  background-color: var(--Slate-1000);
+}
+
+.results__monthly {
+  border-bottom: 1px solid var(--Slate-500);
+  padding-bottom: 15px;
+  font-size: 2rem;
+  color: var(--Lime);
+}
+
+.results__monthly::before {
+  content: "€";
+  margin-right: 10px;
+}

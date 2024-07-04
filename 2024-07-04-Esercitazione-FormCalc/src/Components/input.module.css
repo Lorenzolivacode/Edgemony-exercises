@@ -1,0 +1,48 @@
+/* .input_container,
+.input_container > * {
+  border: 1px solid black;
+} */
+
+.radio_container,
+.input_container {
+  display: flex;
+  border-radius: 5px;
+  border: 1px solid var(--Slate-500);
+  width: 100%;
+}
+
+.input_container > input {
+  width: 100%;
+}
+
+.input__mark {
+  display: inline-block;
+  border-radius: 5px 0 0 5px;
+  padding: 5px;
+  background-color: var(--Slate-100);
+}
+
+.input_reverse {
+  flex-direction: row-reverse;
+  width: 50%;
+}
+
+.input_reverse > .input__mark {
+  border-radius: 0 5px 5px 0;
+}
+
+.input_reverse > input {
+  width: 100%;
+}
+input {
+  padding: 5px;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+}
+
+.radio_container {
+  gap: 5px;
+  padding: 5px;
+  font-size: 12px;
+}
