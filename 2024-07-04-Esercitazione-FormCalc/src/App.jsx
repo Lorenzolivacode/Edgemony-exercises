@@ -7,57 +7,77 @@ import stylesInput from "./Components/input.module.css";
 import Calculator from "./assets/icon-calculator.svg";
 
 function App() {
-  const [data, setData] = useState({
+  const [selectedOption, setSelectedOption] = useState("");
+
+  const dataObject = {
     total: "",
     years: "",
     percentage: "",
-    /* type: "", */
-  });
+    type: selectedOption,
+  };
+
+  const [data, setData] = useState(dataObject);
 
   const [monthly, setMonthly] = useState("");
-  const [totalRepay, setTotalRepay] = useState("");
+  const [totalExpenses, setTotalExpenses] = useState("");
 
-  const operationPercentage = () => {
-    const perc = data.percentage / 100;
-    console.log("perc", perc);
-
-    const totalPerc = data.total * perc;
+  /**
+   * Trovare la % totale delle spese
+   * @param {number} total
+   * @param {number} percentage
+   * @returns number
+   */
+  const operationPercentage = (total, percentage) => {
+    const perc = percentage / 100;
+    const totalPerc = total * perc;
     return totalPerc;
   };
 
-  const operationAnnual = () => {
-    const totalPerc = operationPercentage();
-    console.log("data total", data.total);
-    console.log("total", (data.total + totalPerc) / data.years);
-
-    return (data.total + totalPerc) / data.years;
+  const operationAnnual = (total, totalPerc, years) => {
+    return (total + totalPerc) / years;
   };
 
   const handleChangeData = (e) => {
-    if (e.target.tagName === "INPUT") {
-      const name = e.target.name;
-      const value = e.target.value;
+    const name = e.target.name;
+    const value = e.target.value;
+    setData((prevState) => ({ ...prevState, [name]: value }));
+  };
 
-      setData((prevState) => ({ ...prevState, [name]: value }));
-
-      /* console.log(data); */
-    }
+  const handleChangeRadio = (e) => {
+    const value = e.target.value;
+    setSelectedOption(value);
   };
 
   const handleClick = () => {
-    setMonthly(operationAnnual() / 12);
-    console.log("mese", monthly);
+    const years = Number(data.years);
+    const total = Number(data.total);
+    const totalPerc = operationPercentage(data.total, data.percentage);
 
-    setTotalRepay(operationPercentage());
+    if (data.type === "expenses") {
+      setTotalExpenses(total + totalPerc);
+
+      const annualExpenses = operationAnnual(total, totalPerc, years);
+      setMonthly((annualExpenses / 12).toFixed(2));
+    } else if (data.type === "interest") {
+      setTotalExpenses(totalPerc);
+      setMonthly((totalPerc / (years * 12)).toFixed(2));
+    }
   };
+
+  const clear = () => {
+    setData(dataObject);
+  };
+
   return (
     <>
-      <div
-        id="pippo"
-        onChange={(e) => handleChangeData(e)}
-        className={styles.container}
-      >
+      <div onChange={(e) => handleChangeData(e)} className={styles.container}>
         <div className={styles.container_data}>
+          <header>
+            <h1>Calcolatore mutuo</h1>
+            <button className={styles.clear} onClick={clear}>
+              Azzera
+            </button>
+          </header>
           <Input
             className={stylesInput.input_container}
             name="total"
@@ -83,16 +103,29 @@ function App() {
           </div>
 
           <div className={stylesInput.radio_container}>
-            <input name="type" type="radio" />
-            <span className={styles.radio_txt}>Spese</span>
+            <label>
+              <input
+                value={"expenses"}
+                id="expenses"
+                name="type"
+                type="radio"
+                onChange={(e) => handleChangeRadio(e)}
+              />
+              Spese
+            </label>
+            <label>
+              <input
+                value={"interest"}
+                id="interest"
+                name="type"
+                type="radio"
+                onChange={(e) => handleChangeRadio(e)}
+              />
+              Interessi
+            </label>
           </div>
 
-          <div className={stylesInput.radio_container}>
-            <input name="type" type="radio" />
-            <span className={styles.radio_txt}>Interessi</span>
-          </div>
-
-          <button onClick={handleClick}>
+          <button className={styles.btn_calculate} onClick={handleClick}>
             <img src={Calculator} alt="Icona" />
             Calcola spese
           </button>
@@ -109,8 +142,8 @@ function App() {
             <div className={styles.results}>
               <span className={styles.title}>Spese mensili</span>
               <span className={styles.results__monthly}>{monthly}</span>
-              <span className={styles.title}>{totalRepay}</span>
-              <span className={styles.results__total}>Spese totali</span>
+              <span className={styles.title}>Spese totali</span>
+              <span className={styles.results__total}>{totalExpenses}</span>
             </div>
           </div>
         </div>

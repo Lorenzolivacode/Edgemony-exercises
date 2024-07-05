@@ -16,12 +16,38 @@
   padding: 20px;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+header > h1 {
+  font-size: 1rem;
+}
+
+.clear {
+  border: none;
+  background-color: transparent;
+  color: var(--Slate-900);
+  font-size: 0.8rem;
+}
+
+.clear:hover {
+  text-decoration: underline;
+}
+
 .mortgage_specific {
   display: flex;
   gap: 15px;
 }
 
 button {
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.btn_calculate {
   display: flex;
   align-items: center;
   border-radius: 50px;
@@ -32,7 +58,7 @@ button {
   transition: all 0.4s;
 }
 
-button:hover {
+.btn_calculate:hover {
   box-shadow: 0 0 15px var(--Slate-500);
 }
 
@@ -67,7 +93,8 @@ button:hover {
   color: var(--Lime);
 }
 
-.results__monthly::before {
+.results__monthly::before,
+.results__total::before {
   content: "€";
   margin-right: 10px;
 }
