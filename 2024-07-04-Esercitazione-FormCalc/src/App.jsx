@@ -5,6 +5,7 @@ import { Input } from "./Components/Input.jsx";
 import stylesInput from "./Components/input.module.css";
 
 import Calculator from "./assets/icon-calculator.svg";
+import ImageEmpty from "./assets/illustration-empty.svg";
 
 function App() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -66,7 +67,42 @@ function App() {
 
   const clear = () => {
     setData(dataObject);
+    setSelectedOption("");
+
+    setTotalExpenses("");
   };
+
+  function ResultsContainer() {
+    return (
+      <div className={styles.results_container}>
+        <h2>I tuoi risultati</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa minima
+          suscipit vitae quas ipsa, ratione nesciunt? Fugiat dignissimos
+          pariatur quo.
+        </p>
+        <div className={styles.results}>
+          <span className={styles.title}>Spese mensili</span>
+          <span className={styles.results__monthly}>{monthly}</span>
+          <span className={styles.title}>Spese totali</span>
+          <span className={styles.results__total}>{totalExpenses}</span>
+        </div>
+      </div>
+    );
+  }
+
+  function ResultsImg() {
+    return (
+      <div className={styles.show__empty}>
+        <img src={ImageEmpty} alt="Image" />
+        <h2>Il tuo risultato verrà mostrato qui</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt
+          suscipit aut ipsa nemo quo odit?
+        </p>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -79,6 +115,7 @@ function App() {
             </button>
           </header>
           <Input
+            value={data.total}
             className={stylesInput.input_container}
             name="total"
             placeholder="Totale mutuo"
@@ -87,6 +124,7 @@ function App() {
           </Input>
           <div className={styles.mortgage_specific}>
             <Input
+              value={data.years}
               className={`${stylesInput.input_container} ${stylesInput.input_reverse}`}
               name="years"
               placeholder="Durata"
@@ -94,6 +132,7 @@ function App() {
               year
             </Input>
             <Input
+              value={data.percentage}
               className={`${stylesInput.input_container} ${stylesInput.input_reverse}`}
               name="percentage"
               placeholder="Tasso"
@@ -130,22 +169,12 @@ function App() {
             Calcola spese
           </button>
         </div>
-
         <div className={styles.show}>
-          <div className={styles.results_container}>
-            <h2>I tuoi risultati</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa
-              minima suscipit vitae quas ipsa, ratione nesciunt? Fugiat
-              dignissimos pariatur quo.
-            </p>
-            <div className={styles.results}>
-              <span className={styles.title}>Spese mensili</span>
-              <span className={styles.results__monthly}>{monthly}</span>
-              <span className={styles.title}>Spese totali</span>
-              <span className={styles.results__total}>{totalExpenses}</span>
-            </div>
-          </div>
+          {totalExpenses ? (
+            <ResultsContainer></ResultsContainer>
+          ) : (
+            <ResultsImg />
+          )}
         </div>
       </div>
     </>

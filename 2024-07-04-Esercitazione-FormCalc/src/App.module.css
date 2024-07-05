@@ -98,3 +98,14 @@ button {
   content: "€";
   margin-right: 10px;
 }
+
+.show__empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}

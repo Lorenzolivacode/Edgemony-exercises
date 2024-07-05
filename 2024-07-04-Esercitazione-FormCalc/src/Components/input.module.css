@@ -3,6 +3,7 @@
   border: 1px solid black;
 } */
 
+.radio_container > label,
 .radio_container,
 .input_container {
   display: flex;
@@ -42,7 +43,17 @@ input {
 }
 
 .radio_container {
+  flex-direction: column;
   gap: 5px;
   padding: 5px;
   font-size: 12px;
+  border: transparent;
+}
+
+.radio_container > label {
+  padding: 5px;
+}
+
+.radio_container > label > input {
+  margin-right: 5px;
 }
