@@ -1,0 +1,26 @@
+:root {
+  --gray-010: #101010;
+  --gray-0: #212121;
+  --gray-1: #313131;
+  --gray-2: #484848;
+  --gray-3: #656565;
+  --white: #f4f1ec;
+  --green: #7ab858;
+  --yellow-S: #f7d420;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100dvh;
+  background-color: var(--gray-0);
+}
