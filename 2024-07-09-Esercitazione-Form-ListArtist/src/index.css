@@ -1,0 +1,21 @@
+:root {
+  --black: #191717;
+  --gray: #2b2828;
+  --white-1: #f5f6f8;
+  --white-0: #f4f5e8;
+  --white-0t: #f4f5e86f;
+  --blue: #184f62;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+#root {
+  width: 100%;
+  min-height: 100dvh;
+  background-color: var(--white-1);
+}

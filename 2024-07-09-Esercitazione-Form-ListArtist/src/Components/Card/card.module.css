@@ -1,0 +1,49 @@
+button {
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.container__card {
+  z-index: 1;
+  border-radius: 20px;
+  box-shadow: 0 0 15px var(--gray);
+  padding: 20px;
+  width: 40%;
+  min-height: 60dvh;
+  background-color: var(--white-0t);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+  padding-left: 10px;
+  /* min-width: 80px; */
+  min-height: auto;
+}
+
+.container__card > h3 {
+  font-size: 0.9rem;
+  color: var(--blue);
+}
+
+.container__card > span {
+  font-size: 0.6rem;
+}
+
+.container__card_delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  aspect-ratio: 1 / 1;
+  border: transparent;
+  border-radius: 50%;
+  box-shadow: 0 0 5px inset var(--gray);
+  padding: 5px;
+  width: 25px;
+  text-align: center;
+  background-color: var(--white-0);
+}
+
+.container__card_delete:hover {
+  transform: scale(0.9);
+}
