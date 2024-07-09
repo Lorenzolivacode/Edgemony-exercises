@@ -1,12 +1,6 @@
 import styles from "./card.module.css";
-//import { dataList } from "./../../dataList";
 
 export function Card({ artist, onClick }) {
-  //const artist = dataList.dataList;
-  //console.log(dataList);
-  //const [nome, cognome, anno, corrente, id] = dataList;
-  //const dataList1 = dataList.dataList;
-  //console.log(dataList1);
   return (
     <div className={styles.container__card}>
       <h3>

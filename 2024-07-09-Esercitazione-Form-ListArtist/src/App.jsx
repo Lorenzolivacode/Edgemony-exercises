@@ -68,6 +68,7 @@ function App() {
         <div className={`${styles.container__cardList} ${styles.shape}`}>
           <div className={styles.container__cardList__form}>
             <input
+              placeholder="Ricerca artista per cognome"
               value={filterForInput}
               type="text"
               onChange={handleChangeFilter}
@@ -100,7 +101,11 @@ function App() {
 
           <div className={styles.container__cont_card}>
             {dataArtists
-              .filter((artist) => artist.cognome.includes(filterForInput))
+              .filter((artist) =>
+                artist.cognome
+                  .toLowerCase()
+                  .includes(filterForInput.toLowerCase())
+              )
               .filter((artist) => artist.corrente.includes(filterFor))
               .map((artist) => (
                 <Card key={artist.id} artist={artist} onClick={handleDelete} />
