@@ -19,7 +19,8 @@ function App() {
   const [dataArtists, setDataArtists] = useState(dataList);
   const [inputValue, setInputValue] = useState(listElement);
 
-  const [filterFor, setFilterFor] = useState("");
+  const [filterFor, setFilterForBtn] = useState("");
+  const [filterForInput, setFilterForInput] = useState("");
 
   const handleDelete = (e) => {
     const filteredData = dataArtists.filter(
@@ -29,12 +30,23 @@ function App() {
   };
 
   const handleChangeFilter = (e) => {
-    setFilterFor(e.target.innerText);
-    console.log(e.target.innerText);
+    const value = e.target.value;
+    console.log(value);
+    if (value === "") {
+      setFilterForBtn(e.target.innerText);
+      console.log(e.target.innerText);
+    } else {
+      setFilterForInput(value);
+      console.log(filterForInput);
+    }
   };
 
-  const handleResetFilter = () => {
-    setFilterFor("");
+  const handleResetFilterBtn = () => {
+    setFilterForBtn("");
+  };
+
+  const handleResetFilterInput = () => {
+    setFilterForInput("");
   };
 
   const handleChange = (e) => {
@@ -54,9 +66,14 @@ function App() {
       <div className={styles.container}>
         <img className={styles.img__bg} src={Bg} alt="Image bg" />
         <div className={`${styles.container__cardList} ${styles.shape}`}>
-          <form className={styles.container__cardList__form}>
-            <input type="text" />
-          </form>
+          <div className={styles.container__cardList__form}>
+            <input
+              value={filterForInput}
+              type="text"
+              onChange={handleChangeFilter}
+            />
+            <button onClick={handleResetFilterInput}>Svuota</button>
+          </div>
 
           <div className={styles.container__cont_btn}>
             {dataArtists
@@ -74,7 +91,7 @@ function App() {
                 </button>
               ))}
             <button
-              onClick={handleResetFilter}
+              onClick={handleResetFilterBtn}
               className={styles.cont_btn__btn}
             >
               Tutti
@@ -83,6 +100,7 @@ function App() {
 
           <div className={styles.container__cont_card}>
             {dataArtists
+              .filter((artist) => artist.cognome.includes(filterForInput))
               .filter((artist) => artist.corrente.includes(filterFor))
               .map((artist) => (
                 <Card key={artist.id} artist={artist} onClick={handleDelete} />

@@ -70,6 +70,16 @@ button:hover {
   gap: 20px;
 }
 
+.container__cardList__form {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.container__cardList__form > input {
+  flex-grow: 1;
+}
+
 .container__cont_card {
   display: flex;
   justify-content: center;
@@ -96,8 +106,8 @@ button:hover {
   gap: 10px;
 }
 
-.container__form > input,
-.container__form > button {
+input,
+button {
   border-radius: 10px;
   border: 1px solid var(--blue);
   padding: 5px;
