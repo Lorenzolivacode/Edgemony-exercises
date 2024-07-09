@@ -19,11 +19,22 @@ function App() {
   const [dataArtists, setDataArtists] = useState(dataList);
   const [inputValue, setInputValue] = useState(listElement);
 
+  const [filterFor, setFilterFor] = useState("");
+
   const handleDelete = (e) => {
     const filteredData = dataArtists.filter(
       (artist) => artist.id !== e.target.id
     );
     setDataArtists(filteredData);
+  };
+
+  const handleChangeFilter = (e) => {
+    setFilterFor(e.target.innerText);
+    console.log(e.target.innerText);
+  };
+
+  const handleResetFilter = () => {
+    setFilterFor("");
   };
 
   const handleChange = (e) => {
@@ -48,17 +59,34 @@ function App() {
           </form>
 
           <div className={styles.container__cont_btn}>
-            {dataArtists.map((artist) => (
-              <button className={styles.cont_btn__btn} key={artist.id}>
-                {artist.corrente}
-              </button>
-            ))}
+            {dataArtists
+              .filter(
+                (artist, i, dataA) =>
+                  i === dataA.findIndex((a) => a.corrente === artist.corrente)
+              )
+              .map((artist) => (
+                <button
+                  onClick={handleChangeFilter}
+                  className={styles.cont_btn__btn}
+                  key={artist.id}
+                >
+                  {artist.corrente}
+                </button>
+              ))}
+            <button
+              onClick={handleResetFilter}
+              className={styles.cont_btn__btn}
+            >
+              Tutti
+            </button>
           </div>
 
           <div className={styles.container__cont_card}>
-            {dataArtists.map((artist) => (
-              <Card key={artist.id} artist={artist} onClick={handleDelete} />
-            ))}
+            {dataArtists
+              .filter((artist) => artist.corrente.includes(filterFor))
+              .map((artist) => (
+                <Card key={artist.id} artist={artist} onClick={handleDelete} />
+              ))}
           </div>
         </div>
         <form

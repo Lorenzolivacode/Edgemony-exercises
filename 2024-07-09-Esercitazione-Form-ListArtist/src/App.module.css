@@ -47,6 +47,20 @@ h2 {
 button {
   transition: 0.4s;
   cursor: pointer;
+  background-color: var(--blue-light);
+  transition: 0.4s;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: scale(0.95);
+  box-shadow: 0 0 5px var(--gray);
+}
+
+.cont_btn__btn {
+  border-radius: 10px;
+  border: 1px solid var(--blue);
+  padding: 5px;
 }
 
 .container__cardList {
