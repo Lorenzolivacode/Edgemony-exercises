@@ -17,6 +17,7 @@ const listElement = {
 
 function App() {
   const [dataArtists, setDataArtists] = useState(dataList);
+  const [inputValue, setInputValue] = useState(listElement);
 
   const handleDelete = (e) => {
     const filteredData = dataArtists.filter(
@@ -24,6 +25,18 @@ function App() {
     );
     setDataArtists(filteredData);
   };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setInputValue({ ...inputValue, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setDataArtists([...dataArtists, inputValue]);
+    setInputValue(listElement);
+  };
+
   return (
     <>
       <h1>Your favourite artists</h1>
@@ -48,11 +61,35 @@ function App() {
             ))}
           </div>
         </div>
-        <form className={`${styles.container__form} ${styles.shape}`}>
-          <input type="text" placeholder="Nome artista" name="nome" />
-          <input type="text" placeholder="Cognome artista" name="cognome" />
-          <input type="text" placeholder="Anno di nascita" name="anno" />
-          <input type="text" placeholder="Corrente artistica" name="corrente" />
+        <form
+          className={`${styles.container__form} ${styles.shape}`}
+          onSubmit={handleSubmit}
+        >
+          <h2>Inserisci un nuovo artista</h2>
+          <input
+            type="text"
+            onChange={handleChange}
+            placeholder="Nome artista"
+            name="nome"
+          />
+          <input
+            type="text"
+            onChange={handleChange}
+            placeholder="Cognome artista"
+            name="cognome"
+          />
+          <input
+            type="text"
+            onChange={handleChange}
+            placeholder="Anno di nascita"
+            name="anno"
+          />
+          <input
+            type="text"
+            onChange={handleChange}
+            placeholder="Corrente artistica"
+            name="corrente"
+          />
           <button type="submit">Inserisci</button>
         </form>
       </div>
