@@ -7,6 +7,7 @@ import Bg from "./assets/bg.jpg";
 
 import { Layout } from "./Components/LayoutApp/Layout.jsx";
 import { Card } from "./Components/Card/Card.jsx";
+import { InputForm } from "./Components/Input/Input.jsx";
 
 const listElement = {
   nome: "",
@@ -15,6 +16,8 @@ const listElement = {
   corrente: "",
   id: self.crypto.randomUUID(),
 };
+
+const tmpArrayKeys = Object.keys(listElement);
 
 function App() {
   const [dataArtists, setDataArtists] = useState(dataList);
@@ -119,34 +122,17 @@ function App() {
             onSubmit={handleSubmit}
           >
             <h2>Inserisci un nuovo artista</h2>
-            <input
-              type="text"
-              onChange={handleChange}
-              placeholder="Nome artista"
-              name="nome"
-              value={inputValue.nome}
-            />
-            <input
-              type="text"
-              onChange={handleChange}
-              placeholder="Cognome artista"
-              name="cognome"
-              value={inputValue.cognome}
-            />
-            <input
-              type="text"
-              onChange={handleChange}
-              placeholder="Anno di nascita"
-              name="anno"
-              value={inputValue.anno}
-            />
-            <input
-              type="text"
-              onChange={handleChange}
-              placeholder="Corrente artistica"
-              name="corrente"
-              value={inputValue.corrente}
-            />
+            {tmpArrayKeys.map((keyEl) => {
+              return keyEl === "id" ? null : (
+                <InputForm
+                  key={tmpArrayKeys.indexOf(keyEl)}
+                  placeholder={`${keyEl} artista`}
+                  name={keyEl}
+                  value={inputValue.keyEl}
+                  onChange={handleChange}
+                />
+              );
+            })}
             <button type="submit">Inserisci</button>
           </form>
         </div>
