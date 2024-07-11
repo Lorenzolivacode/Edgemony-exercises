@@ -9,7 +9,6 @@ function App() {
   const [counter, setCounter] = useState(0);
 
   const handleClickCounter = (e) => {
-    /* console.log(e.target); */
     const id = e.target.id;
     if (id === "minus" && counter > 0) {
       setCounter(counter - 1);
@@ -22,7 +21,7 @@ function App() {
       <Layout counter={counter}>
         <div className={styles.container}>
           <ProductLightBox />
-          <ProductDescriptionBox price={250} discount={50} counter={counter} />
+          <ProductDescriptionBox price={15} discount={50} counter={counter} />
         </div>
       </Layout>
     </div>

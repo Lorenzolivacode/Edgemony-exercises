@@ -2,26 +2,31 @@ import styles from "./product-light-box.module.css";
 import classNames from "classnames";
 import { useState } from "react";
 
+import Img01 from "./../../assets/img-Simpson/img01.jpg";
+import Img03 from "./../../assets/img-Simpson/img03.jpg";
+import Img04 from "./../../assets/img-Simpson/img04.jpg";
+import Img06 from "./../../assets/img-Simpson/img06.jpg";
+
 const productImg = [
   {
     id: self.crypto.randomUUID(),
-    product: "./src/assets/images/image-product-1.jpg",
-    thumbNail: "./src/assets/images/image-product-1-thumbnail.jpg",
+    product: Img01,
+    thumbNail: Img01,
   },
   {
     id: self.crypto.randomUUID(),
-    product: "./src/assets/images/image-product-2.jpg",
-    thumbNail: "./src/assets/images/image-product-2-thumbnail.jpg",
+    product: Img03,
+    thumbNail: Img03,
   },
   {
     id: self.crypto.randomUUID(),
-    product: "./src/assets/images/image-product-3.jpg",
-    thumbNail: "./src/assets/images/image-product-3-thumbnail.jpg",
+    product: Img04,
+    thumbNail: Img04,
   },
   {
     id: self.crypto.randomUUID(),
-    product: "./src/assets/images/image-product-4.jpg",
-    thumbNail: "./src/assets/images/image-product-4-thumbnail.jpg",
+    product: Img06,
+    thumbNail: Img06,
   },
 ];
 
@@ -51,7 +56,7 @@ export function ProductLightBox() {
             >
               <img
                 src={img.thumbNail}
-                alt=""
+                alt="Image"
                 className={classNames(
                   img.id === selectedProductImg.id && styles["img-over"]
                 )}

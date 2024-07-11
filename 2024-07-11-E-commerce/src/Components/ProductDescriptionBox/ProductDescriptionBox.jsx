@@ -5,6 +5,7 @@ import IconCart from "./../Icons/IconCart.jsx";
 
 export function ProductDescriptionBox({ price, discount, counter }) {
   const discuontedPrice = price - (price * discount) / 100;
+  const priceMultiplier = discuontedPrice * counter;
   /*   const [counter, setCounter] = useState(0);
 
   const handleClickCounter = (e) => {
@@ -18,7 +19,7 @@ export function ProductDescriptionBox({ price, discount, counter }) {
 
   return (
     <div className={styles["product-description-box"]}>
-      <span className={styles.company}>SNEAKERS COMPANY</span>
+      <span className={styles.company}>THE D'OHNUT</span>
       <h1>Product Description</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel turpis
@@ -26,7 +27,7 @@ export function ProductDescriptionBox({ price, discount, counter }) {
         neque consectetur gravida.
       </p>
       <div className={styles["discount-container"]}>
-        <span className={styles["discount-price"]}> ${discuontedPrice}</span>
+        <span className={styles["discount-price"]}> ${priceMultiplier}</span>
         <span className={styles["discount-perc"]}>{`${discount}%`}</span>
       </div>
       <span className={styles["starting-price"]}>${price}</span>

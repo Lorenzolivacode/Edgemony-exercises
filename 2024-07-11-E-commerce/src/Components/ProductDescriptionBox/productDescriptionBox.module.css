@@ -57,6 +57,7 @@ p {
   flex-grow: 1;
   justify-content: space-between;
   border-radius: 8px;
+  box-shadow: 5px 5px 10px var(--DarkGrayishBlue);
   padding: 8px;
   height: 100%;
   background-color: var(--LightGrayishBlue);

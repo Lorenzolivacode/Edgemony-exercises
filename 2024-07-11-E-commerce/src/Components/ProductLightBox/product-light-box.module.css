@@ -1,5 +1,5 @@
 .product-lightbox {
-  width: 400px;
+  width: 350px;
 }
 
 .showBox {
@@ -24,7 +24,7 @@
 
 .tumbnail-list > li {
   border-radius: 8px;
-  width: 94px;
+  width: 80px;
   aspect-ratio: 1 / 1;
   overflow: hidden;
   list-style-type: none;
