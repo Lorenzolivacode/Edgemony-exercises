@@ -1,0 +1,44 @@
+.product-lightbox {
+  width: 400px;
+}
+
+.showBox {
+  box-shadow: -5px -5px 10px var(--GrayishBlue);
+  border-radius: 16px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.showBox > img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.tumbnail-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.tumbnail-list > li {
+  border-radius: 8px;
+  width: 94px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  list-style-type: none;
+}
+
+.tumbnail-list > li > img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.list-selected {
+  border: 3px solid var(--Orange);
+}
+
+.img-over {
+  opacity: 0.6;
+}
