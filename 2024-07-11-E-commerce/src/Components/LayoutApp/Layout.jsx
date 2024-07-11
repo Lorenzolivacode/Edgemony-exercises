@@ -1,10 +1,10 @@
 import { Header } from "../Header/Header";
 import { Footer } from "../Footer/Footer.jsx";
 
-export function Layout({ children }) {
+export function Layout({ children, counter }) {
   return (
     <>
-      <Header />
+      <Header counter={counter} />
       {children}
       <Footer />
     </>

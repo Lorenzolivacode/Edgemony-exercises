@@ -3,9 +3,9 @@ import { useState } from "react";
 import { Button } from "../Button/Button.jsx";
 import IconCart from "./../Icons/IconCart.jsx";
 
-export function ProductDescriptionBox({ price, discount }) {
+export function ProductDescriptionBox({ price, discount, counter }) {
   const discuontedPrice = price - (price * discount) / 100;
-  const [counter, setCounter] = useState(0);
+  /*   const [counter, setCounter] = useState(0);
 
   const handleClickCounter = (e) => {
     const id = e.target.id;
@@ -14,7 +14,7 @@ export function ProductDescriptionBox({ price, discount }) {
     } else if (id === "plus") {
       setCounter(counter + 1);
     }
-  };
+  }; */
 
   return (
     <div className={styles["product-description-box"]}>
@@ -32,19 +32,11 @@ export function ProductDescriptionBox({ price, discount }) {
       <span className={styles["starting-price"]}>${price}</span>
       <div className={styles["counter-container"]}>
         <div className={styles.counter}>
-          <button
-            id="minus"
-            className={styles["click-counter"]}
-            onClick={handleClickCounter}
-          >
+          <button id="minus" className={styles["click-counter"]}>
             -
           </button>
           <span>{counter}</span>
-          <button
-            id="plus"
-            className={styles["click-counter"]}
-            onClick={handleClickCounter}
-          >
+          <button id="plus" className={styles["click-counter"]}>
             +
           </button>
         </div>
