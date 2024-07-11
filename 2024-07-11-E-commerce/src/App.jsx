@@ -3,6 +3,7 @@ import styles from "./App.module.css";
 
 import { Layout } from "./Components/LayoutApp/Layout.jsx";
 import { ProductLightBox } from "./Components/ProductLightBox/ProductLightBox.jsx";
+import { ProductDescriptionBox } from "./Components/ProductDescriptionBox/ProductDescriptionBox.jsx";
 import { Button } from "./Components/Button/Button.jsx";
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
       <Layout>
         <div className={styles.container}>
           <ProductLightBox />
-          <Button></Button>
+          <ProductDescriptionBox price={250} discount={50} />
         </div>
       </Layout>
     </>

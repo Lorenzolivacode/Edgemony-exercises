@@ -1,0 +1,78 @@
+.product-description-box {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 400px;
+}
+
+.company {
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: var(--DarkGrayishBlue);
+}
+
+h1 {
+  text-align: start;
+}
+
+p {
+  color: var(--DarkGrayishBlue);
+}
+
+.discount-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.discount-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.discount-perc {
+  border-radius: 8px;
+  padding: 4px;
+  color: var(--White);
+  background-color: var(--VeryDarkBlue);
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.starting-price {
+  color: var(--DarkGrayishBlue);
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-decoration: line-through;
+}
+
+.counter-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.counter {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  border-radius: 8px;
+  padding: 8px;
+  height: 100%;
+  background-color: var(--LightGrayishBlue);
+  /* background-color: var(--DarkGrayishBlue); */
+}
+
+.click-counter {
+  border: transparent;
+  background-color: transparent;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--Orange);
+  cursor: pointer;
+}
+
+.counter > span {
+  box-shadow: 0 0 4px inset var(--GrayishBlue);
+  padding: 8px;
+}
