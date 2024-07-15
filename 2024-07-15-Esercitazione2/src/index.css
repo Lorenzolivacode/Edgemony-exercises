@@ -1,0 +1,20 @@
+:root {
+  --gray-background: #202632;
+  --gray-card: #313a49;
+  --water-green: #53ffab;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  background-color: var(--gray-background);
+}
