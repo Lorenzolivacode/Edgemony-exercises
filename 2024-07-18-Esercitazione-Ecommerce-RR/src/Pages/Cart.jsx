@@ -44,7 +44,7 @@ export function Cart() {
         return (
           <Card
             key={product.id}
-            product={product.title}
+            product={product}
             /* idBtn={product.id}
             price={product.price}
             img={product.images[0]} */
