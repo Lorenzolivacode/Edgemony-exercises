@@ -31,7 +31,6 @@ function App() {
 
   useEffect(() => {
     console.log("prova3", products);
-    /* console.log("images", products[0].images[0]); */
   }, [products]);
 
   return (

@@ -4,6 +4,7 @@ import Card from "../Components/Card";
 
 export function Cart() {
   const [cartItems, setCartItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState([]);
   useEffect(() => {
     const products = JSON.parse(localStorage.getItem("productsCart")) || [];
     setCartItems(products);
@@ -12,6 +13,11 @@ export function Cart() {
 
   useEffect(() => {
     console.log("cartItems: ", cartItems);
+
+    const total = cartItems.reduce((accumulator, product) => {
+      return accumulator + product.price;
+    }, 0);
+    setTotalPrice(total);
   }, [cartItems]);
 
   const removeItemCart = (e) => {
@@ -37,12 +43,16 @@ export function Cart() {
     );
   return (
     <div className="w-full relative">
-      <button
-        onClick={emptyCart}
-        className="absolute top-6 left-6 bg-red-300/40 p-2 rounded-lg border-solid border-2 border-red-950 text-red-950"
-      >
-        Cancel Cart
-      </button>
+      <div className="absolute top-6 left-6 flex flex-col gap-4">
+        <button
+          onClick={emptyCart}
+          className="bg-red-300/40 p-2 rounded-lg border-solid border-2 border-red-950 text-red-950 w-full"
+        >
+          Cancel Cart
+        </button>
+        <p>N° products: {cartItems.length}</p>
+        <p>Total: ${totalPrice}</p>
+      </div>
       <div className="flex flex-wrap gap-12 justify-center items-center p-20">
         {cartItems.map((product) => {
           return (

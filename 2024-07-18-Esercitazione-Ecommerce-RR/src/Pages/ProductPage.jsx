@@ -6,6 +6,13 @@ import { Button } from "./../Components/Button";
 export function ProductPage() {
   const { id } = useParams();
   const [product, setProducts] = useState(null);
+  const [arrayStorage, setArrayStorage] = useState([]);
+
+  const setLocalStorage = (product) => {
+    const newArrayStorage = [...arrayStorage, product];
+    setArrayStorage(newArrayStorage);
+    localStorage.setItem("productsCart", JSON.stringify(newArrayStorage));
+  };
 
   useEffect(() => {
     fetch(`https://api.escuelajs.co/api/v1/products/${id}`)
@@ -14,6 +21,10 @@ export function ProductPage() {
         console.log(res);
         setProducts(res);
       });
+
+    const storedCartItems = JSON.parse(localStorage.getItem("productsCart"));
+    setArrayStorage(storedCartItems || []);
+    console.log("Array: ", arrayStorage);
   }, []);
 
   if (!product) return <p>Loading...</p>;
@@ -34,7 +45,7 @@ export function ProductPage() {
         <h1 className="font-bold text-slate-900 text-xl">{product.title}</h1>
         <p>{product.description}</p>
         <p>Price: €{product.price}</p>
-        <Button>Add to Cart</Button>
+        <Button onClick={() => setLocalStorage(product)}>Add to Cart</Button>
       </div>
     </div>
   );
