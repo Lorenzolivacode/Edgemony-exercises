@@ -15,7 +15,7 @@ export function Modal({ onClose, isOpen, product }) {
                 className="font-bold underline text-slate-800 cursor-pointer"
                 to={`product/${product.id}`}
               >
-                {product.title}
+                {`> ${product.title}`}
               </Link>
               <p>€{product.price}</p>
               <p className="text-xs">{product.description}</p>

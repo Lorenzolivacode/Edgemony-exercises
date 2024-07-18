@@ -3,10 +3,17 @@ import { Card } from "./Components/Card";
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [arrayStorage, setArrayStorage] = useState([]);
 
   const setLocalStorage = (product) => {
-    localStorage.setItem(`product-${product.id}`, JSON.stringify(product));
+    const newArrayStorage = [...arrayStorage, product];
+    setArrayStorage(newArrayStorage);
+    localStorage.setItem("productsCart", JSON.stringify(newArrayStorage));
   };
+
+  useEffect(() => {
+    console.log(arrayStorage);
+  }, [arrayStorage]);
 
   useEffect(() => {
     console.log("prova1", products);
@@ -16,6 +23,10 @@ function App() {
       .then((res) => setProducts(res.slice(1, 13)));
 
     console.log("prova2", products);
+
+    const storedCartItems = JSON.parse(localStorage.getItem("productsCart"));
+    setArrayStorage(storedCartItems || []);
+    console.log("Array: ", arrayStorage);
   }, []);
 
   useEffect(() => {

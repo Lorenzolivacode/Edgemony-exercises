@@ -5,54 +5,59 @@ import Card from "../Components/Card";
 export function Cart() {
   const [cartItems, setCartItems] = useState([]);
   useEffect(() => {
-    /* console.log("Storage: ", localStorage);
-    console.log("Array Obj: ", Object.values(localStorage));
-    console.log("Singol Obj: ", JSON.parse(Object.values(localStorage)[0])); */
-
-    const products = [];
-    Object.values(localStorage).map((p) => {
-      let product = JSON.parse(p);
-      /* console.log("Product: ", product);
-      console.log("Product Title: ", product.title); */
-      products.push(product);
-    });
+    const products = JSON.parse(localStorage.getItem("productsCart")) || [];
     setCartItems(products);
+    console.log("products", products);
   }, []);
 
   useEffect(() => {
-    console.log("Cart: ", cartItems);
-    /*     console.log(cartItems[0]); */
+    console.log("cartItems: ", cartItems);
   }, [cartItems]);
 
   const removeItemCart = (e) => {
     const id = e.target.id;
-    const nameProduct = `product-${id}`;
+    const newCart = cartItems.filter((p) => p.id !== Number(id));
+    setCartItems(newCart);
 
-    localStorage.removeItem(nameProduct);
-    setCartItems(cartItems.filter((p) => p.id !== id));
     console.log("id: ", id);
-    console.log("Product removed: ", nameProduct);
-    console.log("cartItems: ", cartItems);
+
+    localStorage.setItem(`productsCart`, JSON.stringify(newCart));
   };
   {
     /* Non sono riuscito a renderizzare subito la rimozione */
   }
 
+  const emptyCart = () => {
+    setCartItems([]);
+    localStorage.removeItem("productsCart");
+  };
+  if (!cartItems.length)
+    return (
+      <h2 className="text-center font-bold text-xl p-11">Cart is empty</h2>
+    );
   return (
-    <div className="flex flex-wrap gap-12 justify-center items-center p-20">
-      {cartItems.map((product) => {
-        return (
-          <Card
-            key={product.id}
-            product={product}
-            /* idBtn={product.id}
+    <div className="w-full relative">
+      <button
+        onClick={emptyCart}
+        className="absolute top-6 left-6 bg-red-300/40 p-2 rounded-lg border-solid border-2 border-red-950 text-red-950"
+      >
+        Cancel Cart
+      </button>
+      <div className="flex flex-wrap gap-12 justify-center items-center p-20">
+        {cartItems.map((product) => {
+          return (
+            <Card
+              key={product.id}
+              product={product}
+              /* idBtn={product.id}
             price={product.price}
             img={product.images[0]} */
-            btnText={"Remove cart"}
-            onClick={removeItemCart}
-          />
-        );
-      })}
+              btnText={"Remove cart"}
+              onClick={removeItemCart}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
