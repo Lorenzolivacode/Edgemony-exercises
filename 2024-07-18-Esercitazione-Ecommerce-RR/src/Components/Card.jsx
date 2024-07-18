@@ -8,7 +8,7 @@ export function Card({ product, onClick, btnText }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="bg-slate-200 shadow-md w-36">
+    <div className="bg-slate-200 shadow-md w-52">
       <img src={product.images[0]} alt="image" />
       <div className="p-4 text-center flex flex-col justify-between gap-6">
         <h2>{product.title}</h2>

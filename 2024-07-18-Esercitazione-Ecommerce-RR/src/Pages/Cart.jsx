@@ -53,7 +53,8 @@ export function Cart() {
         <p>N° products: {cartItems.length}</p>
         <p>Total: ${totalPrice}</p>
       </div>
-      <div className="flex flex-wrap gap-12 justify-center items-center p-20">
+
+      <div className="flex flex-wrap gap-12 justify-center items-center p-20 px-28">
         {cartItems.map((product) => {
           return (
             <Card
