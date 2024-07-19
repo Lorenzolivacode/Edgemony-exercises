@@ -12,7 +12,7 @@ export function Card({ product, onClick, btnText }) {
       <img
         src={
           /* product.images[0] || */
-          product.images[1].slice(1, product.images[1].lenght)
+          product.images[0].slice(1, product.images[0].lenght)
         }
         alt="image"
       />

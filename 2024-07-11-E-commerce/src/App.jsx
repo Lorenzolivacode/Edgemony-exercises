@@ -5,6 +5,9 @@ import { Layout } from "./Components/LayoutApp/Layout.jsx";
 import { ProductLightBox } from "./Components/ProductLightBox/ProductLightBox.jsx";
 import { ProductDescriptionBox } from "./Components/ProductDescriptionBox/ProductDescriptionBox.jsx";
 
+const productPrice = 15;
+const discountPercentage = 50;
+
 function App() {
   const [counter, setCounter] = useState(0);
 
@@ -16,12 +19,17 @@ function App() {
       setCounter(counter + 1);
     }
   };
+
   return (
     <div onClick={handleClickCounter}>
       <Layout counter={counter}>
         <div className={styles.container}>
           <ProductLightBox />
-          <ProductDescriptionBox price={15} discount={50} counter={counter} />
+          <ProductDescriptionBox
+            price={productPrice}
+            discount={discountPercentage}
+            counter={counter}
+          />
         </div>
       </Layout>
     </div>

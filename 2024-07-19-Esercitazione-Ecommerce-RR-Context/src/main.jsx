@@ -1,0 +1,35 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import { ProductPage } from "./Pages/ProductPage.jsx";
+
+import { DefaultLayout } from "./Components/DefaultLayout.jsx";
+import { ErrorPage } from "./Pages/ErrorPage.jsx";
+import { Cart } from "./Pages/Cart.jsx";
+
+import { ProductProvider } from "./Providers/ProductContenxt.jsx";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <DefaultLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      { path: "/", element: <App /> },
+      { path: "cart", element: <Cart /> },
+      { path: "product/:id", element: <ProductPage /> },
+    ],
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <ProductProvider>
+      <RouterProvider router={router} />
+    </ProductProvider>
+  </React.StrictMode>
+);
