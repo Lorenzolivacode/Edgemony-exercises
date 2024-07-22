@@ -16,7 +16,7 @@ export function TableItem({ artwork }) {
           onMouseLeave={() => setIsModalViewOpen(false)}
           src={eye}
           alt="eye image for view artwork pop up"
-          className="h-12"
+          className="h-12 hover:opacity-60 cursor-pointer"
         />
         <ModalViewImage isOpen={isModalViewOpen} artwork={artwork} />
       </td>

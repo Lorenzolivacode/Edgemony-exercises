@@ -1,6 +1,8 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
-function PageArtwork({ artwork }) {
+export function PageArtwork({ artwork }) {
+  const { id } = useParams();
   return (
     <article className="pl-20 pr-20">
       <div className="flex justify-between mb-8">

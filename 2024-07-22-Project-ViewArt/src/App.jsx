@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { labels } from "./data/labels";
 import { getArtworkList } from "./api/artworkClient";
 
+import { useArtwork } from "./function/getArtwork.jsx";
+
 import eye from "./assets/eye.png";
 
 import PageArtwork from "./Pages/PageArtwork";
@@ -9,11 +11,12 @@ import ModalViewImage from "./Components/ModalViewImage";
 import TableItem from "./Components/TableItem";
 
 function App() {
-  const [artworkList, setArtworkList] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { isLoading, artworkList, getArtwork } = useArtwork();
+  /* const [artworkList, setArtworkList] = useState([]); */
+  /* const [isLoading, setIsLoading] = useState(true); */
   /* const [isModalViewOpen, setIsModalViewOpen] = useState(false); */
 
-  const getArtwork = async () => {
+  /* const getArtwork = async () => {
     try {
       const data = await getArtworkList();
       setArtworkList(data);
@@ -22,7 +25,7 @@ function App() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }; */
 
   useEffect(() => {
     getArtwork();
