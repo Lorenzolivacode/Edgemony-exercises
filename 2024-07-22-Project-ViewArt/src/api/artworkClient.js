@@ -18,6 +18,19 @@ export const getArtworkList = () => {
             description:
               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit et iste ut odit recusandae accusantium vero, sit quis repudiandae ipsa laboriosam debitis mollitia rem veniam.",
           },
+          {
+            id: "0002",
+            year: "2019",
+            title: "Luce",
+            movement: "Surrealismo contemporaneo",
+            author: "Lorenzo Oliva",
+            image: "./src/assets/0002-Luce.jpg",
+            price: "€2.500",
+            technique: "Oil on canvas",
+            sizes: "cm. 120x80",
+            description:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit et iste ut odit recusandae accusantium vero, sit quis repudiandae ipsa laboriosam debitis mollitia rem veniam.",
+          },
         ];
       });
     }, 2000);
