@@ -4,6 +4,8 @@ import { getArtworkList } from "./api/artworkClient";
 
 import eye from "./assets/eye.png";
 
+import PageArtwork from "./Pages/PageArtwork";
+
 function App() {
   const [artworkList, setArtworkList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -35,8 +37,12 @@ function App() {
     <>
       <div className="flex justify-center">
         <main className="w-[1200px] ">
-          <div className="p-4 ">
+          <div className="p-4 flex justify-between">
             <h1 className="">{labels.artworkList}</h1>
+            <input
+              type="text"
+              className="border-2 border-cyan-950 rounded p-1"
+            />
           </div>
 
           <div className="overflow-x-auto">
@@ -98,77 +104,6 @@ function App() {
                     </td>
                   </tr>
                 ))}
-                {/* <tr>
-                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    John Doe
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                    24/05/1995
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                    Web Developer
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                    $120,000
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                    0001
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2">
-                    <a
-                      href="#"
-                      className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
-                    >
-                      View
-                    </a>
-                  </td>
-                </tr> */}
-
-                {/* <tr>
-                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    Jane Doe
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                    04/11/1980
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                    Web Designer
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                    $100,000
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2">
-                    <a
-                      href="#"
-                      className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
-                    >
-                      View
-                    </a>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    Gary Barlow
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                    24/05/1995
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                    Singer
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                    $20,000
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2">
-                    <a
-                      href="#"
-                      className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
-                    >
-                      View
-                    </a>
-                  </td>
-                </tr> */}
               </tbody>
             </table>
           </div>

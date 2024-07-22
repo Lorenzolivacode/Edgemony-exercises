@@ -1,3 +1,5 @@
+import ImgPaint from "./../assets/0001-dopo-la-pioggia-600-448.jpg";
+
 export const getArtworkList = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -9,11 +11,12 @@ export const getArtworkList = () => {
             title: "Dopo la pioggia",
             movement: "Vedutismo siciliano",
             author: "Francesco Lojacono",
-            image: "./../assets/0001-dopo-la-pioggia-600-448.jpg",
+            image: "./src/assets/0001-dopo-la-pioggia-600-448.jpg",
             price: "€32.000",
             technique: "Oil on canvas",
             sizes: "cm. 49,5x65",
-            description: "lorem ipsum dolor sit amet, consectetur",
+            description:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit et iste ut odit recusandae accusantium vero, sit quis repudiandae ipsa laboriosam debitis mollitia rem veniam.",
           },
         ];
       });
