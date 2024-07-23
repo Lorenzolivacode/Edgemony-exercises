@@ -5,6 +5,8 @@ import { TdEl } from "./TdEl.jsx";
 import ModalViewImage from "./ModalViewImage";
 
 import eye from "./../assets/eye.png";
+import { Link } from "react-router-dom";
+import { labels } from "../data/labels.js";
 
 export function TableItem({ artwork }) {
   const [isModalViewOpen, setIsModalViewOpen] = useState(false);
@@ -26,12 +28,13 @@ export function TableItem({ artwork }) {
       <TdEl>{artwork.year}</TdEl>
       <TdEl>{artwork.id}</TdEl>
       <td className="whitespace-nowrap px-4 py-2">
-        <a
-          href="#"
+        <Link
+          to={`/artwork/${artwork.id}`}
           className="inline-block rounded bg-cyan-600 px-4 py-2 text-xs font-medium text-white hover:bg-cyan-700"
+          title="View details's page"
         >
-          View
-        </a>
+          {labels.btnDetails}
+        </Link>
       </td>
     </tr>
   );

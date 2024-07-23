@@ -9,4 +9,6 @@ export const labels = {
   artworkHomeNav: "Home",
 
   artworkList: "Artwork list",
+
+  btnDetails: "Details",
 };
