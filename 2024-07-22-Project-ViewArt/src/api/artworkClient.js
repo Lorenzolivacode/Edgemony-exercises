@@ -31,7 +31,7 @@ export const getArtworkList = () => {
           },
         ];
       });
-    }, 2000);
+    }, 1000);
   });
 };
 

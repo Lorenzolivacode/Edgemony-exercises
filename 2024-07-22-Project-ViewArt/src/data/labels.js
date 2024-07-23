@@ -5,5 +5,8 @@ export const labels = {
   artworkTableYear: "Year",
   artworkTableId: "Id",
 
+  artworkTitleNav: "ViewArt",
+  artworkHomeNav: "Home",
+
   artworkList: "Artwork list",
 };

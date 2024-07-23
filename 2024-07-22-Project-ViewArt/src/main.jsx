@@ -5,19 +5,23 @@ import "./index.css";
 
 import { PageArtwork } from "./Pages/PageArtwork.jsx";
 
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import DefaultLayout from "./Layout/DefaultLayout.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <DefaultLayout />,
     errorElement: "error",
-    children: [{ path: "artwork/:id", element: <PageArtwork /> }],
+    children: [
+      { path: "/", element: <App /> },
+      { path: "artwork/:id", element: <PageArtwork /> },
+    ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
