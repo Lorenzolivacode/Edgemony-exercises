@@ -9,6 +9,7 @@ export const labels = {
   artworkHomeNav: "Home",
 
   artworkList: "Artwork list",
+  artworkInput: "Insert title or author",
 
   btnDetails: "Details",
 

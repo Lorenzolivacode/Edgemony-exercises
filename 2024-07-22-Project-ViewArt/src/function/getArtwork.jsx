@@ -37,12 +37,31 @@ export const useArtwork = () => {
     }
   };
 
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      setIsLoading(true);
+      const res = await addArtwork(form);
+      setForm(initialState);
+      console.log(res);
+    } catch (err) {
+      setIsError((prevState) => {
+        return { ...prevState, message: err.message, isError: true };
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return {
     isLoading,
+    setIsLoading,
     isError,
+    setIsError,
     artworkList,
     artworkDetails,
     getArtwork,
     getDetails,
+    handleSubmit,
   };
 };
