@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useArtwork } from "../function/getArtwork";
-import { addArtwork } from "../api/artworkClient";
 import InputFormEl from "../Components/InputFormEl";
+import { addArtwork } from "../api/artworkClient";
+import { Navigate } from "react-router-dom";
 
 const initialState = {
   title: "",
@@ -16,13 +17,50 @@ const initialState = {
 };
 
 const arrayInitialState = Object.keys(initialState);
-
-export function AddArtwork() {
-  const { isError, isLoading, setIsLoading, handleSubmit } = useArtwork();
+export function CreateArtwork() {
+  const { isError, isLoading, setIsLoading, setIsError } = useArtwork();
 
   const [form, setForm] = useState(initialState);
 
-  const formValidation = false;
+  const handleSubmit = async (e) => {
+    console.log("Submitting form:", form);
+    try {
+      e.preventDefault();
+      setIsLoading(true);
+      const res = await addArtwork(form);
+      setForm(initialState);
+      console.log(res);
+      Navigate(-1);
+    } catch (err) {
+      setIsError((prevState) => {
+        console.log(err);
+        return { ...prevState, message: err.message, isError: true };
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const titleValidation = !form.title.length;
+  const authorValidation = !form.author.length;
+  const movementValidation = !form.movement.length;
+  const yearValidation = !form.year.length;
+  const imageValidation = !form.image.length;
+  const techniqueValidation = !form.technique.length;
+  const sizesValidation = !form.sizes.length;
+  const priceValidation = !form.price.length;
+  const descriptionValidation = !form.description.length;
+
+  const formValidation =
+    titleValidation ||
+    authorValidation ||
+    movementValidation ||
+    yearValidation ||
+    imageValidation ||
+    techniqueValidation ||
+    sizesValidation ||
+    priceValidation ||
+    descriptionValidation;
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -48,13 +86,12 @@ export function AddArtwork() {
           <h1 className="text-center text-2xl font-bold text-cyan-600 sm:text-3xl">
             Insert the new Artwork here
           </h1>
-
           {/* <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
             Inserisci title, author, genre, isbn, description
           </p> */}
 
           <form
-            /* onSubmit={handleSubmit} */
+            onSubmit={handleSubmit}
             action="#"
             className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
           >
@@ -84,7 +121,6 @@ export function AddArtwork() {
 
             {!isLoading ? (
               <button
-                onSubmit={handleSubmit}
                 type="submit"
                 className={`block w-full rounded-lg bg-cyan-600 ${
                   formValidation ? "bg-slate-400" : ""
@@ -102,4 +138,4 @@ export function AddArtwork() {
   );
 }
 
-export default AddArtwork;
+export default CreateArtwork;
