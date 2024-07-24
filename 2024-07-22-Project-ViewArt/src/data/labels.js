@@ -11,4 +11,8 @@ export const labels = {
   artworkList: "Artwork list",
 
   btnDetails: "Details",
+
+  ErrorTxt: "Oops! Looks like you're lost.",
+  ErrorTryAgain: "Try again, you'll be ",
+  ErrorLukier: "luckier",
 };

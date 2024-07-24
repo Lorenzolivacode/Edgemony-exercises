@@ -1,11 +1,16 @@
 import React from "react";
+import { useRouteError } from "react-router-dom";
+import { labels } from "../data/labels";
 
-export function ErrorGenericComponent() {
+export function ErrorGenericComponent({ message }) {
+  const error = useRouteError();
+
   return (
     <div className="text-center mt-16">
       <h1 className="mb-4 text-6xl font-semibold text-cyan-700">404</h1>
-      <p className="mb-4 text-lg text-gray-600">
-        Oops! Looks like you're lost.
+      <p className="mb-4 text-lg text-gray-600">{labels.ErrorTxt}</p>
+      <p className="mb-4 text-lg text-cyan-700">
+        {message || error.statusText || error.message}
       </p>
       <div className="animate-bounce">
         <svg
@@ -23,11 +28,10 @@ export function ErrorGenericComponent() {
         </svg>
       </div>
       <p className="mt-4 text-gray-600">
-        Try again, you'll be{" "}
+        {labels.ErrorTryAgain}
         <a href="/" className="text-blue-500">
-          luckier
+          {labels.ErrorLukier}
         </a>
-        .
       </p>
     </div>
   );

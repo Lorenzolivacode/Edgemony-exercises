@@ -18,7 +18,8 @@ function App() {
     console.log(artworkList);
   }, [artworkList]);
 
-  if (isError.isError) return <ErrorGenericComponent />;
+  if (isError.isError)
+    return <ErrorGenericComponent message={isError.message} />;
 
   if (isLoading) {
     return (

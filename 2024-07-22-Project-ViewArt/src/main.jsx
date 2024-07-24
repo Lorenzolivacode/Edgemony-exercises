@@ -13,7 +13,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <DefaultLayout />,
-    errorElement: "error",
+    errorElement: <ErrorGenericComponent />,
     children: [
       { path: "/", element: <App /> },
       { path: "artwork/:id", element: <PageArtwork /> },

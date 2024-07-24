@@ -1,6 +1,7 @@
 export const getArtworkList = () => {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
+      /* reject({ message: "Errore bruttissimissimo" }); */
       resolve(() => {
         return [
           {
