@@ -7,16 +7,18 @@ import { labels } from "./../data/labels";
 export function DefaultLayout() {
   return (
     <>
-      <header className="h-12 flex justify-between items-center p-4 px-24 shadow-xl bg-cyan-100">
+      <header className="h-12 flex justify-between text-cyan-950 items-center p-4 px-24 shadow-xl bg-cyan-100">
         <h1>
-          <Link>{labels.artworkTitleNav}</Link>
+          <Link to="/">{labels.artworkTitleNav}</Link>
         </h1>
         <nav>
           <ul className="flex gap-8 underline">
             <li>
               <NavLink
                 className={({ isActive }) => {
-                  return isActive ? "font-bold underline shadow-sm" : "";
+                  return isActive
+                    ? "font-bold underline shadow-sm"
+                    : "no-underline";
                 }}
                 to="/"
               >

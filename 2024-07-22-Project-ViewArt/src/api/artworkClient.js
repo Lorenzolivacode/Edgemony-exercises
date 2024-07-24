@@ -1,6 +1,7 @@
 export const getArtworkList = () => {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
+      /* reject({ message: "Errore bruttissimissimo" }); */
       resolve(() => {
         return [
           {
@@ -30,6 +31,29 @@ export const getArtworkList = () => {
               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit et iste ut odit recusandae accusantium vero, sit quis repudiandae ipsa laboriosam debitis mollitia rem veniam.",
           },
         ];
+      });
+    }, 1000);
+  });
+};
+
+export const getArtworkDetails = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      /* reject({ message: "Errore bruttissimissimo" }); */
+      resolve(() => {
+        return {
+          id: "0001",
+          year: "1884",
+          title: "Dopo la pioggia",
+          movement: "Vedutismo siciliano",
+          author: "Francesco Lojacono",
+          image: "./../src/assets/0001-dopo-la-pioggia-600-448.jpg",
+          price: "€32.000",
+          technique: "Oil on canvas",
+          sizes: "cm. 49,5x65",
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit et iste ut odit recusandae accusantium vero, sit quis repudiandae ipsa laboriosam debitis mollitia rem veniam.",
+        };
       });
     }, 1000);
   });
