@@ -4,6 +4,7 @@ import App from "./App.jsx";
 import "./index.css";
 
 import { PageArtwork } from "./Pages/PageArtwork.jsx";
+import { ErrorGenericComponent } from "./Components/ErrorGenericComponent.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import DefaultLayout from "./Layout/DefaultLayout.jsx";

@@ -1,39 +1,24 @@
 import { useEffect, useState } from "react";
 import { labels } from "./data/labels";
-import { getArtworkList } from "./api/artworkClient";
 
 import { useArtwork } from "./function/getArtwork.jsx";
+import { ErrorGenericComponent } from "./Components/ErrorGenericComponent.jsx";
 
-import eye from "./assets/eye.png";
-
-import PageArtwork from "./Pages/PageArtwork";
-import ModalViewImage from "./Components/ModalViewImage";
 import TableItem from "./Components/TableItem";
 
 function App() {
-  const { isLoading, artworkList, getArtwork } = useArtwork();
-  /* const [artworkList, setArtworkList] = useState([]); */
-  /* const [isLoading, setIsLoading] = useState(true); */
-  /* const [isModalViewOpen, setIsModalViewOpen] = useState(false); */
-
-  /* const getArtwork = async () => {
-    try {
-      const data = await getArtworkList();
-      setArtworkList(data);
-    } catch (err) {
-      return <h1>Errore nel caricamento delle opere</h1>;
-    } finally {
-      setIsLoading(false);
-    }
-  }; */
+  const { isLoading, isError, artworkList, getArtwork } = useArtwork();
 
   useEffect(() => {
     getArtwork();
+    console.log("isError", isError);
   }, []);
 
   useEffect(() => {
     console.log(artworkList);
   }, [artworkList]);
+
+  if (isError.isError) return <ErrorGenericComponent />;
 
   if (isLoading) {
     return (

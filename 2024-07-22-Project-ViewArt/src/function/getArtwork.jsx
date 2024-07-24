@@ -22,7 +22,7 @@ export const useArtwork = () => {
     }
   };
 
-  /* const getDetails = async () => {
+  const getDetails = async () => {
     try {
       const data = await getArtworkDetails();
       setArtworkDetails(data);
@@ -35,7 +35,7 @@ export const useArtwork = () => {
     } finally {
       setIsLoading(false);
     }
-  }; */
+  };
 
   return {
     isLoading,
@@ -43,5 +43,6 @@ export const useArtwork = () => {
     artworkList,
     artworkDetails,
     getArtwork,
+    getDetails,
   };
 };

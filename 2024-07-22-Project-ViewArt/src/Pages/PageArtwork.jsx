@@ -1,39 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import { ErrorComponent } from "./../Components/ErrorComponent.jsx";
+
 import { getArtworkDetails } from "../api/artworkClient.js";
 
-/* import { artworkDetails, getDetails } from "./../function/getArtwork.jsx"; */
+import { useArtwork } from "./../function/getArtwork.jsx";
 
 export function PageArtwork() {
   const { id } = useParams();
-
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState({ message: "", isError: false });
-  const [artworkDetails, setArtworkDetails] = useState({});
-
-  const getDetails = async () => {
-    try {
-      const data = await getArtworkDetails();
-      setArtworkDetails(data);
-      console.log("data: ", data);
-    } catch (err) {
-      console.log(err.message);
-      setIsError((prevState) => {
-        return { ...prevState, message: err.message, isError: true };
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const { isLoading, isError, artworkDetails, getDetails } = useArtwork();
 
   useEffect(() => {
     getDetails(id);
   }, []);
 
-  /* useEffect(() => {
-    console.log(artworkDetails);
-  }, [artworkDetails]); */
+  useEffect(() => {
+    console.log("AWDet: ", artworkDetails);
+  }, [artworkDetails]);
+
+  if (isError.isError) {
+    return <ErrorComponent message={isError.message} />;
+  }
 
   if (isLoading) {
     return (

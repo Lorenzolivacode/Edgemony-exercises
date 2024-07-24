@@ -36,9 +36,9 @@ export const getArtworkList = () => {
 };
 
 export const getArtworkDetails = () => {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
-      /* reject({ message: "Errore bruttissimissimo" }) */
+      /* reject({ message: "Errore bruttissimissimo" }); */
       resolve(() => {
         return {
           id: "0001",
