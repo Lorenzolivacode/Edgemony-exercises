@@ -25,6 +25,18 @@ export function DefaultLayout() {
                 {labels.artworkHomeNav}
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                className={({ isActive }) => {
+                  return isActive
+                    ? "font-bold underline shadow-sm"
+                    : "no-underline";
+                }}
+                to="AddArtwork"
+              >
+                {labels.artworkAddNav}
+              </NavLink>
+            </li>
           </ul>
         </nav>
       </header>

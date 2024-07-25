@@ -7,8 +7,10 @@ export const labels = {
 
   artworkTitleNav: "ViewArt",
   artworkHomeNav: "Home",
+  artworkAddNav: "Add Artwork +",
 
   artworkList: "Artwork list",
+  artworkInput: "Insert title or author",
 
   btnDetails: "Details",
 

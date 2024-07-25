@@ -6,27 +6,27 @@ export const getArtworkList = () => {
         return [
           {
             id: "0001",
-            year: "1884",
             title: "Dopo la pioggia",
-            movement: "Vedutismo siciliano",
             author: "Francesco Lojacono",
+            movement: "Vedutismo siciliano",
+            year: "1884",
             image: "./../src/assets/0001-dopo-la-pioggia-600-448.jpg",
-            price: "€32.000",
             technique: "Oil on canvas",
             sizes: "cm. 49,5x65",
+            price: "€32.000",
             description:
               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit et iste ut odit recusandae accusantium vero, sit quis repudiandae ipsa laboriosam debitis mollitia rem veniam.",
           },
           {
             id: "0002",
-            year: "2019",
             title: "Luce",
-            movement: "Surrealismo contemporaneo",
             author: "Lorenzo Oliva",
+            movement: "Surrealismo contemporaneo",
+            year: "2019",
             image: "./../src/assets/0002-Luce.jpg",
-            price: "€2.500",
             technique: "Oil on canvas",
             sizes: "cm. 120x80",
+            price: "€2.500",
             description:
               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit et iste ut odit recusandae accusantium vero, sit quis repudiandae ipsa laboriosam debitis mollitia rem veniam.",
           },
@@ -59,6 +59,17 @@ export const getArtworkDetails = () => {
   });
 };
 
+export const addArtwork = (body) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({
+        ...body,
+        id: self.crypto.randomUUID(),
+      });
+    }, 2000);
+  });
+};
+
 /* export const getBookList = async () => {
 	try {
 
@@ -70,3 +81,10 @@ export const getArtworkDetails = () => {
 
 	}
 };  */
+
+//const body = JSON.stringify(form);
+
+/*     fetch("", {
+      method: "POST",
+      body: body,
+    }); */

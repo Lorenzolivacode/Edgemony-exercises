@@ -1,11 +1,28 @@
-import { getArtworkList, getArtworkDetails } from "./../api/artworkClient";
+import {
+  getArtworkList,
+  getArtworkDetails,
+  addArtwork,
+} from "./../api/artworkClient";
 import { useState } from "react";
 
 export const useArtwork = () => {
+  const initialState = {
+    title: "",
+    author: "",
+    movement: "",
+    year: "",
+    image: "",
+    technique: "",
+    sizes: "",
+    price: "",
+    description: "",
+  };
+
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState({ message: "", isError: false });
   const [artworkList, setArtworkList] = useState([]);
   const [artworkDetails, setArtworkDetails] = useState(null);
+  const [form, setForm] = useState(initialState);
 
   const getArtwork = async () => {
     try {
@@ -37,12 +54,34 @@ export const useArtwork = () => {
     }
   };
 
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      setIsLoading(true);
+      const res = await addArtwork(form);
+      /* setForm(initialState); */
+      console.log(res);
+    } catch (err) {
+      setIsError((prevState) => {
+        console.log(err);
+        return { ...prevState, message: err.message, isError: true };
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return {
+    initialState,
     isLoading,
+    setIsLoading,
     isError,
+    setIsError,
+    setForm,
     artworkList,
     artworkDetails,
     getArtwork,
     getDetails,
+    handleSubmit,
   };
 };

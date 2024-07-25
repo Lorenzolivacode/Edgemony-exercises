@@ -9,9 +9,15 @@ import TableItem from "./Components/TableItem";
 function App() {
   const { isLoading, isError, artworkList, getArtwork } = useArtwork();
 
+  const [filterInput, setFilterInput] = useState("");
+
+  const handleChange = (e) => {
+    setFilterInput(e.target.value.toLowerCase());
+  };
+
   useEffect(() => {
     getArtwork();
-    console.log("isError", isError);
+    /* console.log("isError", isError); */
   }, []);
 
   useEffect(() => {
@@ -73,7 +79,10 @@ function App() {
           <div className="p-4 flex justify-between">
             <h1 className="">{labels.artworkList}</h1>
             <input
+              value={filterInput}
+              placeholder={labels.artworkInput}
               type="text"
+              onChange={handleChange}
               className="border-2 border-cyan-950 rounded p-1"
             />
           </div>
@@ -103,9 +112,16 @@ function App() {
               </thead>
 
               <tbody className="divide-y divide-gray-200">
-                {artworkList.map((artwork) => (
-                  <TableItem key={artwork.id} artwork={artwork} />
-                ))}
+                {artworkList
+                  .filter((artwork) => {
+                    return (
+                      artwork.title.toLowerCase().includes(filterInput) ||
+                      artwork.author.toLowerCase().includes(filterInput)
+                    );
+                  })
+                  .map((artwork) => (
+                    <TableItem key={artwork.id} artwork={artwork} />
+                  ))}
               </tbody>
             </table>
           </div>
