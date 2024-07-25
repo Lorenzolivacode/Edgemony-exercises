@@ -70,6 +70,16 @@ export const addArtwork = (body) => {
   });
 };
 
+export const editArtwork = (body) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({
+        ...body,
+      });
+    }, 2000);
+  });
+};
+
 /* export const getBookList = async () => {
 	try {
 

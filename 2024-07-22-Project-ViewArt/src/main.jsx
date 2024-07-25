@@ -8,7 +8,8 @@ import { ErrorGenericComponent } from "./Components/ErrorGenericComponent.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import DefaultLayout from "./Layout/DefaultLayout.jsx";
-import AddArtwork, { CreateArtwork } from "./Pages/CreateArtwork.jsx";
+import { CreateArtwork } from "./Pages/CreateArtwork.jsx";
+import EditArtwork from "./Pages/EditArtwork.jsx";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       { path: "/", element: <App /> },
       { path: "artwork/:id", element: <PageArtwork /> },
       { path: "addArtwork", element: <CreateArtwork /> },
+      { path: "editArtwork/:id", element: <EditArtwork /> },
     ],
   },
 ]);

@@ -1,48 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useState, useEffect } from "react";
+import { InputFormEl } from "./InputFormEl";
 import { useArtwork } from "../function/getArtwork";
-import InputFormEl from "../Components/InputFormEl";
-import { addArtwork } from "../api/artworkClient";
-import { Navigate } from "react-router-dom";
-import { ArtworkForm } from "./../Components/ArtworkForm";
+import { labels } from "../data/labels";
 
-/* const initialState = {
-  title: "",
-  author: "",
-  movement: "",
-  year: "",
-  image: "",
-  technique: "",
-  sizes: "",
-  price: "",
-  description: "",
-}; */
-/* 
-const arrayInitialState = Object.keys(initialState); */
-export function CreateArtwork() {
+export function ArtworkForm({ value, onSubmit, nameFunction }) {
   const { isError, isLoading, setIsLoading, setIsError } = useArtwork();
-  /* 
-  const [form, setForm] = useState(initialState); */
 
-  const handleSubmit = async (value) => {
-    console.log("Submitting form:", value);
-    try {
-      /* e.preventDefault(); */
-      setIsLoading(true);
-      const res = await addArtwork(value);
-      /* setForm(initialState); */
-      console.log(res);
-      Navigate(-1);
-    } catch (err) {
-      setIsError((prevState) => {
-        console.log(err);
-        return { ...prevState, message: err.message, isError: true };
-      });
-    } finally {
-      setIsLoading(false);
-    }
+  const initialState = {
+    title: value?.title || "",
+    author: value?.author || "",
+    movement: value?.movement || "",
+    year: value?.year || "",
+    image: value?.image || "",
+    technique: value?.technique || "",
+    sizes: value?.sizes || "",
+    price: value?.price || "",
+    description: value?.description || "",
   };
+  const arrayInitialState = Object.keys(initialState);
 
-  /*  const titleValidation = !form.title.length;
+  const [form, setForm] = useState(initialState);
+
+  const titleValidation = !form.title.length;
   const authorValidation = !form.author.length;
   const movementValidation = !form.movement.length;
   const yearValidation = !form.year.length;
@@ -61,47 +41,51 @@ export function CreateArtwork() {
     techniqueValidation ||
     sizesValidation ||
     priceValidation ||
-    descriptionValidation; */
+    descriptionValidation;
 
-  /* const handleChange = (e) => {
+  const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
 
     setForm((prevState) => {
       return { ...prevState, [name]: value };
     });
-  }; */
+  };
 
-  /* useEffect(() => {
-    console.log(form);
-  }, [form]); */
+  useEffect(() => {
+    setIsLoading(false);
+  }, []);
 
-  /* useEffect(() => {
-    console.log(CreateArtwork.name);
-  }, []); */
+  useEffect(() => {
+    setIsLoading(false);
+    console.log("Initial state: ", initialState);
+    console.log("form: ", form);
+  }, []);
 
   return (
-    <ArtworkForm onSubmit={handleSubmit} nameFunction={CreateArtwork.name} />
-  );
-  {
-    /* <div>
+    <div>
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-lg">
           <h1 className="text-center text-2xl font-bold text-cyan-600 sm:text-3xl">
-            Insert the new Artwork here
-          </h1>  */
-  }
-
-  {
-    /* <form
-            onSubmit={handleSubmit}
+            {labels.titlePage}
+            {nameFunction}
+          </h1>
+          <form
+            onSubmit={async (e) => {
+              e.preventDefault();
+              setIsLoading(true);
+              await onSubmit(form);
+              setIsLoading(false);
+            }}
             action="#"
             className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
           >
             {arrayInitialState.map((element) => {
+              console.log(form.element);
               return (
                 <InputFormEl
                   key={arrayInitialState.indexOf(element)}
+                  value={form.element}
                   el={element}
                   onChange={handleChange}
                 />
@@ -124,9 +108,10 @@ export function CreateArtwork() {
 
             {!isLoading ? (
               <button
+                disabled={formValidation}
                 type="submit"
                 className={`block w-full rounded-lg bg-cyan-600 ${
-                  formValidation ? "bg-slate-400" : ""
+                  formValidation ? "bg-slate-400 cursor-none" : ""
                 } px-5 py-3 text-sm font-medium text-white`}
               >
                 Submit
@@ -134,11 +119,11 @@ export function CreateArtwork() {
             ) : (
               <button disabled>Is Loading...</button>
             )}
-          </form> */
-  }
-  /* </div>
+          </form>
+        </div>
       </div>
-    </div> */
+    </div>
+  );
 }
 
-export default CreateArtwork;
+export default ArtworkForm;

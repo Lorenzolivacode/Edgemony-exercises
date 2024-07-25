@@ -35,6 +35,13 @@ export function TableItem({ artwork }) {
         >
           {labels.btnDetails}
         </Link>
+        <Link
+          to={`/editArtwork/${artwork.id}`}
+          className="ml-4 inline-block rounded bg-cyan-600 px-4 py-2 text-xs font-medium text-white hover:bg-cyan-700"
+          title="View details's page"
+        >
+          {labels.btnEdit}
+        </Link>
       </td>
     </tr>
   );

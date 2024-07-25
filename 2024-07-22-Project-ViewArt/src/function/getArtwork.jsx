@@ -39,9 +39,9 @@ export const useArtwork = () => {
     }
   };
 
-  const getDetails = async () => {
+  const getDetails = async (id) => {
     try {
-      const data = await getArtworkDetails();
+      const data = await getArtworkDetails(id);
       setArtworkDetails(data);
       console.log("data: ", data);
     } catch (err) {
@@ -78,6 +78,7 @@ export const useArtwork = () => {
     isError,
     setIsError,
     setForm,
+    artworkDetails,
     artworkList,
     artworkDetails,
     getArtwork,

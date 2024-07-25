@@ -13,8 +13,11 @@ export const labels = {
   artworkInput: "Insert title or author",
 
   btnDetails: "Details",
+  btnEdit: "Edit ✏️",
 
   ErrorTxt: "Oops! Looks like you're lost.",
   ErrorTryAgain: "Try again, you'll be ",
   ErrorLukier: "luckier",
+
+  titlePage: "Insert the details of the Artwork to ",
 };
