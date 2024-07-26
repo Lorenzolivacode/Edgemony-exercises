@@ -54,6 +54,7 @@ export function ArtworkForm({ value, onSubmit, nameFunction }) {
 
   useEffect(() => {
     setForm(initialState);
+    console.log("form: ", form);
   }, [value]);
 
   useEffect(() => {

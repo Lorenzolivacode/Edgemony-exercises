@@ -1,0 +1,266 @@
+{
+  "artwork": [
+    {
+      "id": "0001",
+      "title": "After the Rain",
+      "author": "Francesco Lojacono",
+      "movement": "Sicilian Viewism",
+      "year": "1884",
+      "image": "./../src/assets/0001-dopo-la-pioggia-600-448.jpg"
+    },
+    {
+      "id": "0002",
+      "title": "The Starry Night",
+      "author": "Vincent van Gogh",
+      "movement": "Post-Impressionism",
+      "year": "1889",
+      "image": ""
+    },
+    {
+      "id": "0003",
+      "title": "Mona Lisa",
+      "author": "Leonardo da Vinci",
+      "movement": "Renaissance",
+      "year": "1503",
+      "image": ""
+    },
+    {
+      "id": "0004",
+      "title": "The Kiss",
+      "author": "Gustav Klimt",
+      "movement": "Symbolism",
+      "year": "1907",
+      "image": ""
+    },
+    {
+      "id": "0005",
+      "title": "The Persistence of Memory",
+      "author": "Salvador Dalí",
+      "movement": "Surrealism",
+      "year": "1931",
+      "image": ""
+    },
+    {
+      "id": "0006",
+      "title": "The Raft of the Medusa",
+      "author": "Théodore Géricault",
+      "movement": "Romanticism",
+      "year": "1818",
+      "image": ""
+    },
+    {
+      "id": "0007",
+      "title": "The Nights of Arles",
+      "author": "Vincent van Gogh",
+      "movement": "Post-Impressionism",
+      "year": "1888",
+      "image": ""
+    },
+    {
+      "id": "0008",
+      "title": "The Birth of Venus",
+      "author": "Sandro Botticelli",
+      "movement": "Renaissance",
+      "year": "1486",
+      "image": ""
+    },
+    {
+      "id": "0009",
+      "title": "The Garden of Earthly Delights",
+      "author": "Hieronymus Bosch",
+      "movement": "Northern Renaissance",
+      "year": "1503-1504",
+      "image": ""
+    },
+    {
+      "id": "0010",
+      "title": "The Creation of Adam",
+      "author": "Michelangelo",
+      "movement": "Renaissance",
+      "year": "1512",
+      "image": ""
+    },
+    {
+      "id": "0011",
+      "title": "Luce",
+      "author": "Lorenzo Oliva",
+      "movement": "Surrealismo contemporaneo",
+      "year": "2019",
+      "image": "./../src/assets/0002-Luce.jpg"
+    },
+    {
+      "id": "cf3550c8-07ad-46f4-9836-36317a4284ef",
+      "title": "Il Teatrante",
+      "author": "Lorenzo Oliva",
+      "movement": "Contemporary surrealism",
+      "year": "2021",
+      "image": "./../src/asset/0012-Il-teatrante.jpg"
+    },
+    {
+      "id": "16b87e7f-4ded-42b4-9ecb-c6bd2c35812c",
+      "title": "Il Teatrante",
+      "author": "Lorenzo Oliva",
+      "movement": "Contemporary surrealism",
+      "year": "2021",
+      "image": "./../src/asset/0012-Il-teatrante.jpg"
+    }
+  ],
+  "artworkDetails": [
+    {
+      "id": "0001",
+      "year": "1884",
+      "title": "After the Rain",
+      "movement": "Sicilian Viewism",
+      "author": "Francesco Lojacono",
+      "image": "./../src/assets/0001-dopo-la-pioggia-600-448.jpg",
+      "price": "€32,000",
+      "technique": "Oil on canvas",
+      "sizes": "cm. 49.5x65",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit et iste ut odit recusandae accusantium vero, sit quis repudiandae ipsa laboriosam debitis mollitia rem veniam."
+    },
+    {
+      "id": "0002",
+      "year": "1889",
+      "title": "The Starry Night",
+      "movement": "Post-Impressionism",
+      "author": "Vincent van Gogh",
+      "image": "",
+      "price": "€100,000,000",
+      "technique": "Oil on canvas",
+      "sizes": "73.7 cm × 92.1 cm",
+      "description": "One of Vincent van Gogh's most famous works, painted during his stay at the Saint-Rémy-de-Provence asylum."
+    },
+    {
+      "id": "0003",
+      "year": "1503",
+      "title": "Mona Lisa",
+      "movement": "Renaissance",
+      "author": "Leonardo da Vinci",
+      "image": "",
+      "price": "Priceless",
+      "technique": "Oil on poplar panel",
+      "sizes": "77 cm × 53 cm",
+      "description": "The Mona Lisa is one of the most famous paintings in the world, known for the mysterious smile of the woman depicted."
+    },
+    {
+      "id": "0004",
+      "year": "1907",
+      "title": "The Kiss",
+      "movement": "Symbolism",
+      "author": "Gustav Klimt",
+      "image": "",
+      "price": "€135,000,000",
+      "technique": "Oil and gold leaf on canvas",
+      "sizes": "180 cm × 180 cm",
+      "description": "One of Klimt's most iconic works, characterized by the use of gold leaf and intricate decorative patterns."
+    },
+    {
+      "id": "0005",
+      "year": "1931",
+      "title": "The Persistence of Memory",
+      "movement": "Surrealism",
+      "author": "Salvador Dalí",
+      "image": "",
+      "price": "€120,000,000",
+      "technique": "Oil on canvas",
+      "sizes": "24 cm × 33 cm",
+      "description": "A famous painting by Dalí depicting melting clocks, symbolizing the relativity of time and memory."
+    },
+    {
+      "id": "0006",
+      "year": "1818",
+      "title": "The Raft of the Medusa",
+      "movement": "Romanticism",
+      "author": "Théodore Géricault",
+      "image": "",
+      "price": "€100,000,000",
+      "technique": "Oil on canvas",
+      "sizes": "491 cm × 716 cm",
+      "description": "A dramatic portrayal of a real event, the wreck of the frigate Medusa, which caused a scandal at the time."
+    },
+    {
+      "id": "0007",
+      "year": "1888",
+      "title": "The Nights of Arles",
+      "movement": "Post-Impressionism",
+      "author": "Vincent van Gogh",
+      "image": "",
+      "price": "€90,000,000",
+      "technique": "Oil on canvas",
+      "sizes": "72.4 cm × 92.1 cm",
+      "description": "A painting showing a starry night over the Rhône River in Arles, with couples strolling along the riverbank."
+    },
+    {
+      "id": "0008",
+      "year": "1486",
+      "title": "The Birth of Venus",
+      "movement": "Renaissance",
+      "author": "Sandro Botticelli",
+      "image": "",
+      "price": "Priceless",
+      "technique": "Tempera on canvas",
+      "sizes": "172.5 cm × 278.5 cm",
+      "description": "A masterpiece of Italian Renaissance depicting the goddess Venus emerging from the sea on a shell."
+    },
+    {
+      "id": "0009",
+      "year": "1503-1504",
+      "title": "The Garden of Earthly Delights",
+      "movement": "Northern Renaissance",
+      "author": "Hieronymus Bosch",
+      "image": "",
+      "price": "Priceless",
+      "technique": "Oil on oak panel",
+      "sizes": "220 cm × 389 cm",
+      "description": "A complex triptych rich in symbolic details, representing heaven, earthly life, and hell."
+    },
+    {
+      "id": "0010",
+      "year": "1512",
+      "title": "The Creation of Adam",
+      "movement": "Renaissance",
+      "author": "Michelangelo",
+      "image": "",
+      "price": "Priceless",
+      "technique": "Fresco",
+      "sizes": "280 cm × 570 cm",
+      "description": "Part of the Sistine Chapel ceiling, depicting the moment God gives life to Adam."
+    },
+    {
+      "id": "0002",
+      "title": "Luce",
+      "author": "Lorenzo Oliva",
+      "movement": "Surrealismo contemporaneo",
+      "year": "2019",
+      "image": "./../src/assets/0002-Luce.jpg",
+      "technique": "Oil on canvas",
+      "sizes": "cm. 120x80",
+      "price": "€2.500",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit et iste ut odit recusandae accusantium vero, sit quis repudiandae ipsa laboriosam debitis mollitia rem veniam."
+    },
+    {
+      "id": "cf3550c8-07ad-46f4-9836-36317a4284ef",
+      "title": "Il Teatrante",
+      "author": "Lorenzo Oliva",
+      "movement": "Contemporary surrealism",
+      "year": "2021",
+      "image": "./../src/asset/0012-Il-teatrante.jpg",
+      "technique": "Oil on canvas",
+      "sizes": "cm. 70x50",
+      "price": "1200",
+      "description": "Il dipinto vuole creare una disgiunzione fra il reale e l’inconscio. Un individuo si trova su di un palco, la scena rappresenta un istante “incompreso”: questo può essere il culmine d’un movimento, d’uno spettacolo, o il principio, la posa dalla quale comincia tutto, ma ogni “fine” può e non deve essere altro che un nuovo inizio. Il soggetto tiene in mano una maschera: in quest’istante essa può essere accostata ed indossata, così come può essere tolta, per mostrare la propria essenza."
+    },
+    {
+      "id": "16b87e7f-4ded-42b4-9ecb-c6bd2c35812c",
+      "title": "Il Teatrante",
+      "author": "Lorenzo Oliva",
+      "movement": "Contemporary surrealism",
+      "year": "2021",
+      "image": "./../src/asset/0012-Il-teatrante.jpg",
+      "technique": "Oil on canvas",
+      "sizes": "cm. 70x50",
+      "price": "1200",
+      "description": "Il dipinto vuole creare una disgiunzione fra il reale e l’inconscio. Un individuo si trova su di un palco, la scena rappresenta un istante “incompreso”: questo può essere il culmine d’un movimento, d’uno spettacolo, o il principio, la posa dalla quale comincia tutto, ma ogni “fine” può e non deve essere altro che un nuovo inizio. Il soggetto tiene in mano una maschera: in quest’istante essa può essere accostata ed indossata, così come può essere tolta, per mostrare la propria essenza."
+    }
+  ]
+}

@@ -1,7 +1,7 @@
-export const getArtworkList = () => {
+/* export const getArtworkList = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      /* reject({ message: "Errore bruttissimissimo" }); */
+      reject({ message: "Errore bruttissimissimo" });
       resolve(() => {
         return [
           {
@@ -34,12 +34,12 @@ export const getArtworkList = () => {
       });
     }, 1000);
   });
-};
+}; */
 
-export const getArtworkDetails = () => {
+/* export const getArtworkDetails = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      /* reject({ message: "Errore bruttissimissimo" }); */
+      reject({ message: "Errore bruttissimissimo" }); 
       resolve(() => {
         return {
           id: "0001",
@@ -57,9 +57,9 @@ export const getArtworkDetails = () => {
       });
     }, 1000);
   });
-};
+}; */
 
-export const addArtwork = (body) => {
+/* export const addArtwork = (body) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve({
@@ -68,7 +68,7 @@ export const addArtwork = (body) => {
       });
     }, 2000);
   });
-};
+}; */
 
 export const editArtwork = (body) => {
   return new Promise((resolve, reject) => {
@@ -80,21 +80,54 @@ export const editArtwork = (body) => {
   });
 };
 
-/* export const getBookList = async () => {
-	try {
+//FAKE SERVER
 
-		const res = await fetch("https://jsonplaceholde.typicode.com/users");
-		return res.json()
+export const getArtworkList = async () => {
+  try {
+    const res = await fetch("http://localhost:3000/artwork");
+    console.log("res", res);
+    return res.json();
+  } catch (error) {
+    throw Error(error);
+  }
+};
 
-	} catch (error) {
-		throw new Error("Error:", error)
+export const getArtworkDetails = async (id) => {
+  try {
+    const res = await fetch(`http://localhost:3000/artworkDetails/${id}`);
+    console.log("res", res);
+    return res.json();
+  } catch (error) {
+    throw Error(error);
+  }
+};
 
-	}
-};  */
+export const addArtwork = async (body) => {
+  const id = self.crypto.randomUUID();
+  const artworkHome = {
+    id,
+    title: body.title,
+    author: body.author,
+    movement: body.movement,
+    year: body.year,
+    image: body.image,
+  };
 
-//const body = JSON.stringify(form);
-
-/*     fetch("", {
+  try {
+    await fetch(`http://localhost:3000/artwork`, {
       method: "POST",
-      body: body,
-    }); */
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(artworkHome),
+    });
+
+    const res = await fetch(`http://localhost:3000/artworkDetails`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id, ...body }),
+    });
+    console.log("res: ", res.json());
+    return res.json();
+  } catch (error) {
+    throw Error(error);
+  }
+};
