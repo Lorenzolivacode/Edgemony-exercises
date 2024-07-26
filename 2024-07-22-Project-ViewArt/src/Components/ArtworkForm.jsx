@@ -53,14 +53,19 @@ export function ArtworkForm({ value, onSubmit, nameFunction }) {
   };
 
   useEffect(() => {
-    setIsLoading(false);
-  }, []);
+    setForm(initialState);
+  }, [value]);
 
   useEffect(() => {
     setIsLoading(false);
+    console.log("Validation: ", formValidation);
+  }, []);
+
+  /* useEffect(() => {
+    setIsLoading(false);
     console.log("Initial state: ", initialState);
     console.log("form: ", form);
-  }, []);
+  }, []); */
 
   return (
     <div>
@@ -81,11 +86,13 @@ export function ArtworkForm({ value, onSubmit, nameFunction }) {
             className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
           >
             {arrayInitialState.map((element) => {
-              console.log(form.element);
+              /* console.log("form: ", form);
+              console.log("el: ", element);
+              console.log("form el: ", form[element]); */
               return (
                 <InputFormEl
                   key={arrayInitialState.indexOf(element)}
-                  value={form.element}
+                  value={form[element]}
                   el={element}
                   onChange={handleChange}
                 />

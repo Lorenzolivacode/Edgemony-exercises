@@ -1,12 +1,13 @@
 import React from "react";
 
-export function InputFormEl({ onChange, el }) {
+export function InputFormEl({ onChange, el, value }) {
   return (
     <div>
       <label className="sr-only">{el}</label>
 
       <div className="relative">
         <input
+          value={value}
           name={el}
           onChange={onChange}
           type="text"

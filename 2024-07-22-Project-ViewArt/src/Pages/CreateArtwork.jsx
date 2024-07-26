@@ -19,17 +19,17 @@ import { ArtworkForm } from "./../Components/ArtworkForm";
 /* 
 const arrayInitialState = Object.keys(initialState); */
 export function CreateArtwork() {
-  const { isError, isLoading, setIsLoading, setIsError } = useArtwork();
-  /* 
-  const [form, setForm] = useState(initialState); */
+  const { isError, isLoading, setIsLoading, handleAdd } = useArtwork();
 
-  const handleSubmit = async (value) => {
+  /* const [form, setForm] = useState(initialState);
+
+   const handleSubmit = async (value) => {
     console.log("Submitting form:", value);
     try {
-      /* e.preventDefault(); */
+      e.preventDefault();
       setIsLoading(true);
       const res = await addArtwork(value);
-      /* setForm(initialState); */
+      setForm(initialState);
       console.log(res);
       Navigate(-1);
     } catch (err) {
@@ -40,7 +40,7 @@ export function CreateArtwork() {
     } finally {
       setIsLoading(false);
     }
-  };
+  };  */
 
   /*  const titleValidation = !form.title.length;
   const authorValidation = !form.author.length;
@@ -80,9 +80,7 @@ export function CreateArtwork() {
     console.log(CreateArtwork.name);
   }, []); */
 
-  return (
-    <ArtworkForm onSubmit={handleSubmit} nameFunction={CreateArtwork.name} />
-  );
+  return <ArtworkForm onSubmit={handleAdd} nameFunction={CreateArtwork.name} />;
   {
     /* <div>
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
