@@ -70,7 +70,7 @@
   });
 }; */
 
-export const editArtwork = (body) => {
+/* export const editArtwork = (body) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve({
@@ -78,7 +78,7 @@ export const editArtwork = (body) => {
       });
     }, 2000);
   });
-};
+}; */
 
 //FAKE SERVER
 
@@ -125,7 +125,35 @@ export const addArtwork = async (body) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id, ...body }),
     });
-    console.log("res: ", res.json());
+    return res.json();
+  } catch (error) {
+    throw Error(error);
+  }
+};
+
+export const editArtwork = async (body, id) => {
+  const artworkHome = {
+    id,
+    title: body.title,
+    author: body.author,
+    movement: body.movement,
+    year: body.year,
+    image: body.image,
+  };
+  console.log("body:", body);
+
+  try {
+    await fetch(`http://localhost:3000/artwork/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(artworkHome),
+    });
+
+    const res = await fetch(`http://localhost:3000/artworkDetails/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id, ...body }),
+    });
     return res.json();
   } catch (error) {
     throw Error(error);

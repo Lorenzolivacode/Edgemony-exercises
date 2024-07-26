@@ -26,7 +26,7 @@ export function TableItem({ artwork }) {
       <TdEl>{artwork.author}</TdEl>
       <TdEl>{artwork.movement}</TdEl>
       <TdEl>{artwork.year}</TdEl>
-      <TdEl>{artwork.id}</TdEl>
+      {/* <TdEl>{artwork.id}</TdEl> */}
       <td className="whitespace-nowrap px-4 py-2">
         <Link
           to={`/artwork/${artwork.id}`}

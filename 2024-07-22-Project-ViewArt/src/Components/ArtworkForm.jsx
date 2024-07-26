@@ -80,7 +80,7 @@ export function ArtworkForm({ value, onSubmit, nameFunction }) {
             onSubmit={async (e) => {
               e.preventDefault();
               setIsLoading(true);
-              await onSubmit(form);
+              await onSubmit(form, value?.id || "");
               setIsLoading(false);
             }}
             action="#"

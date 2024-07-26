@@ -72,14 +72,14 @@ export const useArtwork = () => {
     }
   };
 
-  const handleEdit = async (body) => {
+  const handleEdit = async (body, id) => {
     console.log("Submitting form:", body);
     try {
       /* e.preventDefault(); */
       setIsLoading(true);
-      const res = await editArtwork(body);
+      const res = await editArtwork(body, id);
       /* setForm(initialState); */
-      console.log(res);
+      console.log("res", res);
       /* navigate(-1); */
     } catch (err) {
       setIsError((prevState) => {

@@ -82,7 +82,7 @@
     },
     {
       "id": "0011",
-      "title": "Luce",
+      "title": "Light",
       "author": "Lorenzo Oliva",
       "movement": "Surrealismo contemporaneo",
       "year": "2019",
@@ -90,15 +90,7 @@
     },
     {
       "id": "cf3550c8-07ad-46f4-9836-36317a4284ef",
-      "title": "Il Teatrante",
-      "author": "Lorenzo Oliva",
-      "movement": "Contemporary surrealism",
-      "year": "2021",
-      "image": "./../src/asset/0012-Il-teatrante.jpg"
-    },
-    {
-      "id": "16b87e7f-4ded-42b4-9ecb-c6bd2c35812c",
-      "title": "Il Teatrante",
+      "title": "The teather",
       "author": "Lorenzo Oliva",
       "movement": "Contemporary surrealism",
       "year": "2021",
@@ -227,8 +219,8 @@
       "description": "Part of the Sistine Chapel ceiling, depicting the moment God gives life to Adam."
     },
     {
-      "id": "0002",
-      "title": "Luce",
+      "id": "0011",
+      "title": "Light",
       "author": "Lorenzo Oliva",
       "movement": "Surrealismo contemporaneo",
       "year": "2019",
@@ -240,18 +232,6 @@
     },
     {
       "id": "cf3550c8-07ad-46f4-9836-36317a4284ef",
-      "title": "Il Teatrante",
-      "author": "Lorenzo Oliva",
-      "movement": "Contemporary surrealism",
-      "year": "2021",
-      "image": "./../src/asset/0012-Il-teatrante.jpg",
-      "technique": "Oil on canvas",
-      "sizes": "cm. 70x50",
-      "price": "1200",
-      "description": "Il dipinto vuole creare una disgiunzione fra il reale e l’inconscio. Un individuo si trova su di un palco, la scena rappresenta un istante “incompreso”: questo può essere il culmine d’un movimento, d’uno spettacolo, o il principio, la posa dalla quale comincia tutto, ma ogni “fine” può e non deve essere altro che un nuovo inizio. Il soggetto tiene in mano una maschera: in quest’istante essa può essere accostata ed indossata, così come può essere tolta, per mostrare la propria essenza."
-    },
-    {
-      "id": "16b87e7f-4ded-42b4-9ecb-c6bd2c35812c",
       "title": "Il Teatrante",
       "author": "Lorenzo Oliva",
       "movement": "Contemporary surrealism",

@@ -104,9 +104,9 @@ function App() {
                   <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                     {labels.artworkTableYear}
                   </th>
-                  <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                  {/* <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                     {labels.artworkTableId}
-                  </th>
+                  </th> */}
                   <th className="px-4 py-2"></th>
                 </tr>
               </thead>
