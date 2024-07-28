@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { ErrorComponent } from "./../Components/ErrorComponent.jsx";
+import { Link } from "react-router-dom";
+import { labels } from "../data/labels.js";
 
-import { getArtworkDetails } from "../api/artworkClient.js";
+import { ErrorComponent } from "./../Components/ErrorComponent.jsx";
 
 import { useArtwork } from "./../function/getArtwork.jsx";
 
 export function PageArtwork() {
   const { id } = useParams();
-  const { isLoading, isError, artworkDetails, getDetails } = useArtwork();
+  const { isLoading, isError, artworkDetails, getDetails, handleDelete } =
+    useArtwork();
 
   useEffect(() => {
     getDetails(id);
@@ -50,7 +52,7 @@ export function PageArtwork() {
         <img
           src={artworkDetails.image}
           alt="image of artwork"
-          className="max-w-[500px] max-h-[350px]"
+          className="max-w-[500px] max-h-[350px] shadow-[0_0_15px_rgba(0,0,0,0.45)]"
         />
         <div className="text-right">
           <h2 className="font-bold">{artworkDetails.title}</h2>
@@ -61,6 +63,24 @@ export function PageArtwork() {
           <p>{artworkDetails.sizes}</p>
           <p>{artworkDetails.price}</p>
           <p>{artworkDetails.id}</p>
+          <div className="mt-4">
+            <Link
+              to={`/editArtwork/${artworkDetails.id}`}
+              className="ml-4 inline-block rounded bg-cyan-600 px-4 py-2 text-xs font-medium text-white hover:bg-cyan-700"
+              title="Edit details"
+            >
+              {labels.btnEdit}
+            </Link>
+            <Link
+              to={"/"}
+              className="ml-4 inline-block rounded bg-cyan-600 px-4 py-2 text-xs
+          font-medium text-white hover:bg-cyan-700"
+              title="Delete item"
+              onClick={() => handleDelete(artworkDetails.id)}
+            >
+              {labels.btnDelete}
+            </Link>
+          </div>
         </div>
       </div>
       <p>{artworkDetails.description}</p>

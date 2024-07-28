@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 /* export const getArtworkList = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -85,7 +87,7 @@
 export const getArtworkList = async () => {
   try {
     const res = await fetch("http://localhost:3000/artwork");
-    console.log("res", res);
+    /* console.log("res", res); */
     return res.json();
   } catch (error) {
     throw Error(error);
@@ -95,7 +97,7 @@ export const getArtworkList = async () => {
 export const getArtworkDetails = async (id) => {
   try {
     const res = await fetch(`http://localhost:3000/artworkDetails/${id}`);
-    console.log("res", res);
+    /* console.log("res", res); */
     return res.json();
   } catch (error) {
     throw Error(error);
@@ -153,6 +155,23 @@ export const editArtwork = async (body, id) => {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id, ...body }),
+    });
+    return res.json();
+  } catch (error) {
+    throw Error(error);
+  }
+};
+
+export const deleteArtwork = async (id) => {
+  console.log("id:", id);
+
+  try {
+    await fetch(`http://localhost:3000/artwork/${id}`, {
+      method: "DELETE",
+    });
+
+    const res = await fetch(`http://localhost:3000/artworkDetails/${id}`, {
+      method: "DELETE",
     });
     return res.json();
   } catch (error) {

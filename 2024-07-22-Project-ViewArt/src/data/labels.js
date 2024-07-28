@@ -12,8 +12,9 @@ export const labels = {
   artworkList: "Artwork list",
   artworkInput: "Insert title or author",
 
-  btnDetails: "Details",
+  btnDetails: "Details 📖",
   btnEdit: "Edit ✏️",
+  btnDelete: "Delete ❌",
 
   ErrorTxt: "Oops! Looks like you're lost.",
   ErrorTryAgain: "Try again, you'll be ",

@@ -3,11 +3,14 @@ import {
   getArtworkDetails,
   addArtwork,
   editArtwork,
+  deleteArtwork,
 } from "./../api/artworkClient";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const useArtwork = () => {
-  const initialState = {
+  /* const initialState = {
     title: "",
     author: "",
     movement: "",
@@ -17,24 +20,26 @@ export const useArtwork = () => {
     sizes: "",
     price: "",
     description: "",
-  };
+  }; */
 
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState({ message: "", isError: false });
   const [artworkList, setArtworkList] = useState([]);
   const [artworkDetails, setArtworkDetails] = useState(null);
-  const [form, setForm] = useState(initialState);
+  /* const [form, setForm] = useState(initialState); */
+
+  const navigate = useNavigate();
 
   const getArtwork = async () => {
     try {
       const data = await getArtworkList();
       setArtworkList(data);
+      /* console.log("prova"); */
     } catch (err) {
-      console.log(err.message);
+      console.log("Error: ", err.message);
       setIsError((prevState) => {
         return { ...prevState, message: err.message, isError: true };
       });
-      /* return <h1>Errore nel caricamento delle opere</h1>; */
     } finally {
       setIsLoading(false);
     }
@@ -43,10 +48,11 @@ export const useArtwork = () => {
   const getDetails = async (id) => {
     try {
       const data = await getArtworkDetails(id);
+      /* toast.info(`${data.title} info`); */
       setArtworkDetails(data);
-      console.log("data: ", data);
+      /* console.log("data: ", data); */
     } catch (err) {
-      console.log(err.message);
+      console.log("Error: ", err.message);
       setIsError((prevState) => {
         return { ...prevState, message: err.message, isError: true };
       });
@@ -57,12 +63,13 @@ export const useArtwork = () => {
 
   const handleAdd = async (body) => {
     try {
-      /* e.preventDefault(); */
       setIsLoading(true);
       const res = await addArtwork(body);
-      /* setForm(initialState); */
-      console.log(res);
+      toast.success(`${body.title} added!`);
+      navigate("/");
+      /* console.log(res); */
     } catch (err) {
+      toast.error(`${err}!`);
       setIsError((prevState) => {
         console.log(err);
         return { ...prevState, message: err.message, isError: true };
@@ -75,13 +82,13 @@ export const useArtwork = () => {
   const handleEdit = async (body, id) => {
     console.log("Submitting form:", body);
     try {
-      /* e.preventDefault(); */
       setIsLoading(true);
       const res = await editArtwork(body, id);
-      /* setForm(initialState); */
-      console.log("res", res);
-      /* navigate(-1); */
+      toast.success(`${res.title} modified!`);
+      /* console.log("res", res); */
+      navigate(`/artwork/${id}`);
     } catch (err) {
+      toast.error(`${err}!`);
       setIsError((prevState) => {
         console.log(err);
         return { ...prevState, message: err.message, isError: true };
@@ -91,13 +98,23 @@ export const useArtwork = () => {
     }
   };
 
+  const handleDelete = async (id) => {
+    try {
+      const res = await deleteArtwork(id);
+      toast.success(`${res.title} deleted!`);
+      setIsLoading(true);
+      getArtwork();
+    } catch (error) {
+      toast.error(`${err}!`);
+      console.log("error", error);
+    }
+  };
+
   return {
-    initialState,
     isLoading,
     setIsLoading,
     isError,
     setIsError,
-    setForm,
     artworkDetails,
     artworkList,
     artworkDetails,
@@ -105,5 +122,6 @@ export const useArtwork = () => {
     getDetails,
     handleAdd,
     handleEdit,
+    handleDelete,
   };
 };

@@ -4,11 +4,14 @@ import { NavLink, Link } from "react-router-dom";
 
 import { labels } from "./../data/labels";
 
+import logo from "./../assets/VA.png";
+
 export function DefaultLayout() {
   return (
     <>
       <header className="h-12 flex justify-between text-cyan-950 items-center p-4 px-24 shadow-xl bg-cyan-100">
-        <h1>
+        <h1 className="flex gap-2 items-center">
+          <img src={logo} alt="icon ViewArt" className="w-[25px] h-[25px]" />
           <Link to="/">{labels.artworkTitleNav}</Link>
         </h1>
         <nav>

@@ -17,11 +17,7 @@ function App() {
 
   useEffect(() => {
     getArtwork();
-    /* console.log("isError", isError); */
-  }, []);
-
-  useEffect(() => {
-    console.log(artworkList);
+    /* console.log(artworkList); */
   }, [artworkList]);
 
   if (isError.isError)

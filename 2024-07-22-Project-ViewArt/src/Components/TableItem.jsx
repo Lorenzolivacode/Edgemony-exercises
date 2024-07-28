@@ -3,6 +3,7 @@ import { useState } from "react";
 import { TdEl } from "./TdEl.jsx";
 
 import ModalViewImage from "./ModalViewImage";
+import { useArtwork } from "./../function/getArtwork.jsx";
 
 import eye from "./../assets/eye.png";
 import { Link } from "react-router-dom";
@@ -10,6 +11,7 @@ import { labels } from "../data/labels.js";
 
 export function TableItem({ artwork }) {
   const [isModalViewOpen, setIsModalViewOpen] = useState(false);
+  const { handleDelete } = useArtwork();
   return (
     <tr>
       <td className="whitespace-nowrap px-4 py-2">
@@ -38,10 +40,18 @@ export function TableItem({ artwork }) {
         <Link
           to={`/editArtwork/${artwork.id}`}
           className="ml-4 inline-block rounded bg-cyan-600 px-4 py-2 text-xs font-medium text-white hover:bg-cyan-700"
-          title="View details's page"
+          title="Edit details"
         >
           {labels.btnEdit}
         </Link>
+        <button
+          className="ml-4 inline-block rounded bg-cyan-600 px-4 py-2 text-xs
+          font-medium text-white hover:bg-cyan-700"
+          title="Delete item"
+          onClick={() => handleDelete(artwork.id)}
+        >
+          {labels.btnDelete}
+        </button>
       </td>
     </tr>
   );

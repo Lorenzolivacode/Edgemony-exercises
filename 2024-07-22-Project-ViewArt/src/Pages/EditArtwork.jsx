@@ -1,12 +1,11 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 import ArtworkForm from "../Components/ArtworkForm";
 import { useArtwork } from "../function/getArtwork";
 
 export function EditArtwork() {
   const { id } = useParams();
-  const navigate = useNavigate();
   const { artworkDetails, handleEdit, getDetails, setIsLoading, setIsError } =
     useArtwork();
 

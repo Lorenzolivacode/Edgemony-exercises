@@ -7,6 +7,9 @@ import { PageArtwork } from "./Pages/PageArtwork.jsx";
 import { ErrorGenericComponent } from "./Components/ErrorGenericComponent.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import DefaultLayout from "./Layout/DefaultLayout.jsx";
 import { CreateArtwork } from "./Pages/CreateArtwork.jsx";
 import EditArtwork from "./Pages/EditArtwork.jsx";
@@ -28,5 +31,17 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light"
+    />
   </React.StrictMode>
 );

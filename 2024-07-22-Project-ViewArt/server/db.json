@@ -14,7 +14,7 @@
       "author": "Vincent van Gogh",
       "movement": "Post-Impressionism",
       "year": "1889",
-      "image": ""
+      "image": "./../src/assets/starry_night.jpg"
     },
     {
       "id": "0003",
@@ -22,7 +22,7 @@
       "author": "Leonardo da Vinci",
       "movement": "Renaissance",
       "year": "1503",
-      "image": ""
+      "image": "./../src/assets/mona_lisa.jpg"
     },
     {
       "id": "0004",
@@ -30,7 +30,7 @@
       "author": "Gustav Klimt",
       "movement": "Symbolism",
       "year": "1907",
-      "image": ""
+      "image": "./../src/assets/the_kiss-gustav_klimt.jpg"
     },
     {
       "id": "0005",
@@ -38,7 +38,7 @@
       "author": "Salvador Dalí",
       "movement": "Surrealism",
       "year": "1931",
-      "image": ""
+      "image": "./../src/assets/persistence-of-memory.jpg"
     },
     {
       "id": "0006",
@@ -46,15 +46,15 @@
       "author": "Théodore Géricault",
       "movement": "Romanticism",
       "year": "1818",
-      "image": ""
+      "image": "./../src/assets/gericault-raft-of-the-medusa.jpg"
     },
     {
       "id": "0007",
-      "title": "The Nights of Arles",
+      "title": "Night cafe in Arles",
       "author": "Vincent van Gogh",
       "movement": "Post-Impressionism",
       "year": "1888",
-      "image": ""
+      "image": "./../src/assets/Night-Cafe-in-Arles.jpg"
     },
     {
       "id": "0008",
@@ -62,7 +62,7 @@
       "author": "Sandro Botticelli",
       "movement": "Renaissance",
       "year": "1486",
-      "image": ""
+      "image": "./../src/assets/nascita-venere.jpg"
     },
     {
       "id": "0009",
@@ -70,7 +70,7 @@
       "author": "Hieronymus Bosch",
       "movement": "Northern Renaissance",
       "year": "1503-1504",
-      "image": ""
+      "image": "./../src/assets/The-Garden-of-earthly.jpg"
     },
     {
       "id": "0010",
@@ -78,23 +78,23 @@
       "author": "Michelangelo",
       "movement": "Renaissance",
       "year": "1512",
-      "image": ""
+      "image": "./../src/assets/Creation-of-Adam.jpg"
     },
     {
       "id": "0011",
       "title": "Light",
       "author": "Lorenzo Oliva",
-      "movement": "Surrealismo contemporaneo",
+      "movement": "Contemporary surrealism",
       "year": "2019",
       "image": "./../src/assets/0002-Luce.jpg"
     },
     {
-      "id": "cf3550c8-07ad-46f4-9836-36317a4284ef",
+      "id": "198c26be-e94d-4f93-8b5a-e72f422e8e92",
       "title": "The teather",
       "author": "Lorenzo Oliva",
       "movement": "Contemporary surrealism",
-      "year": "2021",
-      "image": "./../src/asset/0012-Il-teatrante.jpg"
+      "year": "2019",
+      "image": "./../src/assets/0012-Il-teatrante.jpg"
     }
   ],
   "artworkDetails": [
@@ -116,7 +116,7 @@
       "title": "The Starry Night",
       "movement": "Post-Impressionism",
       "author": "Vincent van Gogh",
-      "image": "",
+      "image": "./../src/assets/starry_night.jpg",
       "price": "€100,000,000",
       "technique": "Oil on canvas",
       "sizes": "73.7 cm × 92.1 cm",
@@ -128,7 +128,7 @@
       "title": "Mona Lisa",
       "movement": "Renaissance",
       "author": "Leonardo da Vinci",
-      "image": "",
+      "image": "./../src/assets/mona_lisa.jpg",
       "price": "Priceless",
       "technique": "Oil on poplar panel",
       "sizes": "77 cm × 53 cm",
@@ -140,7 +140,7 @@
       "title": "The Kiss",
       "movement": "Symbolism",
       "author": "Gustav Klimt",
-      "image": "",
+      "image": "./../src/assets/the_kiss-gustav_klimt.jpg",
       "price": "€135,000,000",
       "technique": "Oil and gold leaf on canvas",
       "sizes": "180 cm × 180 cm",
@@ -152,7 +152,7 @@
       "title": "The Persistence of Memory",
       "movement": "Surrealism",
       "author": "Salvador Dalí",
-      "image": "",
+      "image": "./../src/assets/persistence-of-memory.jpg",
       "price": "€120,000,000",
       "technique": "Oil on canvas",
       "sizes": "24 cm × 33 cm",
@@ -164,7 +164,7 @@
       "title": "The Raft of the Medusa",
       "movement": "Romanticism",
       "author": "Théodore Géricault",
-      "image": "",
+      "image": "./../src/assets/gericault-raft-of-the-medusa.jpg",
       "price": "€100,000,000",
       "technique": "Oil on canvas",
       "sizes": "491 cm × 716 cm",
@@ -173,10 +173,10 @@
     {
       "id": "0007",
       "year": "1888",
-      "title": "The Nights of Arles",
+      "title": "Night cafe in Arles",
       "movement": "Post-Impressionism",
       "author": "Vincent van Gogh",
-      "image": "",
+      "image": "./../src/assets/Night-Cafe-in-Arles.jpg",
       "price": "€90,000,000",
       "technique": "Oil on canvas",
       "sizes": "72.4 cm × 92.1 cm",
@@ -188,7 +188,7 @@
       "title": "The Birth of Venus",
       "movement": "Renaissance",
       "author": "Sandro Botticelli",
-      "image": "",
+      "image": "./../src/assets/nascita-venere.jpg",
       "price": "Priceless",
       "technique": "Tempera on canvas",
       "sizes": "172.5 cm × 278.5 cm",
@@ -200,7 +200,7 @@
       "title": "The Garden of Earthly Delights",
       "movement": "Northern Renaissance",
       "author": "Hieronymus Bosch",
-      "image": "",
+      "image": "./../src/assets/The-Garden-of-earthly.jpg",
       "price": "Priceless",
       "technique": "Oil on oak panel",
       "sizes": "220 cm × 389 cm",
@@ -212,7 +212,7 @@
       "title": "The Creation of Adam",
       "movement": "Renaissance",
       "author": "Michelangelo",
-      "image": "",
+      "image": "./../src/assets/Creation-of-Adam.jpg",
       "price": "Priceless",
       "technique": "Fresco",
       "sizes": "280 cm × 570 cm",
@@ -222,25 +222,25 @@
       "id": "0011",
       "title": "Light",
       "author": "Lorenzo Oliva",
-      "movement": "Surrealismo contemporaneo",
+      "movement": "Contemporary surrealism",
       "year": "2019",
       "image": "./../src/assets/0002-Luce.jpg",
       "technique": "Oil on canvas",
       "sizes": "cm. 120x80",
       "price": "€2.500",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit et iste ut odit recusandae accusantium vero, sit quis repudiandae ipsa laboriosam debitis mollitia rem veniam."
+      "description": "The painting depicts man's search for his own needs, for happiness, for love, represented precisely by that light, the protagonist of the work, which the characters reach out for, in pursuit, as if achieving this were a competition with others or, even, with themselves."
     },
     {
-      "id": "cf3550c8-07ad-46f4-9836-36317a4284ef",
-      "title": "Il Teatrante",
+      "id": "198c26be-e94d-4f93-8b5a-e72f422e8e92",
+      "title": "The teather",
       "author": "Lorenzo Oliva",
       "movement": "Contemporary surrealism",
-      "year": "2021",
-      "image": "./../src/asset/0012-Il-teatrante.jpg",
+      "year": "2019",
+      "image": "./../src/assets/0012-Il-teatrante.jpg",
       "technique": "Oil on canvas",
       "sizes": "cm. 70x50",
       "price": "1200",
-      "description": "Il dipinto vuole creare una disgiunzione fra il reale e l’inconscio. Un individuo si trova su di un palco, la scena rappresenta un istante “incompreso”: questo può essere il culmine d’un movimento, d’uno spettacolo, o il principio, la posa dalla quale comincia tutto, ma ogni “fine” può e non deve essere altro che un nuovo inizio. Il soggetto tiene in mano una maschera: in quest’istante essa può essere accostata ed indossata, così come può essere tolta, per mostrare la propria essenza."
+      "description": "An individual is on a stage, the scene represents a “misunderstood” moment: this can be the culmination of a movement, of a show, or the beginning, the pose from which everything begins, but every “end” can and must not be anything other than a new beginning. The subject holds a mask in his hand: in this moment it can be approached and worn, just as it can be removed, to show one’s essence."
     }
   ]
 }

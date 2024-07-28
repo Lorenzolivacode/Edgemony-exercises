@@ -125,7 +125,12 @@ export function ArtworkForm({ value, onSubmit, nameFunction }) {
                 Submit
               </button>
             ) : (
-              <button disabled>Is Loading...</button>
+              <button
+                className="w-full border-2 border-cyan-900 p-2 rounded-2xl"
+                disabled
+              >
+                Is Loading...
+              </button>
             )}
           </form>
         </div>
