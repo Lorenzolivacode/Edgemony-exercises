@@ -1,8 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { labels } from "../data/labels";
+import { LanguageObjUsedContext } from "../Provider/LanguageContext";
 
 export function ErrorComponent({ message }) {
+  const languageObjUsed = useContext(LanguageObjUsedContext);
   return (
     <div className="grid h-screen place-content-center bg-white px-4">
       <div className="text-center">
@@ -37,7 +39,7 @@ export function ErrorComponent({ message }) {
             className="inline-block rounded font-bold bg-cyan-600 px-2 py-2 text-xs text-white hover:bg-cyan-700"
             title="View details's page"
           >
-            {labels.artworkHomeNav}
+            {languageObjUsed.artworkHomeNav}
           </Link>
         </p>
       </div>

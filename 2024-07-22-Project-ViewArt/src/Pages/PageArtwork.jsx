@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 
 import { Link } from "react-router-dom";
-import { labels } from "../data/labels.js";
+
+import { LanguageObjUsedContext } from "../Provider/LanguageContext.jsx";
 
 import { ErrorComponent } from "./../Components/ErrorComponent.jsx";
 
 import { useArtwork } from "./../function/getArtwork.jsx";
 
 export function PageArtwork() {
+  const languageObjUsed = useContext(LanguageObjUsedContext);
   const { id } = useParams();
   const { isLoading, isError, artworkDetails, getDetails, handleDelete } =
     useArtwork();
@@ -18,7 +20,7 @@ export function PageArtwork() {
   }, []);
 
   useEffect(() => {
-    console.log("AWDet: ", artworkDetails);
+    /* console.log("AWDet: ", artworkDetails); */
   }, [artworkDetails]);
 
   if (isError.isError) {
@@ -69,7 +71,7 @@ export function PageArtwork() {
               className="ml-4 inline-block rounded bg-cyan-600 px-4 py-2 text-xs font-medium text-white hover:bg-cyan-700"
               title="Edit details"
             >
-              {labels.btnEdit}
+              {languageObjUsed.btnEdit}
             </Link>
             <Link
               to={"/"}
@@ -78,7 +80,7 @@ export function PageArtwork() {
               title="Delete item"
               onClick={() => handleDelete(artworkDetails.id)}
             >
-              {labels.btnDelete}
+              {languageObjUsed.btnDelete}
             </Link>
           </div>
         </div>

@@ -2,10 +2,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { InputFormEl } from "./InputFormEl";
 import { useArtwork } from "../function/getArtwork";
-import { labels } from "../data/labels";
+import { LanguageObjUsedContext } from "../Provider/LanguageContext";
 
 export function ArtworkForm({ value, onSubmit, nameFunction }) {
   const { isError, isLoading, setIsLoading, setIsError } = useArtwork();
+  const languageObjUsed = useContext(LanguageObjUsedContext);
 
   const initialState = {
     title: value?.title || "",
@@ -54,26 +55,20 @@ export function ArtworkForm({ value, onSubmit, nameFunction }) {
 
   useEffect(() => {
     setForm(initialState);
-    console.log("form: ", form);
+    /* console.log("form: ", form); */
   }, [value]);
 
   useEffect(() => {
     setIsLoading(false);
-    console.log("Validation: ", formValidation);
+    /* console.log("Validation: ", formValidation); */
   }, []);
-
-  /* useEffect(() => {
-    setIsLoading(false);
-    console.log("Initial state: ", initialState);
-    console.log("form: ", form);
-  }, []); */
 
   return (
     <div>
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-lg">
           <h1 className="text-center text-2xl font-bold text-cyan-600 sm:text-3xl">
-            {labels.titlePage}
+            {languageObjUsed.titlePage}
             {nameFunction}
           </h1>
           <form
@@ -122,14 +117,16 @@ export function ArtworkForm({ value, onSubmit, nameFunction }) {
                   formValidation ? "bg-slate-400 cursor-none" : ""
                 } px-5 py-3 text-sm font-medium text-white`}
               >
-                Submit
+                {value
+                  ? languageObjUsed.formBtnEdit
+                  : languageObjUsed.formBtnAdd}
               </button>
             ) : (
               <button
                 className="w-full border-2 border-cyan-900 p-2 rounded-2xl"
                 disabled
               >
-                Is Loading...
+                {languageObjUsed.isLoading}
               </button>
             )}
           </form>

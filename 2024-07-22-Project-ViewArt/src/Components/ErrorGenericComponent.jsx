@@ -1,14 +1,16 @@
-import React from "react";
+import { React } from "react";
+import { useContext } from "react";
 import { useRouteError } from "react-router-dom";
-import { labels } from "../data/labels";
+import { LanguageObjUsedContext } from "../Provider/LanguageContext";
 
 export function ErrorGenericComponent({ message }) {
   const error = useRouteError();
+  const languageObjUsed = useContext(LanguageObjUsedContext);
 
   return (
     <div className="text-center mt-16">
       <h1 className="mb-4 text-6xl font-semibold text-cyan-700">404</h1>
-      <p className="mb-4 text-lg text-gray-600">{labels.ErrorTxt}</p>
+      <p className="mb-4 text-lg text-gray-600">{languageObjUsed.ErrorTxt}</p>
       <p className="mb-4 text-lg text-cyan-700">
         {message || error.statusText || error.message}
       </p>
@@ -28,9 +30,9 @@ export function ErrorGenericComponent({ message }) {
         </svg>
       </div>
       <p className="mt-4 text-gray-600">
-        {labels.ErrorTryAgain}
+        {languageObjUsed.ErrorTryAgain}
         <a href="/" className="text-blue-500">
-          {labels.ErrorLukier}
+          {languageObjUsed.ErrorLukier}
         </a>
       </p>
     </div>

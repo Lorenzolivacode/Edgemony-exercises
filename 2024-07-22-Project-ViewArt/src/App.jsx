@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
-import { labels } from "./data/labels";
+import { useEffect, useState, useContext } from "react";
+
+import { LanguageObjUsedContext } from "./Provider/LanguageContext.jsx";
 
 import { useArtwork } from "./function/getArtwork.jsx";
 import { ErrorGenericComponent } from "./Components/ErrorGenericComponent.jsx";
@@ -10,6 +11,8 @@ function App() {
   const { isLoading, isError, artworkList, getArtwork } = useArtwork();
 
   const [filterInput, setFilterInput] = useState("");
+
+  const languageObjUsed = useContext(LanguageObjUsedContext);
 
   const handleChange = (e) => {
     setFilterInput(e.target.value.toLowerCase());
@@ -73,10 +76,10 @@ function App() {
       <div className="flex justify-center">
         <main className="w-[1200px] pt-11">
           <div className="p-4 flex justify-between">
-            <h1 className="">{labels.artworkList}</h1>
+            <h1 className="">{languageObjUsed.artworkList}</h1>
             <input
               value={filterInput}
-              placeholder={labels.artworkInput}
+              placeholder={languageObjUsed.artworkInput}
               type="text"
               onChange={handleChange}
               className="border-2 border-cyan-950 rounded p-1"
@@ -89,19 +92,19 @@ function App() {
                 <tr>
                   <th className="px-4 py-2"></th>
                   <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    {labels.artworkTableTitle}
+                    {languageObjUsed.artworkTableTitle}
                   </th>
                   <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    {labels.artworkTableAuthor}
+                    {languageObjUsed.artworkTableAuthor}
                   </th>
                   <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    {labels.artworkTableMovement}
+                    {languageObjUsed.artworkTableMovement}
                   </th>
                   <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    {labels.artworkTableYear}
+                    {languageObjUsed.artworkTableYear}
                   </th>
                   {/* <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    {labels.artworkTableId}
+                    {languageObjUsed.artworkTableId}
                   </th> */}
                   <th className="px-4 py-2"></th>
                 </tr>

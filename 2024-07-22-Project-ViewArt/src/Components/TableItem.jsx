@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { TdEl } from "./TdEl.jsx";
 
 import ModalViewImage from "./ModalViewImage";
@@ -7,9 +7,11 @@ import { useArtwork } from "./../function/getArtwork.jsx";
 
 import eye from "./../assets/eye.png";
 import { Link } from "react-router-dom";
-import { labels } from "../data/labels.js";
+
+import { LanguageObjUsedContext } from "../Provider/LanguageContext.jsx";
 
 export function TableItem({ artwork }) {
+  const languageObjUsed = useContext(LanguageObjUsedContext);
   const [isModalViewOpen, setIsModalViewOpen] = useState(false);
   const { handleDelete } = useArtwork();
   return (
@@ -35,14 +37,14 @@ export function TableItem({ artwork }) {
           className="inline-block rounded bg-cyan-600 px-4 py-2 text-xs font-medium text-white hover:bg-cyan-700"
           title="View details's page"
         >
-          {labels.btnDetails}
+          {languageObjUsed.btnDetails}
         </Link>
         <Link
           to={`/editArtwork/${artwork.id}`}
           className="ml-4 inline-block rounded bg-cyan-600 px-4 py-2 text-xs font-medium text-white hover:bg-cyan-700"
           title="Edit details"
         >
-          {labels.btnEdit}
+          {languageObjUsed.btnEdit}
         </Link>
         <button
           className="ml-4 inline-block rounded bg-cyan-600 px-4 py-2 text-xs
@@ -50,7 +52,7 @@ export function TableItem({ artwork }) {
           title="Delete item"
           onClick={() => handleDelete(artwork.id)}
         >
-          {labels.btnDelete}
+          {languageObjUsed.btnDelete}
         </button>
       </td>
     </tr>

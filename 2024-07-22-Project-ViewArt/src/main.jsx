@@ -10,6 +10,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import { LanguageProvider } from "./Provider/LanguageContext.jsx";
 import DefaultLayout from "./Layout/DefaultLayout.jsx";
 import { CreateArtwork } from "./Pages/CreateArtwork.jsx";
 import EditArtwork from "./Pages/EditArtwork.jsx";
@@ -30,7 +31,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <LanguageProvider>
+      <RouterProvider router={router} />
+    </LanguageProvider>
     <ToastContainer
       position="top-right"
       autoClose={3000}
