@@ -1,8 +1,9 @@
-# React + Vite
+ViewArt
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Esercitazione conclusa 2024-07-22
 
-Currently, two official plugins are available:
+Web app gestionale di opere d'arte, sfrutta un fake server per utilizzare, modificare o aggiungere dati.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Exercise completed 2024-07-22
+
+Web app for managing works of art, uses a fake server to use, modify or add data.

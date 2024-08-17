@@ -95,6 +95,14 @@
       "movement": "Contemporary surrealism",
       "year": "2019",
       "image": "./../src/assets/0012-Il-teatrante.jpg"
+    },
+    {
+      "id": "d3208bcb-decb-498a-a1ac-ba73c76c61b2",
+      "title": "The ineluctable essence of being",
+      "author": "Lorenzo Oliva",
+      "movement": "Contemporary surrealism",
+      "year": "2020",
+      "image": "./../src/assets/ineluttabile-essenza-essere.jpg"
     }
   ],
   "artworkDetails": [
@@ -241,6 +249,18 @@
       "sizes": "cm. 70x50",
       "price": "1200",
       "description": "An individual is on a stage, the scene represents a “misunderstood” moment: this can be the culmination of a movement, of a show, or the beginning, the pose from which everything begins, but every “end” can and must not be anything other than a new beginning. The subject holds a mask in his hand: in this moment it can be approached and worn, just as it can be removed, to show one’s essence."
+    },
+    {
+      "id": "d3208bcb-decb-498a-a1ac-ba73c76c61b2",
+      "title": "The ineluctable essence of being",
+      "author": "Lorenzo Oliva",
+      "movement": "Contemporary surrealism",
+      "year": "2020",
+      "image": "./../src/assets/ineluttabile-essenza-essere.jpg",
+      "technique": "Oil on canvas",
+      "sizes": "cm 120x80",
+      "price": "€ 1400",
+      "description": "The painting expresses disintegration of planes of existence. Its moral is based on the concept that every single human being has still significance, value and reason for life; starting from the expression “cogito ergo sum” (I think, therefore I am), the inner question of the artwork is: I am who I am, or I am who I think I am? As a consequence, this questions leads"
     }
   ]
 }
