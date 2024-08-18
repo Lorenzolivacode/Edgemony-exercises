@@ -1,8 +1,9 @@
-# React + Vite
+List Artists
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Esercitazione conclusa 2024-07-09
 
-Currently, two official plugins are available:
+Web app che permette di filtrare una lista di artisti preferiti e l'aggiunzione di nuovi o rimozione (temporanea).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Exercise completed 2024-07-09
+
+Web app that allows you to filter a list of favorite artists and add new ones or remove them (temporarily).
