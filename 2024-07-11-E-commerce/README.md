@@ -1,8 +1,9 @@
-# React + Vite
+D'ohnut Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Esercitazione conclusa 2024-07-11
 
-Currently, two official plugins are available:
+Applicazione per un finto e-commerce che permette di selezionare il numero di prodotti da acquistare, vedere il costo totale e sfogliare le immagini del prodotto.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Exercise completed 2024-07-11
+
+Fake e-commerce application that allows you to select the number of products to purchase, see the total cost and browse product images.
