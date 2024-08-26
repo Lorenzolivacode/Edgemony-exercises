@@ -1,0 +1,21 @@
+Esercizio 1 - Livello Facile
+Leggi attentamente il codice di questo mini-compilatore e rispondi alle seguenti domande:
+
+    -Quali sono le principali componenti del mini-compilatore che riesci a individuare nel codice? Elencale brevemente.
+	-tokenizer
+	-parser
+	-traverser
+	-transformer
+	-codeGenerator
+	-compiler
+    -Cos'è e cosa fa la funzione tokenizer? Spiegalo con parole tue.
+	È una function che, data una porzione di codice, ne estrapola gli elementi e li utilizza per creare un array di oggetti che li rappresentano in modo astratto, i "tokens".
+	Questi servono per permettere al parser di dare ai tokens una struttura complessa.
+    -Perché è fondamentale avere un parser in un compilatore? Quale ruolo svolge?
+	Serve per organizzare i tokens in un oggetto con con una struttura ramificata.
+	Il parser permette di manipolare il codice e trasformarlo con una diversa sintassi.
+    -Se dovessi creare un conta caratteri in JavaScript, quali parti di questo compilatore ti sarebbero utili?
+	Userei, eventualmente, la function tokenizer, per poter trattare diversamente i vari tipi di carattere e conteggiarli separatamente.
+
+Codice del Super Tiny Compiler:
+GitHub - The Super Tiny Compiler
