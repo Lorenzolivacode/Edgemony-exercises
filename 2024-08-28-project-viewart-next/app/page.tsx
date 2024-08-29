@@ -3,12 +3,16 @@ import { FilterInput } from "@/app/Components/FilterInput";
 import TableItem from "./Components/TableItem";
 
 export interface IArtwork {
-  id: string;
+  id?: string;
   title: string;
   author: string;
   movement: string;
   year: string;
   image: string;
+  technique: string;
+  sizes: string;
+  price: string;
+  description: string;
 }
 
 let artworkList: IArtwork[];
@@ -21,6 +25,10 @@ artworkList = [
     movement: "Sicilian Viewism",
     year: "1884",
     image: "@/app/assets/0001-dopo-la-pioggia-600-448.jpg",
+    technique: "",
+    sizes: "",
+    price: "",
+    description: "",
   },
   {
     id: "0002",
@@ -29,6 +37,10 @@ artworkList = [
     movement: "Post-Impressionism",
     year: "1889",
     image: "@/app/assets/starry_night.jpg",
+    technique: "",
+    sizes: "",
+    price: "",
+    description: "",
   },
 ];
 

@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import Image from "next/image";
+
+import { labelsEn } from "@/app/data/labels";
+
+import logo from "@/app/assets/VA.png";
+import NavBar from "@/app/Components/NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +23,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <header className="h-12 flex justify-between text-cyan-950 items-center p-4 px-24 shadow-xl bg-cyan-100">
+          <h1 className="flex gap-2 items-center">
+            <Image
+              src={logo}
+              alt="icon ViewArt"
+              className="w-[50px] h-[25px]"
+            />
+            <Link href="/">{labelsEn.artworkTitleNav}</Link>
+          </h1>
+          <NavBar></NavBar>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }
