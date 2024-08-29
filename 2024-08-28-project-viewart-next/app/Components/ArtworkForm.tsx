@@ -24,9 +24,9 @@ function ArtworkForm({ value, onSubmit, nameFunction }: IInputForm) {
     price: value?.price || "",
     description: value?.description || "",
   };
-  const arrayInitialState = Object.keys(initialState);
+  const arrayInitialState = Object.keys(initialState) as (keyof IArtwork)[];
 
-  const [form, setForm] = useState(initialState);
+  const [form, setForm] = useState<IArtwork>(initialState);
 
   const titleValidation = !form.title.length;
   const authorValidation = !form.author.length;
@@ -82,7 +82,7 @@ function ArtworkForm({ value, onSubmit, nameFunction }: IInputForm) {
               return (
                 <InputFormEl
                   key={arrayInitialState.indexOf(element)}
-                  value="" /* {form[element]} */
+                  value={form[element] || ""}
                   el={element}
                   onChange={handleChange}
                 />
