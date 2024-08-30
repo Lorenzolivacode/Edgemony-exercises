@@ -27,7 +27,7 @@ function TableItem({ artwork }: { artwork: IArtwork }) {
           txtBtn={labelsEn.btnDetails}
         />
         <BtnLink
-          artworkPath={`/editArtwork/${artwork.id}`}
+          artworkPath={`/artwork/${artwork.id}/edit`}
           txtBtn={labelsEn.btnEdit}
         />
         <BtnDelete txtBtn={labelsEn.btnDelete} />

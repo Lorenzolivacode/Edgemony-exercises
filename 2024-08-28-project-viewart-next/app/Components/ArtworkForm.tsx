@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { IArtwork } from "../page";
 import { labelsEn } from "@/app/data/labels";
 import InputFormEl from "./InputFormEl";
@@ -57,6 +57,17 @@ function ArtworkForm({ value, onSubmit, nameFunction }: IInputForm) {
       return { ...prevState, [name]: value };
     });
   };
+
+  useEffect(() => {
+    setForm(initialState);
+    /* console.log("form: ", form); */
+  }, [value]);
+
+  useEffect(() => {
+    setIsLoading(false);
+    console.log("Validation: ", formValidation);
+  }, []);
+
   return (
     <div>
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
@@ -72,6 +83,7 @@ function ArtworkForm({ value, onSubmit, nameFunction }: IInputForm) {
               await onSubmit(form, value?.id || "");
               setIsLoading(false);
             }} */
+            onSubmit={onSubmit}
             action="#"
             className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
           >

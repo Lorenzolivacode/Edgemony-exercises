@@ -1,10 +1,11 @@
 "use client";
 
 import ArtworkForm from "@/app/Components/ArtworkForm";
-import React from "react";
+import React, { FormEvent } from "react";
 
 function CreateArtwork() {
-  const handleAdd = (): void => {
+  const handleAdd = (e: FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
     console.log("Add");
   };
   return <ArtworkForm onSubmit={handleAdd} nameFunction="PippoCreate" />;
