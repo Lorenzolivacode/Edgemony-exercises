@@ -24,7 +24,7 @@ artworkList = [
     author: "Francesco Lojacono",
     movement: "Sicilian Viewism",
     year: "1884",
-    image: "@/app/assets/0001-dopo-la-pioggia-600-448.jpg",
+    image: "./assets/0001-dopo-la-pioggia-600-448.jpg",
     technique: "",
     sizes: "",
     price: "",
@@ -48,10 +48,7 @@ export default function Home() {
   return (
     <div className="flex justify-center">
       <main className="w-[1200px] pt-11">
-        <div className="p-4 flex justify-between">
-          <h1 className="">{labelsEn.artworkList}</h1>
-          <FilterInput />
-        </div>
+        <FilterInput artworkList={artworkList} />
 
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
@@ -76,16 +73,9 @@ export default function Home() {
             </thead>
 
             <tbody className="divide-y divide-gray-200">
-              {artworkList
-                /* .filter((artwork) => {
-                  return (
-                    artwork.title.toLowerCase().includes(filterInput) ||
-                    artwork.author.toLowerCase().includes(filterInput)
-                  );
-                }) */
-                .map((artwork) => (
-                  <TableItem key={artwork.id} artwork={artwork} />
-                ))}
+              {artworkList.map((artwork) => (
+                <TableItem key={artwork.id} artwork={artwork} />
+              ))}
             </tbody>
           </table>
         </div>

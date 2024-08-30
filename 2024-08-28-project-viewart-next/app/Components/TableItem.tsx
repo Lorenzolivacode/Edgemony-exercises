@@ -8,24 +8,13 @@ import TdEl from "./TdEl";
 import BtnLink from "./BtnLink";
 import BtnDelete from "./BtnDelete";
 
-import eye from "@/app/assets/eye.png";
-
-/* interface ITable {
-  artwork: IArtwork;
-} */
+import ImgViewModal from "./ImgViewModal";
 
 function TableItem({ artwork }: { artwork: IArtwork }) {
   return (
     <tr>
       <td className="whitespace-nowrap px-4 py-2">
-        <Image
-          /* onMouseOver={() => setIsModalViewOpen(true)}
-          onMouseLeave={() => setIsModalViewOpen(false)} */
-          src={eye}
-          alt="eye image for view artwork pop up"
-          className="h-12 hover:opacity-60 cursor-pointer"
-        />
-        {/* <ModalViewImage isOpen={isModalViewOpen} artwork={artwork} /> */}
+        <ImgViewModal artwork={artwork} />
       </td>
       <TdEl>{artwork.title}</TdEl>
       <TdEl>{artwork.author}</TdEl>
