@@ -9,6 +9,10 @@
   cursor: pointer;
   transition: all 1.5s ease;
 
+  &:disabled {
+    opacity: 0.5;
+  }
+
   &:hover {
     background-color: var(--color-80);
     transform: scale(1.1) rotateY(360deg);

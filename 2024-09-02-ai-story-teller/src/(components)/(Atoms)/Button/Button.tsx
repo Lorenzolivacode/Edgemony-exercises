@@ -3,10 +3,11 @@ import style from "./Button.module.scss";
 interface ButtonProps {
   label: string;
   onClick?: () => void;
+  disabled?: boolean;
 }
-function Button({ label, onClick }: ButtonProps) {
+function Button({ label, onClick, disabled }: ButtonProps) {
   return (
-    <button className={style.main} onClick={onClick}>
+    <button disabled={disabled} className={style.main} onClick={onClick}>
       {label}
     </button>
   );
