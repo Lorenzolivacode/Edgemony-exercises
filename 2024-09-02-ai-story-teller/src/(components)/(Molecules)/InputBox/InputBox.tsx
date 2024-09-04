@@ -7,6 +7,7 @@ import Select from "@/(components)/(Atoms)/Select/Select";
 interface InputBoxProps {
   label: string;
   value?: string;
+  valActive?: boolean;
   setValue: Dispatch<SetStateAction<string>>;
   type?: string;
   placeholder?: string;
@@ -15,6 +16,7 @@ interface InputBoxProps {
 function InputBox({
   label,
   value,
+  valActive,
   setValue,
   type = "text",
   placeholder,

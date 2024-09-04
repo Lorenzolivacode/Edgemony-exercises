@@ -1,0 +1,25 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  width: 30%;
+
+  h3 {
+    margin-bottom: rem(5px);
+  }
+  input,
+  select {
+    padding: rem(5px) rem(10px);
+    border: rem(1px) solid var(--color-10);
+    border-radius: rem(10px);
+    background-color: rgba(255, 255, 255, 0.4);
+    color: var(--color-100);
+  }
+
+  select {
+    option {
+      background-color: var(--color-10);
+    }
+  }
+}
