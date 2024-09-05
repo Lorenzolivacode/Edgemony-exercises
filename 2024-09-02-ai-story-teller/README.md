@@ -1,20 +1,20 @@
-<h1>Esempi di scrittura Readme </h1>
+# AI Story teller
 
-# titolo h1
+> Le funzionalità legate all'AI potrebbero essere disattivate.
 
-## titolo h2
+Questa app sfrutta Gemini per generare dei racconti in base a dei criteri scelti dall'utente:
 
-### titolo h3
+- Nome protagonista
+- Nome antagonista
+- Genere
+- Numero di parole '\*'
+- Favola per bambini / racconto per adulti
+- Ulteriori specifiche '\*'
 
-#### titolo h4
+  - '\*' Opzioni facoltative
 
-##### titolo h5
+\>> [Visita AI Story teller](https://.vercel.app/) <<
 
-###### titolo h6
+## Stack
 
-- metodi e mixin sass
-- inserire campi input -> atom
-- inserire select -> atom
-- inserire switch (per definire bambino/adulto e condizionare l'output) -> atom
-- hamburger menu
-- carousel
+[![Stack](https://skillicons.dev/icons?i=nextjs,sass,typescript,vercel)](https://skillicons.dev)
