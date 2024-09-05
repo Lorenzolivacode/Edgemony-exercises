@@ -3,14 +3,11 @@ import styles from "@/styles/Home.module.scss";
 import Header from "@/(components)/(Molecules)/Header/Header";
 import WindowBox from "@/(components)/(Organism)/WindowBox/WindowBox";
 import InputBox from "@/(components)/(Molecules)/InputBox/InputBox";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { listaGeneri } from "@/costants/common";
 import Button from "@/(components)/(Atoms)/Button/Button";
 import SwitchBox from "@/(components)/(Molecules)/SwitchBox/SwitchBox";
-import {
-  GenerateContentCandidate,
-  GoogleGenerativeAI,
-} from "@google/generative-ai";
+import Toast from "@/(components)/(Atoms)/ToastError/ToastError";
 
 export default function Home() {
   const [protagonista, setProtagonista] = useState("");
@@ -18,9 +15,12 @@ export default function Home() {
   const [genere, setGenere] = useState("");
   const [numberWords, setNumberWords] = useState("");
   const [pegi18, setPEgi18] = useState(true);
+  const [promptTxtArea, setPromptTxtArea] = useState("");
 
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState("");
+  const [error, setError] = useState(false);
+  const [messageError, setMessageError] = useState("");
 
   const handleGenerate = async () => {
     setLoading(true);
@@ -30,30 +30,33 @@ export default function Home() {
       pegi18 ? "adulti" : "bambini"
     } ${
       numberWords && `di ${numberWords} parole`
-    }, con il protagonista chiamato ${protagonista} e l'antagonista chiamato ${antagonista}.`;
+    }, con il protagonista chiamato ${protagonista} e l'antagonista chiamato ${antagonista}. ${promptTxtArea}`;
 
-    if (process.env.NEXT_PUBLIC_GEMINI_KEY) {
-      if (
-        protagonista.trim().length > 0 &&
-        antagonista.trim().length > 0 &&
-        genere.trim().length > 0
-      ) {
-        const genAI = new GoogleGenerativeAI(
-          process.env.NEXT_PUBLIC_GEMINI_KEY
-        );
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
-        const result = await model.generateContent(prompt);
-
-        const output = (
-          result.response.candidates as GenerateContentCandidate[]
-        )[0].content.parts[0].text;
-
-        if (output) {
-          setResponse(output);
+    if (
+      protagonista.trim().length > 0 &&
+      antagonista.trim().length > 0 &&
+      genere.trim().length > 0
+    ) {
+      try {
+        const response = await fetch("/api/generate", {
+          headers: { "Content-Type": "application/json" },
+          method: "POST",
+          body: JSON.stringify({ prompt }),
+        });
+        const data = await response.json();
+        if (!data.ok) {
+          throw new Error(data.message);
         }
+
+        setResponse(data.message);
+      } catch (e) {
+        console.log("Errore: ", e);
+        setError(true);
+        /* setMessageError(e.message);
+        console.log(typeof e.message); */
       }
     }
+
     setLoading(false);
     console.log("Loading: ", loading);
   };
@@ -94,16 +97,41 @@ export default function Home() {
               value={pegi18}
               setValue={setPEgi18}
             />
-            <Button
-              label="Genera"
-              onClick={handleGenerate}
-              disabled={
-                protagonista.trim().length <= 0 ||
-                antagonista.trim().length <= 0 ||
-                genere.trim().length <= 0 ||
-                loading
-              }
-            />
+            <textarea
+              value={promptTxtArea}
+              onChange={(e) => setPromptTxtArea(e.target.value)}
+              placeholder="Inserisci qui ulteriori info sulla tua storia..."
+            ></textarea>
+            <div className={styles.btn_container}>
+              <Button
+                label="Genera"
+                onClick={handleGenerate}
+                disabled={
+                  protagonista.trim().length <= 0 ||
+                  antagonista.trim().length <= 0 ||
+                  genere.trim().length <= 0 ||
+                  loading
+                }
+              />
+              <Button
+                label="Azzera"
+                onClick={() => {
+                  setProtagonista("");
+                  setAntagonista("");
+                  setNumberWords("");
+                  setGenere("");
+                  setPromptTxtArea("");
+                }}
+                disabled={
+                  protagonista.trim().length <= 0 &&
+                  antagonista.trim().length <= 0 &&
+                  genere.trim().length <= 0 &&
+                  numberWords.trim().length <= 0 &&
+                  promptTxtArea.trim().length <= 0 &&
+                  loading
+                }
+              />
+            </div>
           </div>
         </WindowBox>
         {loading && (
@@ -114,7 +142,17 @@ export default function Home() {
             </div>
           </div>
         )}
-        {response && <div className={styles.result}>{response}</div>}
+        {!loading && response && (
+          <div className={styles.result}>{response}</div>
+        )}
+
+        {error && (
+          <Toast
+            setAction={setError}
+            message={`Errore: qualcosa è andato storto. ${messageError}`}
+            type="error"
+          />
+        )}
       </main>
     </>
   );

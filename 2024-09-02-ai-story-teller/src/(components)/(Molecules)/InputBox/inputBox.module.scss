@@ -11,10 +11,7 @@
   input,
   select {
     padding: rem(5px) rem(10px);
-    border: rem(1px) solid var(--color-10);
-    border-radius: rem(10px);
-    background-color: rgba(255, 255, 255, 0.4);
-    color: var(--color-100);
+    @include bg-input();
   }
 
   select {
