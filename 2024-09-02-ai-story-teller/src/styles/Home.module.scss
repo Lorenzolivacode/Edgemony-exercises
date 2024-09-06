@@ -192,3 +192,10 @@
     background-color: var(--primary-color);
   }
 }
+
+.btn_play_container {
+  display: flex;
+  justify-content: start;
+  gap: 10px;
+  margin-bottom: 20px;
+}

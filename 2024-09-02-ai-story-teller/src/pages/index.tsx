@@ -22,6 +22,8 @@ export default function Home() {
   const [error, setError] = useState(false);
   const [messageError, setMessageError] = useState("");
 
+  const [isPlayng, setIsPlayng] = useState(false);
+
   const [windowBurger, setWindowBurger] = useState(false);
 
   const [responsePrompt, setResponsePrompt] = useState<string[]>([]);
@@ -72,6 +74,24 @@ export default function Home() {
     console.log("Response array: ", responsePrompt); */
   }, [response]);
 
+  const handleVoice = () => {
+    const utterance = new SpeechSynthesisUtterance(response);
+    utterance.lang = "it-IT";
+    setIsPlayng(true);
+    speechSynthesis.speak(utterance);
+
+    utterance.pitch = 1; //speed?
+
+    utterance.onend = () => {
+      setIsPlayng(false);
+    };
+  };
+
+  const handleStopVoice = () => {
+    speechSynthesis.cancel();
+    setIsPlayng(false);
+  };
+
   return (
     <>
       <Head>
@@ -91,7 +111,7 @@ export default function Home() {
             className={`${styles.windowMask} ${
               windowBurger ? styles.active : ""
             }`}
-            onClick={() => setWindowBurger(false)}
+            /* onClick={() => setWindowBurger(false)} */
           >
             {windowBurger && (
               <aside
@@ -199,7 +219,19 @@ export default function Home() {
           </div>
         )}
         {!loading && response && (
-          <div className={styles.result}>{response}</div>
+          <>
+            <div className={styles.result}>
+              <div className={styles.btn_play_container}>
+                <Button label="▶️" onClick={handleVoice} disabled={isPlayng} />
+                <Button
+                  label="⏹️"
+                  onClick={handleStopVoice}
+                  disabled={!isPlayng}
+                />
+              </div>
+              <p>{response}</p>
+            </div>
+          </>
         )}
 
         {error && (
