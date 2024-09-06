@@ -38,7 +38,9 @@ export default async function handler(
         });
       }
     } catch (err) {
-      res.status(400).json({ ok: false, message: "Errore nella generazione" });
+      res
+        .status(400)
+        .json({ ok: false, message: "Errore nella generazione, Key mancante" });
     }
   } else {
     res.status(405).json("Method not allowed");

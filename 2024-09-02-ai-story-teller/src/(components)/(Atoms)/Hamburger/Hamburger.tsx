@@ -4,13 +4,14 @@ import styles from "./Hamburger.module.scss";
 interface HamburgerProps {
   isOpen: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
+  setDisabled?: Dispatch<SetStateAction<boolean>>;
 }
-function Hamburger({ isOpen, setOpen }: HamburgerProps) {
+function Hamburger({ isOpen, setOpen, setDisabled }: HamburgerProps) {
   return (
     <div
       onClick={() => {
         setOpen(!isOpen);
-        console.log("ok");
+        setDisabled && setDisabled(false);
       }}
       className={`${styles.hamburger} ${isOpen ? styles.open : ""}`}
     >

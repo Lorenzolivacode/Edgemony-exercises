@@ -21,6 +21,7 @@ export default function Home() {
   const [response, setResponse] = useState("");
   const [error, setError] = useState(false);
   const [messageError, setMessageError] = useState("");
+  const [aiDisabled, setAiDisabled] = useState(false);
 
   const [isPlayng, setIsPlayng] = useState(false);
 
@@ -58,14 +59,25 @@ export default function Home() {
       } catch (e) {
         console.log("Errore: ", e);
         setError(true);
-        /* setMessageError(e.message);
-        console.log(typeof e.message); */
+        if (e instanceof Error) {
+          setMessageError(e.message);
+          console.log(typeof e.message);
+        } // Ora TypeScript sa che e.message è una stringa
       }
     }
 
     setLoading(false);
     /* console.log("Loading: ", loading); */
   };
+
+  useEffect(() => {
+    if (messageError.includes("Key mancante")) {
+      setAiDisabled(true);
+      setTimeout(() => {
+        setWindowBurger(true);
+      }, 5000);
+    }
+  }, [messageError]);
 
   useEffect(() => {
     response.trim().length > 0 &&
@@ -104,6 +116,7 @@ export default function Home() {
         <Header
           windowBurger={windowBurger}
           setWindowBurger={setWindowBurger}
+          setDisabled={setAiDisabled}
           title="AI story teller"
         ></Header>
         <WindowBox title="Scrivi la tua storia">
@@ -129,10 +142,15 @@ export default function Home() {
                   ) : (
                     <Button
                       label="Crea una storia"
-                      onClick={() => setWindowBurger(false)}
+                      onClick={() => {
+                        setWindowBurger(false);
+                        setAiDisabled(false);
+                      }}
                     />
                   )}
                 </div>
+
+                {aiDisabled && <h4>⚠️ L'Ai potrebbe essere disabilitata</h4>}
 
                 {responsePrompt.length > 0 && (
                   <section className={styles.containerCarousel}>

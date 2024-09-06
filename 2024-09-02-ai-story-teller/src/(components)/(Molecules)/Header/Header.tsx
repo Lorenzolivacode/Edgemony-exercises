@@ -8,13 +8,23 @@ interface HeaderProps {
   title: string;
   windowBurger: boolean;
   setWindowBurger: Dispatch<SetStateAction<boolean>>;
+  setDisabled?: Dispatch<SetStateAction<boolean>>;
 }
-function Header({ title, windowBurger, setWindowBurger }: HeaderProps) {
+function Header({
+  title,
+  windowBurger,
+  setWindowBurger,
+  setDisabled,
+}: HeaderProps) {
   return (
     <header className={style.main}>
       <img src="/icons-book.png" alt="Icon book" />
       <h1>{title}</h1>
-      <Hamburger isOpen={windowBurger} setOpen={setWindowBurger} />
+      <Hamburger
+        isOpen={windowBurger}
+        setOpen={setWindowBurger}
+        setDisabled={setDisabled}
+      />
     </header>
   );
 }
