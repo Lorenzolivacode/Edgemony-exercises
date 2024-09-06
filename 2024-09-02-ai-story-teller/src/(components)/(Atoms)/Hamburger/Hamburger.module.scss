@@ -1,0 +1,38 @@
+.hamburger {
+  /* border: 1px solid black; */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 30px;
+  aspect-ratio: 1/1;
+
+  .bread,
+  .burger {
+    width: 100%;
+    height: 3px;
+    border-radius: 3px;
+    background-color: var(--color-100);
+
+    transition: all 0.4s linear;
+    cursor: pointer;
+  }
+
+  &.open {
+    .burger {
+      opacity: 0;
+    }
+
+    .bread {
+      position: absolute;
+    }
+
+    .bread:first-child {
+      transform: rotate(45deg);
+    }
+
+    .bread:last-child {
+      transform: rotate(-45deg);
+    }
+  }
+}

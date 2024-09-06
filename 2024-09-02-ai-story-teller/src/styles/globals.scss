@@ -9,6 +9,7 @@
   --color-0: #fdf0d5;
   --color-10: #b0a694;
   --color-40: #669bbc;
+  --color-40-o3: rgba(102, 155, 188, 0.3);
   --color-80: #003049;
   --color-100: #112631;
 }
@@ -17,6 +18,8 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  scrollbar-width: thin; /* Possibili valori: auto, thin, none */
+  scrollbar-color: var(--primary-color) var(--color-10); /* Colore del "pollice" e del "traccia" */
 }
 
 html,

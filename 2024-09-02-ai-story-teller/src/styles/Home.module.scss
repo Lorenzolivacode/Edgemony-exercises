@@ -1,10 +1,93 @@
 .main {
   position: relative;
   min-height: 100vh;
+  padding-top: 120px;
 
   .content {
     padding: 20px 0;
   }
+
+  .windowMask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    background-color: transparent;
+    backdrop-filter: blur(3px);
+    transition: all 0.4s ease;
+    z-index: -9;
+
+    .windowBurger {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      position: fixed;
+      top: 80px;
+      right: -400px;
+      box-shadow: 0px 15px 30px -10px var(--color-100);
+      padding: 20px;
+      width: 50%;
+      height: calc(100vh - 80px);
+      background-color: var(--color-0);
+      transition: all 0.4s ease-out;
+      z-index: 10;
+
+      &.activeB {
+        right: 0;
+      }
+
+      .promptContainer,
+      .containerCarousel {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border-radius: 10px;
+        border: 1px solid var(--color-100);
+        padding: 10px;
+        width: 100%;
+
+        h3 {
+          text-align: center;
+        }
+
+        button {
+          margin: auto;
+          width: 25%;
+        }
+      }
+
+      .containerCarousel {
+        display: flex;
+        flex-direction: column;
+        max-height: calc(100% - 100px);
+
+        .carousel {
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+          overflow: scroll;
+          scroll-snap-type: x mandatory;
+          scroll-behavior: smooth;
+          border-radius: 10px 0 0 0;
+
+          li {
+            flex: 0 0 100%;
+            padding: 10px;
+            scroll-snap-align: start;
+            list-style-type: none;
+          }
+        }
+      }
+    }
+
+    &.active {
+      background-color: var(--color-40-o3);
+      z-index: 9;
+    }
+  }
+
   .container {
     display: flex;
     justify-content: center;

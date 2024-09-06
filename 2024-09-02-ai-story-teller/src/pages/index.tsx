@@ -22,15 +22,19 @@ export default function Home() {
   const [error, setError] = useState(false);
   const [messageError, setMessageError] = useState("");
 
+  const [windowBurger, setWindowBurger] = useState(false);
+
+  const [responsePrompt, setResponsePrompt] = useState<string[]>([]);
+
+  const prompt = `Genera un racconto ${genere} per ${
+    pegi18 ? "adulti" : "bambini"
+  } ${
+    numberWords && `di ${numberWords} parole`
+  }, con il protagonista chiamato ${protagonista} e l'antagonista chiamato ${antagonista}. ${promptTxtArea}`;
+
   const handleGenerate = async () => {
     setLoading(true);
     console.log("Loading: ", loading);
-
-    const prompt = `genera un racconto ${genere} per ${
-      pegi18 ? "adulti" : "bambini"
-    } ${
-      numberWords && `di ${numberWords} parole`
-    }, con il protagonista chiamato ${protagonista} e l'antagonista chiamato ${antagonista}. ${promptTxtArea}`;
 
     if (
       protagonista.trim().length > 0 &&
@@ -58,8 +62,15 @@ export default function Home() {
     }
 
     setLoading(false);
-    console.log("Loading: ", loading);
+    /* console.log("Loading: ", loading); */
   };
+
+  useEffect(() => {
+    response.trim().length > 0 &&
+      setResponsePrompt((prev) => [...prev, response]);
+    /* console.log("Response: ", response);
+    console.log("Response array: ", responsePrompt); */
+  }, [response]);
 
   return (
     <>
@@ -70,8 +81,53 @@ export default function Home() {
         <link rel="icon" href="" />
       </Head>
       <main className={`${styles.main}`}>
-        <Header title="AI story teller"></Header>
-        <WindowBox title="Title Window Box">
+        <Header
+          windowBurger={windowBurger}
+          setWindowBurger={setWindowBurger}
+          title="AI story teller"
+        ></Header>
+        <WindowBox title="Scrivi la tua storia">
+          <div
+            className={`${styles.windowMask} ${
+              windowBurger ? styles.active : ""
+            }`}
+            onClick={() => setWindowBurger(false)}
+          >
+            {windowBurger && (
+              <aside
+                className={`${styles.windowBurger} ${
+                  windowBurger ? styles.activeB : ""
+                }`}
+              >
+                <div className={styles.promptContainer}>
+                  <h3>Il tuo prompt è:</h3>
+
+                  {protagonista.trim().length > 0 &&
+                  antagonista.trim().length > 0 &&
+                  genere.trim().length > 0 ? (
+                    <p>{prompt}</p>
+                  ) : (
+                    <Button
+                      label="Crea una storia"
+                      onClick={() => setWindowBurger(false)}
+                    />
+                  )}
+                </div>
+
+                {responsePrompt.length > 0 && (
+                  <section className={styles.containerCarousel}>
+                    <h3>Le tue storie in questa sessione</h3>
+                    <ul className={styles.carousel}>
+                      {responsePrompt.map((text, index) => (
+                        <li key={index}>{text}</li>
+                      ))}
+                    </ul>
+                  </section>
+                )}
+              </aside>
+            )}
+          </div>
+
           <div className={styles.container}>
             <InputBox
               label="Protagonista"
