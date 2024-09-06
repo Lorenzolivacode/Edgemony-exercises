@@ -3,6 +3,7 @@ import style from "./Header.module.scss";
 import icon from "./../../../../public/icons-book.png";
 import Hamburger from "@/(components)/(Atoms)/Hamburger/Hamburger";
 import { Dispatch, SetStateAction, useState } from "react";
+import Image from "next/image";
 
 interface HeaderProps {
   title: string;
@@ -18,7 +19,7 @@ function Header({
 }: HeaderProps) {
   return (
     <header className={style.main}>
-      <img src="/icons-book.png" alt="Icon book" />
+      <Image src="/icons-book.png" alt="Icon book" width={60} height={60} />
       <h1>{title}</h1>
       <Hamburger
         isOpen={windowBurger}

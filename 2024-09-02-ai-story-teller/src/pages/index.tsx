@@ -107,10 +107,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>Ai Story teller</title>
         <meta name="description" content="AI based app to generate stories" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="" />
+        <link rel="icon" href="/icons-book.png" />
       </Head>
       <main className={`${styles.main}`}>
         <Header
