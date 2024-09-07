@@ -189,7 +189,6 @@ export default function Home() {
               value={pegi18}
               setValue={setPEgi18}
             />
-            <p>{prompt}</p>
             <textarea
               value={promptTxtArea}
               onChange={(e) => setPromptTxtArea(e.target.value)}
