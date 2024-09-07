@@ -12,6 +12,10 @@ export const listaGeneri = [
     value: "avventura",
   },
   {
+    label: "Comico",
+    value: "comico",
+  },
+  {
     label: "Romantico",
     value: "romantico",
   },

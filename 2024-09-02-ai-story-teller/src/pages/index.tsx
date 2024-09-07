@@ -29,10 +29,8 @@ export default function Home() {
 
   const [responsePrompt, setResponsePrompt] = useState<string[]>([]);
 
-  const prompt = `Genera un racconto ${genere} per ${
-    pegi18 ? "adulti" : "bambini"
-  } ${
-    numberWords && `di ${numberWords} parole`
+  const prompt = `Genera un racconto ${genere} ${pegi18 ? "per bambini" : ""}${
+    numberWords && ` di ${numberWords} parole`
   }, con il protagonista chiamato ${protagonista} e l'antagonista chiamato ${antagonista}. ${promptTxtArea}`;
 
   const handleGenerate = async () => {
@@ -187,10 +185,11 @@ export default function Home() {
               type="number"
             />
             <SwitchBox
-              label={pegi18 ? "Per adulti" : "Per bambini"}
+              label={!pegi18 ? "Per bambini: no" : "Per bambini: si"}
               value={pegi18}
               setValue={setPEgi18}
             />
+            <p>{prompt}</p>
             <textarea
               value={promptTxtArea}
               onChange={(e) => setPromptTxtArea(e.target.value)}
