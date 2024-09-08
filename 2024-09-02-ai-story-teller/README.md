@@ -13,7 +13,7 @@ Questa app sfrutta Gemini per generare dei racconti in base a dei criteri scelti
 
   - '\*' Opzioni facoltative
 
-\>> [Visita AI Story teller](https://ai-storyteller-rf8pqpmxc-lorenzo-olivas-projects.vercel.app/) <<
+\>> [Visita AI Story teller](https://ai-storyteller-three.vercel.app/) <<
 
 ## Stack
 
